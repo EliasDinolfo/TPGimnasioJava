@@ -12,6 +12,9 @@ public class Costo {
 		this.fecha_vigencia = fecha_vigencia;
 		this.plan = plan;
 	}
+	
+	public Costo() {}
+	
 	public double getCosto() {
 		return costo;
 	}

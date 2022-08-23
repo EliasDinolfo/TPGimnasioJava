@@ -14,6 +14,9 @@ public class Horario {
 		this.dias_semana = dias_semana;
 		this.plan = plan;
 	}
+	
+	public Horario() {}
+	
 	public LocalTime getHora_inicio() {
 		return hora_inicio;
 	}

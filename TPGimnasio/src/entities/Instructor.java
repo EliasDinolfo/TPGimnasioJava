@@ -24,6 +24,9 @@ public class Instructor {
 		this.telefono = telefono;
 		this.planes = planes;
 	}
+	
+	public Instructor() {}
+	
 	public int getDni() {
 		return dni;
 	}

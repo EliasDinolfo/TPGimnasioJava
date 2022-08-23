@@ -14,6 +14,9 @@ public class Grupo_Musculo {
 		this.comentario = comentario;
 		this.ejercicios = ejercicios;
 	}
+	
+	public Grupo_Musculo() {}
+	
 	public int getId_grupo() {
 		return id_grupo;
 	}

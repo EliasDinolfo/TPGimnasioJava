@@ -22,6 +22,9 @@ public class Ejercicio {
 		this.rutinas = rutinas;
 		this.grupos_musculares = grupos_musculares;
 	}
+	
+	public Ejercicio() {}
+	
 	public int getId_ejercicio() {
 		return id_ejercicio;
 	}

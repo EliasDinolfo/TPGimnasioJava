@@ -20,6 +20,9 @@ public class Plan {
 		this.instructores = instructores;
 		this.rutinas = rutinas;
 	}
+	
+	public Plan() {}
+	
 	public int getId_plan() {
 		return id_plan;
 	}

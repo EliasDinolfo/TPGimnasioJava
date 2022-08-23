@@ -21,6 +21,9 @@ public class Rutina {
 		this.ejercicios = ejercicios;
 		this.planes = planes;
 	}
+	
+	public Rutina() {}
+	
 	public int getId_rutina() {
 		return id_rutina;
 	}
