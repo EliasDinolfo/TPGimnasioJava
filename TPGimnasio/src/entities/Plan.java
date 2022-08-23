@@ -9,6 +9,7 @@ public class Plan {
 	private String descripcion;
 	private LocalDate fecha_expiracion;
 	private LinkedList<Instructor> instructores = new LinkedList<Instructor>();
+	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
 	
 	public int getId_plan() {
 		return id_plan;
@@ -36,6 +37,9 @@ public class Plan {
 	}
 	public void setInstructores(Instructor instructor) {
 		this.instructores.add(instructor);
+	}
+	public void setRutinas(Rutina rutina) {
+		this.rutinas.add(rutina);
 	}
 	
 	

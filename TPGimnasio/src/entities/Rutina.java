@@ -9,6 +9,7 @@ public class Rutina {
 	private String nivel;
 	private String comentario;
 	private LinkedList<Ejercicio> ejercicios = new LinkedList<Ejercicio>();
+	private LinkedList<Plan> planes = new LinkedList<Plan>();
 
 	public int getId_rutina() {
 		return id_rutina;
@@ -42,6 +43,9 @@ public class Rutina {
 	}
 	public void setEjercicios(Ejercicio ejercicio) {
 		this.ejercicios.add(ejercicio);
+	}
+	public void setPlanes(Plan plan) {
+		this.planes.add(plan);
 	}
 	
 	
