@@ -1,6 +1,7 @@
 package entities;
 
 import java.sql.Blob;
+import java.util.LinkedList;
 
 public class Ejercicio {
 	private int id_ejercicio;
@@ -8,6 +9,7 @@ public class Ejercicio {
 	private String comentario;
 	private Blob imagen;
 	private Blob video;
+	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
 	
 	public int getId_ejercicio() {
 		return id_ejercicio;
@@ -38,6 +40,12 @@ public class Ejercicio {
 	}
 	public void setVideo(Blob video) {
 		this.video = video;
+	}
+	public LinkedList<Rutina> getRutinas() {
+		return rutinas;
+	}
+	public void setRutinas(LinkedList<Rutina> rutinas) {
+		this.rutinas = rutinas;
 	}
 	
 	

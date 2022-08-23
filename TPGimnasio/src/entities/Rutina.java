@@ -1,12 +1,15 @@
 package entities;
 
+import java.util.LinkedList;
+
 public class Rutina {
 	private int id_rutina;
 	private String nombre;
 	private String semanas;
 	private String nivel;
 	private String comentario;
-	
+	private LinkedList<Ejercicio> ejercicios = new LinkedList<Ejercicio>();
+
 	public int getId_rutina() {
 		return id_rutina;
 	}
@@ -37,7 +40,12 @@ public class Rutina {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	
+	public LinkedList<Ejercicio> getEjercicios() {
+		return ejercicios;
+	}
+	public void setEjercicios(LinkedList<Ejercicio> ejercicios) {
+		this.ejercicios = ejercicios;
+	}
 	
 	
 }
