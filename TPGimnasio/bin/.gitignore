@@ -2,3 +2,5 @@
 /data/
 /logic/
 /web/
+# Whitelist connector/j #
+!/TPGimnasio/lib/*.jar
