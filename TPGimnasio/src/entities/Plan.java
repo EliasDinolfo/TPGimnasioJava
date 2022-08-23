@@ -32,4 +32,5 @@ public class Plan {
 	public void setFecha_expiracion(LocalDate fecha_expiracion) {
 		this.fecha_expiracion = fecha_expiracion;
 	}
+	
 }
