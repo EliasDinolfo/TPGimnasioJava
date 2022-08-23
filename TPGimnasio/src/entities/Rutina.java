@@ -10,7 +10,17 @@ public class Rutina {
 	private String comentario;
 	private LinkedList<Ejercicio> ejercicios = new LinkedList<Ejercicio>();
 	private LinkedList<Plan> planes = new LinkedList<Plan>();
-
+	
+	public Rutina(int id_rutina, String nombre, String semanas, String nivel, String comentario,
+			LinkedList<Ejercicio> ejercicios, LinkedList<Plan> planes) {
+		this.id_rutina = id_rutina;
+		this.nombre = nombre;
+		this.semanas = semanas;
+		this.nivel = nivel;
+		this.comentario = comentario;
+		this.ejercicios = ejercicios;
+		this.planes = planes;
+	}
 	public int getId_rutina() {
 		return id_rutina;
 	}

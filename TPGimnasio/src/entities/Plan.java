@@ -11,6 +11,15 @@ public class Plan {
 	private LinkedList<Instructor> instructores = new LinkedList<Instructor>();
 	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
 	
+	public Plan(int id_plan, String nombre, String descripcion, LocalDate fecha_expiracion,
+			LinkedList<Instructor> instructores, LinkedList<Rutina> rutinas) {
+		this.id_plan = id_plan;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.fecha_expiracion = fecha_expiracion;
+		this.instructores = instructores;
+		this.rutinas = rutinas;
+	}
 	public int getId_plan() {
 		return id_plan;
 	}

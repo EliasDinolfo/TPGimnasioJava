@@ -13,6 +13,17 @@ public class Instructor {
 	private String telefono;
 	private LinkedList<Plan> planes = new LinkedList<Plan>();
 	
+	public Instructor(int dni, String tipo_doc, String nombre, String apellido, LocalDate fecha_nacimiento,
+			String email, String telefono, LinkedList<Plan> planes) {
+		this.dni = dni;
+		this.tipo_doc = tipo_doc;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.email = email;
+		this.telefono = telefono;
+		this.planes = planes;
+	}
 	public int getDni() {
 		return dni;
 	}

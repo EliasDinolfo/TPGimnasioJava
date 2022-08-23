@@ -4,6 +4,10 @@ public class Rol {
 	private int id_rol;
 	private String descripcion;
 	
+	public Rol(int id_rol, String descripcion) {
+		this.id_rol = id_rol;
+		this.descripcion = descripcion;
+	}
 	public int getId_rol() {
 		return id_rol;
 	}

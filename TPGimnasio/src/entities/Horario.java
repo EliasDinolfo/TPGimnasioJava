@@ -8,6 +8,12 @@ public class Horario {
 	private String dias_semana;
 	private Plan plan;
 	
+	public Horario(LocalTime hora_inicio, LocalTime hora_fin, String dias_semana, Plan plan) {
+		this.hora_inicio = hora_inicio;
+		this.hora_fin = hora_fin;
+		this.dias_semana = dias_semana;
+		this.plan = plan;
+	}
 	public LocalTime getHora_inicio() {
 		return hora_inicio;
 	}

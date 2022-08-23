@@ -6,6 +6,12 @@ public class Costo {
 	private double costo;
 	private LocalDate fecha_vigencia;
 	private Plan plan;
+	
+	public Costo(double costo, LocalDate fecha_vigencia, Plan plan) {
+		this.costo = costo;
+		this.fecha_vigencia = fecha_vigencia;
+		this.plan = plan;
+	}
 	public double getCosto() {
 		return costo;
 	}

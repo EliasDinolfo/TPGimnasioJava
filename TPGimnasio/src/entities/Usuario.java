@@ -18,6 +18,25 @@ public class Usuario {
 	private Rol rol;
 	private Plan plan;
 	
+	
+	public Usuario(int id_usuario, String nombre, String apellido, String telefono, String tipo_doc, String dni,
+			String email, String genero, String username, String contrasenia, String direccion,
+			LocalDate fecha_nacimiento, Rol rol, Plan plan) {
+		this.id_usuario = id_usuario;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.tipo_doc = tipo_doc;
+		this.dni = dni;
+		this.email = email;
+		this.genero = genero;
+		this.username = username;
+		this.contrasenia = contrasenia;
+		this.direccion = direccion;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.rol = rol;
+		this.plan = plan;
+	}
 	public int getId_usuario() {
 		return id_usuario;
 	}

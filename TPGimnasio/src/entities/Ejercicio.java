@@ -12,6 +12,16 @@ public class Ejercicio {
 	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
 	private LinkedList<Grupo_Musculo> grupos_musculares = new LinkedList<Grupo_Musculo>();
 	
+	public Ejercicio(int id_ejercicio, String nombre, String comentario, Blob imagen, Blob video,
+			LinkedList<Rutina> rutinas, LinkedList<Grupo_Musculo> grupos_musculares) {
+		this.id_ejercicio = id_ejercicio;
+		this.nombre = nombre;
+		this.comentario = comentario;
+		this.imagen = imagen;
+		this.video = video;
+		this.rutinas = rutinas;
+		this.grupos_musculares = grupos_musculares;
+	}
 	public int getId_ejercicio() {
 		return id_ejercicio;
 	}

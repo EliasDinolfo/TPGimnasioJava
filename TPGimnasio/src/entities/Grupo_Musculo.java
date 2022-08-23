@@ -8,6 +8,12 @@ public class Grupo_Musculo {
 	private String comentario;
 	private LinkedList<Ejercicio> ejercicios = new LinkedList<Ejercicio>();
 	
+	public Grupo_Musculo(int id_grupo, String nombre, String comentario, LinkedList<Ejercicio> ejercicios) {
+		this.id_grupo = id_grupo;
+		this.nombre = nombre;
+		this.comentario = comentario;
+		this.ejercicios = ejercicios;
+	}
 	public int getId_grupo() {
 		return id_grupo;
 	}
