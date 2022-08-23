@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 public class Instructor {
 	private int dni;
@@ -10,6 +11,8 @@ public class Instructor {
 	private LocalDate fecha_nacimiento;
 	private String email;
 	private String telefono;
+	private LinkedList<Plan> planes = new LinkedList<Plan>();
+	
 	public int getDni() {
 		return dni;
 	}
@@ -51,6 +54,9 @@ public class Instructor {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public void setPlanes(Plan plan) {
+		this.planes.add(plan);
 	}
 	
 	

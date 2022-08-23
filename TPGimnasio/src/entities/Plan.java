@@ -1,12 +1,14 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 public class Plan {
 	private int id_plan;
 	private String nombre;
 	private String descripcion;
 	private LocalDate fecha_expiracion;
+	private LinkedList<Instructor> instructores = new LinkedList<Instructor>();
 	
 	public int getId_plan() {
 		return id_plan;
@@ -32,5 +34,10 @@ public class Plan {
 	public void setFecha_expiracion(LocalDate fecha_expiracion) {
 		this.fecha_expiracion = fecha_expiracion;
 	}
+	public void setInstructores(Instructor instructor) {
+		this.instructores.add(instructor);
+	}
+	
+	
 	
 }
