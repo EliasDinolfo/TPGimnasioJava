@@ -40,11 +40,8 @@ public class Rutina {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	public LinkedList<Ejercicio> getEjercicios() {
-		return ejercicios;
-	}
-	public void setEjercicios(LinkedList<Ejercicio> ejercicios) {
-		this.ejercicios = ejercicios;
+	public void setEjercicios(Ejercicio ejercicio) {
+		this.ejercicios.add(ejercicio);
 	}
 	
 	

@@ -10,6 +10,7 @@ public class Ejercicio {
 	private Blob imagen;
 	private Blob video;
 	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
+	private LinkedList<Grupo_Musculo> grupos_musculares = new LinkedList<Grupo_Musculo>();
 	
 	public int getId_ejercicio() {
 		return id_ejercicio;
@@ -41,12 +42,11 @@ public class Ejercicio {
 	public void setVideo(Blob video) {
 		this.video = video;
 	}
-	public LinkedList<Rutina> getRutinas() {
-		return rutinas;
+	public void setRutinas(Rutina rutina) {
+		this.rutinas.add(rutina);
 	}
-	public void setRutinas(LinkedList<Rutina> rutinas) {
-		this.rutinas = rutinas;
+	public void setGrupos_musculares(Grupo_Musculo grupo_muscular) {
+		this.grupos_musculares.add(grupo_muscular);
 	}
-	
 	
 }

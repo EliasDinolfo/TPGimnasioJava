@@ -1,9 +1,12 @@
 package entities;
 
+import java.util.LinkedList;
+
 public class Grupo_Musculo {
 	private int id_grupo;
 	private String nombre;
 	private String comentario;
+	private LinkedList<Ejercicio> ejercicios = new LinkedList<Ejercicio>();
 	
 	public int getId_grupo() {
 		return id_grupo;
@@ -23,8 +26,8 @@ public class Grupo_Musculo {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	
-	
-	
+	public void setEjercicios(Ejercicio ejercicio) {
+		this.ejercicios.add(ejercicio);
+	}
 	
 }
