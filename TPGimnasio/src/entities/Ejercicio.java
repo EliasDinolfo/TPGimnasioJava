@@ -1,18 +1,17 @@
 package entities;
 
-import java.sql.Blob;
 import java.util.LinkedList;
 
 public class Ejercicio {
 	private int id_ejercicio;
 	private String nombre;
 	private String comentario;
-	private Blob imagen;
-	private Blob video;
+	private String imagen;
+	private String video;
 	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
 	private LinkedList<Grupo_Musculo> grupos_musculares = new LinkedList<Grupo_Musculo>();
 	
-	public Ejercicio(int id_ejercicio, String nombre, String comentario, Blob imagen, Blob video,
+	public Ejercicio(int id_ejercicio, String nombre, String comentario, String imagen, String video,
 			LinkedList<Rutina> rutinas, LinkedList<Grupo_Musculo> grupos_musculares) {
 		this.id_ejercicio = id_ejercicio;
 		this.nombre = nombre;
@@ -43,16 +42,16 @@ public class Ejercicio {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	public Blob getImagen() {
+	public String getImagen() {
 		return imagen;
 	}
-	public void setImagen(Blob imagen) {
+	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-	public Blob getVideo() {
+	public String getVideo() {
 		return video;
 	}
-	public void setVideo(Blob video) {
+	public void setVideo(String video) {
 		this.video = video;
 	}
 	public void setRutinas(Rutina rutina) {
