@@ -1,4 +1,4 @@
-package logic;
+package ui;
 
 public class Principal {
 
