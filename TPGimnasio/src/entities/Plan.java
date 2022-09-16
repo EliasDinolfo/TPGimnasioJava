@@ -20,6 +20,12 @@ public class Plan {
 		this.instructores = instructores;
 		this.rutinas = rutinas;
 	}
+	public Plan(int id_plan, String nombre, String descripcion, LocalDate fecha_expiracion) {
+		this.id_plan = id_plan;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.fecha_expiracion = fecha_expiracion;
+	}
 	
 	public Plan() {}
 	
@@ -53,7 +59,11 @@ public class Plan {
 	public void setRutinas(Rutina rutina) {
 		this.rutinas.add(rutina);
 	}
-	
+	@Override
+	public String toString() {
+		return "Plan [id_plan=" + id_plan + ", nombre=" + nombre + ", descripcion=" + descripcion
+				+ ", fecha_expiracion=" + fecha_expiracion + "]";
+	}
 	
 	
 }
