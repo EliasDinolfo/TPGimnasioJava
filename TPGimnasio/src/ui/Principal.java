@@ -9,10 +9,10 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		DataPlan dp = new DataPlan();
 		
-		Plan p = dp.getById(1);
-		dp.remove(p);
+		DataUsuario du = new DataUsuario();
+		Usuario u=du.getById(5);
+		du.remove(u);
 		
 	}
 

@@ -124,5 +124,15 @@ public class Usuario {
 	public void setPlan(Plan plan) {
 		this.plan = plan;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono="
+				+ telefono + ", tipo_doc=" + tipo_doc + ", dni=" + dni + ", email=" + email + ", genero=" + genero
+				+ ", username=" + username + ", contrasenia=" + contrasenia + ", direccion=" + direccion
+				+ ", fecha_nacimiento=" + fecha_nacimiento + ", rol=" + rol + ", plan=" + plan + "]";
+	}
+	
+	
 	
 }
