@@ -9,7 +9,7 @@ private static dbConnector instancia;
 	private String port="3306";
 	private String user="java";
 	private String password="himitsu";
-	private String db="java";
+	private String db="gimnasio";
 	private int conectados=0;
 	private Connection conn=null;
 	

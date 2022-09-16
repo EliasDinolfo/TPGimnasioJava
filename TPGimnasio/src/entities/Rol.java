@@ -4,8 +4,7 @@ public class Rol {
 	private int id_rol;
 	private String descripcion;
 	
-	public Rol(int id_rol, String descripcion) {
-		this.id_rol = id_rol;
+	public Rol(String descripcion) {
 		this.descripcion = descripcion;
 	}
 	
@@ -22,6 +21,11 @@ public class Rol {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	@Override
+	public String toString() {
+		return "Rol [id_rol=" + id_rol + ", descripcion=" + descripcion + "]";
 	}
 	
 	

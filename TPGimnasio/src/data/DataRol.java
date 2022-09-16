@@ -4,11 +4,12 @@ import java.util.LinkedList;
 import entities.*;
 
 public class DataRol {
+	
+	
 	public LinkedList<Rol> getAll(){
 		Statement stmt=null;
 		ResultSet rs=null;
 		LinkedList<Rol> roles= new LinkedList<>();
-		
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
 			rs= stmt.executeQuery("select * from persona");
@@ -35,11 +36,10 @@ public class DataRol {
 				e.printStackTrace();
 			}
 		}
-		
 		return roles;
 	}
 	
-	public Rol getById(Rol rol) {
+	public Rol getById(int id) {
 		Rol r=null;
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
@@ -47,8 +47,7 @@ public class DataRol {
 			stmt=dbConnector.getInstancia().getConn().prepareStatement(
 					"select * from rol where id_rol=?"
 					);
-			stmt.setInt(1, rol.getId_rol());
-			stmt.setString(2, rol.getDescripcion());
+			stmt.setInt(1, id);
 			rs=stmt.executeQuery();
 			if(rs!=null && rs.next()) {
 				r=new Rol();
@@ -99,4 +98,45 @@ public class DataRol {
             }
 		}
     }
+	
+	public void update(Rol rol) {
+		PreparedStatement stmt= null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"update rol set descripcion=? where id_rol=?");
+			stmt.setString(1, rol.getDescripcion());
+			stmt.setInt(2, rol.getId_rol());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	
+	public void remove(Rol rol) {
+		PreparedStatement stmt= null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"delete from rol where id_rol=?");
+			stmt.setInt(1, rol.getId_rol());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
 }
