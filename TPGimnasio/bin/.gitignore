@@ -1,5 +1,3 @@
 /data/
-/entities/
-/logic/
-/mysql-connector-java-8.0.29.jar
 /ui/
+/entities/

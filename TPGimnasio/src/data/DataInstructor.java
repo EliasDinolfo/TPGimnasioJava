@@ -6,22 +6,32 @@ import entities.*;
 
 public class DataInstructor {
 
-	/*
-	public LinkedList<Plan> getAll(){
+	
+	public LinkedList<Instructor> getAll(){
+		DataPlan dp =new DataPlan();
 		Statement stmt=null;
 		ResultSet rs=null;
-		LinkedList<Rol> roles= new LinkedList<>();
+		LinkedList<Instructor> instructores= new LinkedList<>();
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from persona");
+			rs= stmt.executeQuery("select * from instructor");
 			//intencionalmente no se recupera la password
 			if(rs!=null) {
 				while(rs.next()) {
-					Rol p=new Rol();
-					p.setId_rol(rs.getInt("id_rol"));
-					p.setDescripcion(rs.getString("descripcion"));
+					Instructor in=new Instructor();
+					in.setDni(rs.getString("dni"));
+					in.setTipo_doc(rs.getString("tipo_doc"));
+					in.setNombre(rs.getString("nombre"));
+					in.setApellido(rs.getString("apellido")); 
+					in.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
+					in.setEmail(rs.getString("email"));
+					in.setTelefono(rs.getString("telefono"));
+					dp.setPlanes(in);
 					
-					roles.add(p);
+					
+					
+					
+					instructores.add(in);
 				}
 			}
 			
@@ -37,11 +47,11 @@ public class DataInstructor {
 				e.printStackTrace();
 			}
 		}
-		return roles;
+		return instructores;
 	}
-	*/
+	
 	public Instructor getByDni(String dni) {
-		
+		DataPlan dp=new DataPlan() ;
 		Instructor i=null;
 		
 		PreparedStatement stmt=null;
@@ -61,9 +71,9 @@ public class DataInstructor {
 				i.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
 				i.setEmail(rs.getString("email"));
 				i.setTelefono(rs.getString("telefono"));
+				dp.setPlanes(i);
+				
 
-//				u.setRol(dr.getById(rs.getInt("id_rol")));
-//				u.setPlan(dp.getById(rs.getInt("id_plan")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

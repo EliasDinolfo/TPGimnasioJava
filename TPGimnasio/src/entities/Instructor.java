@@ -29,7 +29,7 @@ public class Instructor {
 	public String toString() {
 		return "Instructor [dni=" + dni + ", tipo_doc=" + tipo_doc + ", nombre=" + nombre + ", apellido=" + apellido
 				+ ", fecha_nacimiento=" + fecha_nacimiento + ", email=" + email + ", telefono=" + telefono + ", planes="
-				+ planes + "]";
+				+ planes + "]\n";
 	}
 
 	public Instructor() {}

@@ -3,6 +3,7 @@ package ui;
 
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 import data.*;
 import entities.*;
@@ -13,10 +14,11 @@ public class Principal {
 		
 		
 		DataInstructor di = new DataInstructor();
-		Instructor i = di.getByDni("111");
-			
-		di.remove(i);
-		//System.out.println(i);
+		//Instructor i = di.getByDni("16");
+		LinkedList<Instructor> instructores =new LinkedList<Instructor>();
+		instructores.addAll(di.getAll());
+		//di.remove(i);
+		System.out.println(instructores);
 		//di.add(i);
 	
 		
