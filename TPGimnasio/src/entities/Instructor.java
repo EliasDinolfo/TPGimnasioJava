@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 
 public class Instructor {
-	private int dni;
+	private String dni;
 	private String tipo_doc;
 	private String nombre;
 	private String apellido;
@@ -13,8 +13,8 @@ public class Instructor {
 	private String telefono;
 	private LinkedList<Plan> planes = new LinkedList<Plan>();
 	
-	public Instructor(int dni, String tipo_doc, String nombre, String apellido, LocalDate fecha_nacimiento,
-			String email, String telefono, LinkedList<Plan> planes) {
+	public Instructor(String dni, String tipo_doc, String nombre, String apellido, LocalDate fecha_nacimiento,
+			String email, String telefono) {
 		this.dni = dni;
 		this.tipo_doc = tipo_doc;
 		this.nombre = nombre;
@@ -22,15 +22,22 @@ public class Instructor {
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.email = email;
 		this.telefono = telefono;
-		this.planes = planes;
+		
 	}
 	
+	@Override
+	public String toString() {
+		return "Instructor [dni=" + dni + ", tipo_doc=" + tipo_doc + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", fecha_nacimiento=" + fecha_nacimiento + ", email=" + email + ", telefono=" + telefono + ", planes="
+				+ planes + "]";
+	}
+
 	public Instructor() {}
 	
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 	public String getTipo_doc() {

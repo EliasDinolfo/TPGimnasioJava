@@ -1,5 +1,7 @@
 package ui;
 
+
+
 import java.time.LocalDate;
 
 import data.*;
@@ -10,9 +12,13 @@ public class Principal {
 	public static void main(String[] args) {
 		
 		
-		DataUsuario du = new DataUsuario();
-		Usuario u=du.getById(5);
-		du.remove(u);
+		DataInstructor di = new DataInstructor();
+		Instructor i = di.getByDni("111");
+			
+		di.remove(i);
+		//System.out.println(i);
+		//di.add(i);
+	
 		
 	}
 
