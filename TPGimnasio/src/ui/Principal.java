@@ -21,17 +21,12 @@ public class Principal {
 		System.out.println(instructores);
 		di.add(i);*/
 	
+		DataEjercicio de = new DataEjercicio();
+		Ejercicio ej=de.getById(3);
 		
-		DataGrupoMusculo dgm = new DataGrupoMusculo();
+		de.remove(ej);
 		
-		
-//		Grupo_Musculo gm= dgm.getById(4) ;
-//		gm.setComentario("conjunto de musculos abdominales");
-		
-		//dgm.add(gm);
-		LinkedList<Grupo_Musculo> instructores =new LinkedList<Grupo_Musculo>();
-		instructores.addAll(dgm.getAll());
-		System.out.println(instructores);
+	
 		
 		
 		

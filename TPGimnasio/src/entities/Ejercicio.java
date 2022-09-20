@@ -11,17 +11,22 @@ public class Ejercicio {
 	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
 	private LinkedList<Grupo_Musculo> grupos_musculares = new LinkedList<Grupo_Musculo>();
 	
-	public Ejercicio(int id_ejercicio, String nombre, String comentario, String imagen, String video,
-			LinkedList<Rutina> rutinas, LinkedList<Grupo_Musculo> grupos_musculares) {
-		this.id_ejercicio = id_ejercicio;
+	public Ejercicio( String nombre, String comentario, String imagen, String video) {
+		
 		this.nombre = nombre;
 		this.comentario = comentario;
 		this.imagen = imagen;
 		this.video = video;
-		this.rutinas = rutinas;
-		this.grupos_musculares = grupos_musculares;
+		
 	}
 	
+	@Override
+	public String toString() {
+		return "Ejercicio [id_ejercicio=" + id_ejercicio + ", nombre=" + nombre + ", comentario=" + comentario
+				+ ", imagen=" + imagen + ", video=" + video + ", rutinas=" + rutinas + ", grupos_musculares="
+				+ grupos_musculares + "]\n";
+	}
+
 	public Ejercicio() {}
 	
 	public int getId_ejercicio() {
