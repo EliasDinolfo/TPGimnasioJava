@@ -4,18 +4,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
+
 import java.util.LinkedList;
 
 import entities.Ejercicio;
 import entities.Grupo_Musculo;
-import entities.Instructor;
-import entities.Plan;
+
+
 
 public class DataEjercicio {
 	
 	public LinkedList<Ejercicio> getAll(){
-		//DataPlan dp =new DataPlan();
+		DataGrupoMusculo dg =new DataGrupoMusculo();
 		Statement stmt=null;
 		ResultSet rs=null;
 		LinkedList<Ejercicio> ejercicios= new LinkedList<>();
@@ -31,7 +31,7 @@ public class DataEjercicio {
 					in.setComentario(rs.getString("comentario"));
 					in.setImagen(rs.getString("imagen"));
 					in.setVideo(rs.getString("video"));
-					//dp.setPlanes(in);
+					dg.setGrupoMusculos(in);
 
 					ejercicios.add(in);
 				}
@@ -53,7 +53,7 @@ public class DataEjercicio {
 	
 	
 	public Ejercicio getById(int id) {
-		//DataPlan dp=new DataPlan() ;
+		DataGrupoMusculo dg =new DataGrupoMusculo();
 		Ejercicio eje=null;
 		
 		PreparedStatement stmt=null;
@@ -72,7 +72,7 @@ public class DataEjercicio {
 				eje.setImagen(rs.getString("imagen"));
 				eje.setVideo(rs.getString("video"));
 				
-				//dp.setPlanes(i);
+				dg.setGrupoMusculos(eje);
 				
 			}
 		} catch (SQLException e) {

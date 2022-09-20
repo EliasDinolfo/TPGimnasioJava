@@ -21,12 +21,16 @@ public class Principal {
 		System.out.println(instructores);
 		di.add(i);*/
 	
-		DataGrupoMusculo de = new DataGrupoMusculo();
-		Grupo_Musculo ej=de.getById(2);
-		
-		System.out.println(ej);
+//		DataGrupoMusculo de = new DataGrupoMusculo();
+//		Grupo_Musculo ej=de.getById(2);
+//		
+//		System.out.println(ej);
 		
 	
+		DataEjercicio de = new DataEjercicio();
+		Ejercicio ej=de.getById(1);
+		
+		System.out.println(ej);
 		
 		
 		

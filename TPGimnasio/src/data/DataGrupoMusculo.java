@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
+
+import entities.Ejercicio;
 import entities.Grupo_Musculo;
 
 
@@ -153,6 +155,41 @@ public class DataGrupoMusculo {
             } catch (SQLException e) {
             	e.printStackTrace();
             }
+		}
+	}
+	
+	
+	public void setGrupoMusculos(Ejercicio eje) {
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select gm.*\r\n"
+					+ "from grupo_musculo gm\r\n"
+					+ "inner join ejercicio_grupo eg\r\n"
+					+ "	on gm.id_grupo=eg.id_grupo\r\n"
+					+ "where eg.id_ejercicio=?");
+			stmt.setInt(1, eje.getId_ejercicio());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Grupo_Musculo p=new Grupo_Musculo();
+					p.setId_grupo(rs.getInt("id_grupo"));
+					p.setNombre(rs.getString("nombre"));
+					p.setComentario(rs.getString("comentario"));		
+					eje.setGrupos_musculares(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
