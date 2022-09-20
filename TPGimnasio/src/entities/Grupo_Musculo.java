@@ -8,11 +8,9 @@ public class Grupo_Musculo {
 	private String comentario;
 	private LinkedList<Ejercicio> ejercicios = new LinkedList<Ejercicio>();
 	
-	public Grupo_Musculo(int id_grupo, String nombre, String comentario, LinkedList<Ejercicio> ejercicios) {
-		this.id_grupo = id_grupo;
+	public Grupo_Musculo(String nombre, String comentario) {
 		this.nombre = nombre;
 		this.comentario = comentario;
-		this.ejercicios = ejercicios;
 	}
 	
 	public Grupo_Musculo() {}
@@ -38,5 +36,13 @@ public class Grupo_Musculo {
 	public void setEjercicios(Ejercicio ejercicio) {
 		this.ejercicios.add(ejercicio);
 	}
+
+	@Override
+	public String toString() {
+		return "Grupo_Musculo [id_grupo=" + id_grupo + ", nombre=" + nombre + ", comentario=" + comentario
+				+ ", ejercicios=" + ejercicios + "]\n";
+	}
+	
+	
 	
 }
