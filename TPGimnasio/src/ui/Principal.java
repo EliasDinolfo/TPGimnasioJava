@@ -21,10 +21,10 @@ public class Principal {
 		System.out.println(instructores);
 		di.add(i);*/
 	
-		DataEjercicio de = new DataEjercicio();
-		Ejercicio ej=de.getById(3);
+		DataGrupoMusculo de = new DataGrupoMusculo();
+		Grupo_Musculo ej=de.getById(2);
 		
-		de.remove(ej);
+		System.out.println(ej);
 		
 	
 		

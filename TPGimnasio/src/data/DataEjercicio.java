@@ -4,10 +4,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.LinkedList;
 
 import entities.Ejercicio;
 import entities.Grupo_Musculo;
+import entities.Instructor;
+import entities.Plan;
 
 public class DataEjercicio {
 	
@@ -165,4 +168,43 @@ public class DataEjercicio {
             }
 		}
 	}
+	
+	public void setEjercicios(Grupo_Musculo gru) {
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select ej.*\r\n"
+					+ "from ejercicio ej\r\n"
+					+ "inner join ejercicio_grupo eg\r\n"
+					+ "	on ej.id_ejercicio=eg.id_ejercicio\r\n"
+					+ "where eg.id_grupo=?");
+			stmt.setInt(1, gru.getId_grupo());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Ejercicio p=new Ejercicio();
+					p.setId_ejercicio(rs.getInt("id_ejercicio"));
+					p.setNombre(rs.getString("nombre"));
+					p.setComentario(rs.getString("comentario"));
+					p.setImagen(rs.getString("imagen"));
+					p.setVideo(rs.getString("video"));
+					
+					gru.setEjercicios(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 }

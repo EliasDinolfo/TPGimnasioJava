@@ -11,7 +11,7 @@ import entities.Grupo_Musculo;
 public class DataGrupoMusculo {
 	
 	public LinkedList<Grupo_Musculo> getAll(){
-		//DataPlan dp =new DataPlan();
+		DataEjercicio de =new DataEjercicio();
 		Statement stmt=null;
 		ResultSet rs=null;
 		LinkedList<Grupo_Musculo> musculos= new LinkedList<>();
@@ -25,7 +25,7 @@ public class DataGrupoMusculo {
 					in.setId_grupo(rs.getInt("id_grupo"));
 					in.setNombre(rs.getString("nombre"));
 					in.setComentario(rs.getString("comentario"));
-					//dp.setPlanes(in);
+					de.setEjercicios(in);
 
 					musculos.add(in);
 				}
@@ -47,7 +47,7 @@ public class DataGrupoMusculo {
 	
 	
 	public Grupo_Musculo getById(int id) {
-		//DataPlan dp=new DataPlan() ;
+		DataEjercicio de =new DataEjercicio();
 		Grupo_Musculo gru=null;
 		
 		PreparedStatement stmt=null;
@@ -64,7 +64,7 @@ public class DataGrupoMusculo {
 				gru.setNombre(rs.getString("nombre"));
 				gru.setComentario(rs.getString("comentario"));
 				
-				//dp.setPlanes(i);
+				de.setEjercicios(gru);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
