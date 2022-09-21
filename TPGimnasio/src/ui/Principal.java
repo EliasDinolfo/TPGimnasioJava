@@ -27,10 +27,12 @@ public class Principal {
 //		System.out.println(ej);
 		
 	
-		DataEjercicio de = new DataEjercicio();
-		Ejercicio ej=de.getById(1);
+		DataEjercicio dr = new DataEjercicio();
+//		LinkedList<Ejercicio> instructores =new LinkedList<Ejercicio>();
+//		instructores.addAll(dr.getAll());
+		Ejercicio ru= dr.getById(1);
 		
-		System.out.println(ej);
+		System.out.println(ru);
 		
 		
 		

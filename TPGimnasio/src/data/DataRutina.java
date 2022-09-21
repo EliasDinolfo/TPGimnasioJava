@@ -4,38 +4,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import java.util.LinkedList;
 
 import entities.Ejercicio;
 import entities.Grupo_Musculo;
 import entities.Rutina;
 
-
-
-public class DataEjercicio {
+public class DataRutina {
 	
-	public LinkedList<Ejercicio> getAll(){
-		DataGrupoMusculo dg =new DataGrupoMusculo();
-		DataRutina dr =new DataRutina();
+	public LinkedList<Rutina> getAll(){
+		DataEjercicio de =new DataEjercicio();
+		DataPlan dp=new DataPlan();
 		Statement stmt=null;
 		ResultSet rs=null;
-		LinkedList<Ejercicio> ejercicios= new LinkedList<>();
+		LinkedList<Rutina> rutinas= new LinkedList<>();
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from ejercicio");
+			rs= stmt.executeQuery("select * from rutina");
 			
 			if(rs!=null) {
 				while(rs.next()) {
-					Ejercicio in=new Ejercicio();
-					in.setId_ejercicio(rs.getInt("id_ejercicio"));
+					Rutina in=new Rutina();
+					in.setId_rutina(rs.getInt("id_rutina"));
 					in.setNombre(rs.getString("nombre"));
+					in.setComentario(rs.getString("semanas"));
+					in.setNivel(rs.getString("nivel"));
 					in.setComentario(rs.getString("comentario"));
-					in.setImagen(rs.getString("imagen"));
-					in.setVideo(rs.getString("video"));
-					dg.setGrupoMusculos(in);
-					dr.setRutinas(in);
-					ejercicios.add(in);
+					de.setEjercicios(in);
+					dp.setPlanes(in);
+					rutinas.add(in);
 				}
 			}
 			
@@ -50,32 +47,32 @@ public class DataEjercicio {
 				e.printStackTrace();
 			}
 		}
-		return ejercicios;
+		return rutinas;
 	}
 	
 	
-	public Ejercicio getById(int id) {
-		DataGrupoMusculo dg =new DataGrupoMusculo();
-		DataRutina dr =new DataRutina();
-		Ejercicio eje=null;
+	public Rutina getById(int id) {
+		DataEjercicio de =new DataEjercicio();
+		DataPlan dp=new DataPlan();
+		Rutina rut=null;
 		
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		try {
 			stmt=dbConnector.getInstancia().getConn().prepareStatement(
-					"select * from ejercicio where id_ejercicio=?"
+					"select * from rutina where id_rutina=?"
 					);
 			stmt.setInt(1, id);
 			rs=stmt.executeQuery();
 			if(rs!=null && rs.next()) {
-				eje=new Ejercicio();
-				eje.setId_ejercicio(rs.getInt("id_ejercicio"));
-				eje.setNombre(rs.getString("nombre"));
-				eje.setComentario(rs.getString("comentario"));
-				eje.setImagen(rs.getString("imagen"));
-				eje.setVideo(rs.getString("video"));
-				dr.setRutinas(eje);
-				dg.setGrupoMusculos(eje);
+				rut=new Rutina();
+				rut.setId_rutina(rs.getInt("id_rutina"));
+				rut.setNombre(rs.getString("nombre"));
+				rut.setComentario(rs.getString("comentario"));
+				rut.setSemanas(rs.getString("semanas"));
+				rut.setNivel(rs.getString("nivel"));
+				dp.setPlanes(rut);
+				de.setEjercicios(rut);
 				
 			}
 		} catch (SQLException e) {
@@ -90,26 +87,26 @@ public class DataEjercicio {
 			}
 		}
 		
-		return eje;
+		return rut;
 	}
 	
-	public void add(Ejercicio ej) {
+	public void add(Rutina ru) {
 		PreparedStatement stmt= null;
 		ResultSet keyResultSet=null;
 		try {
 			stmt=dbConnector.getInstancia().getConn().
 					prepareStatement(
-							"insert into ejercicio (nombre,comentario,imagen,video) values(?,?,?,?)",
+							"insert into rutina (nombre,semanas,nivel,comentario) values(?,?,?,?)",
 							PreparedStatement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, ej.getNombre());
-			stmt.setString(2, ej.getComentario());
-			stmt.setString(3, ej.getImagen());
-			stmt.setString(4, ej.getVideo());
+			stmt.setString(1, ru.getNombre());
+			stmt.setString(2, ru.getSemanas());
+			stmt.setString(3, ru.getNivel());
+			stmt.setString(4, ru.getComentario());
 			stmt.executeUpdate();
 			
 			keyResultSet=stmt.getGeneratedKeys();
             if(keyResultSet!=null && keyResultSet.next()){
-                ej.setId_ejercicio(keyResultSet.getInt(1));;
+                ru.setId_rutina(keyResultSet.getInt(1));;
             }
 			
 		}  catch (SQLException e) {
@@ -126,18 +123,18 @@ public class DataEjercicio {
     }
 	
 	
-	public void update(Ejercicio eje) {
+	public void update(Rutina rut) {
 		PreparedStatement stmt= null;
 		try {
 			stmt=dbConnector.getInstancia().getConn().
 					prepareStatement(
-						"UPDATE ejercicio SET nombre = ?, comentario = ?, imagen=?, video=?   WHERE (id_ejercicio = ?)");
+						"UPDATE rutina SET nombre = ?, comentario = ?, semanas=?, nivel=?   WHERE (id_rutina = ?)");
 			
-			stmt.setString(1, eje.getNombre());
-			stmt.setString(2, eje.getComentario());
-			stmt.setString(3, eje.getImagen());
-			stmt.setString(4, eje.getVideo());
-			stmt.setInt(5, eje.getId_ejercicio());
+			stmt.setString(1, rut.getNombre());
+			stmt.setString(2, rut.getComentario());
+			stmt.setString(3, rut.getSemanas());
+			stmt.setString(4, rut.getNivel());
+			stmt.setInt(5, rut.getId_rutina());
 				
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -152,13 +149,13 @@ public class DataEjercicio {
 		}
 	}
 	
-	public void remove(Ejercicio eje) {
+	public void remove(Rutina rut) {
 		PreparedStatement stmt= null;
 		try {
 			stmt=dbConnector.getInstancia().getConn().
 					prepareStatement(
-							"delete from ejercicio where id_ejercicio=?");
-			stmt.setInt(1, eje.getId_ejercicio());
+							"delete from rutina where id_rutina=?");
+			stmt.setInt(1, rut.getId_rutina());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
             e.printStackTrace();
@@ -172,64 +169,27 @@ public class DataEjercicio {
 		}
 	}
 	
-	public void setEjercicios(Grupo_Musculo gru) {
+	public void setRutinas(Ejercicio eje) {
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		try {
-			stmt=dbConnector.getInstancia().getConn().prepareStatement("select ej.*\r\n"
-					+ "from ejercicio ej\r\n"
-					+ "inner join ejercicio_grupo eg\r\n"
-					+ "	on ej.id_ejercicio=eg.id_ejercicio\r\n"
-					+ "where eg.id_grupo=?");
-			stmt.setInt(1, gru.getId_grupo());
-			rs= stmt.executeQuery();
-			if(rs!=null) {
-				while(rs.next()) {
-					Ejercicio p=new Ejercicio();
-					p.setId_ejercicio(rs.getInt("id_ejercicio"));
-					p.setNombre(rs.getString("nombre"));
-					p.setComentario(rs.getString("comentario"));
-					p.setImagen(rs.getString("imagen"));
-					p.setVideo(rs.getString("video"));
-					
-					gru.setEjercicios(p);
-				}
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(rs!=null) {rs.close();}
-				if(stmt!=null) {stmt.close();}
-				dbConnector.getInstancia().releaseConn();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	public void setEjercicios(Rutina rut) {
-		PreparedStatement stmt=null;
-		ResultSet rs=null;
-		try {
-			stmt=dbConnector.getInstancia().getConn().prepareStatement("select ej.*\r\n"
-					+ "from ejercicio ej\r\n"
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select ru.*\r\n"
+					+ "from rutina ru\r\n"
 					+ "inner join rutina_ejercicio re\r\n"
-					+ "	on ej.id_ejercicio=re.id_ejercicio\r\n"
-					+ "where re.id_rutina=?");
-			stmt.setInt(1, rut.getId_rutina());
+					+ "	on ru.id_rutina=re.id_rutina\r\n"
+					+ "where re.id_ejercicio=?");
+			stmt.setInt(1, eje.getId_ejercicio());
 			rs= stmt.executeQuery();
 			if(rs!=null) {
 				while(rs.next()) {
-					Ejercicio p=new Ejercicio();
-					p.setId_ejercicio(rs.getInt("id_ejercicio"));
+					Rutina p=new Rutina();
+					p.setId_rutina(rs.getInt("id_rutina"));
 					p.setNombre(rs.getString("nombre"));
 					p.setComentario(rs.getString("comentario"));
-					p.setImagen(rs.getString("imagen"));
-					p.setVideo(rs.getString("video"));
+					p.setNivel(rs.getString("nivel"));
+					p.setSemanas(rs.getString("semanas"));
 					
-					rut.setEjercicios(p);
+					eje.setRutinas(p);
 				}
 			}
 			
@@ -245,6 +205,4 @@ public class DataEjercicio {
 			}
 		}
 	}
-	
-	
 }

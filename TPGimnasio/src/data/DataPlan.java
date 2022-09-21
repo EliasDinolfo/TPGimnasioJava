@@ -180,5 +180,44 @@ public class DataPlan {
 		}
 	}
 	
+	
+	
+	
+	public void setPlanes(Rutina rut) {
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select pl.*\r\n"
+					+ "from plan pl\r\n"
+					+ "inner join plan_rutina pr\r\n"
+					+ "	on pl.id_plan=pr.id_plan\r\n"
+					+ "where pr.id_rutina=?");
+			stmt.setInt(1, rut.getId_rutina());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Plan p=new Plan();
+					p.setId_plan(rs.getInt("id_plan"));
+					p.setNombre(rs.getString("nombre"));
+					p.setDescripcion(rs.getString("descripcion"));
+					p.setFecha_expiracion(rs.getObject("fecha_expiracion",LocalDate.class));
+					rut.setPlanes(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 }
 

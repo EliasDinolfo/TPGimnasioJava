@@ -59,11 +59,16 @@ public class Ejercicio {
 	public void setVideo(String video) {
 		this.video = video;
 	}
+	
 	public void setRutinas(Rutina rutina) {
 		this.rutinas.add(rutina);
 	}
 	public void setGrupos_musculares(Grupo_Musculo grupo_muscular) {
 		this.grupos_musculares.add(grupo_muscular);
 	}
+
+	
+	
+	
 	
 }

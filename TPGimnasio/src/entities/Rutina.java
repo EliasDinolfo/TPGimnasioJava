@@ -11,15 +11,11 @@ public class Rutina {
 	private LinkedList<Ejercicio> ejercicios = new LinkedList<Ejercicio>();
 	private LinkedList<Plan> planes = new LinkedList<Plan>();
 	
-	public Rutina(int id_rutina, String nombre, String semanas, String nivel, String comentario,
-			LinkedList<Ejercicio> ejercicios, LinkedList<Plan> planes) {
-		this.id_rutina = id_rutina;
+	public Rutina(String nombre, String semanas, String nivel, String comentario) {
 		this.nombre = nombre;
 		this.semanas = semanas;
 		this.nivel = nivel;
 		this.comentario = comentario;
-		this.ejercicios = ejercicios;
-		this.planes = planes;
 	}
 	
 	public Rutina() {}
@@ -60,6 +56,14 @@ public class Rutina {
 	public void setPlanes(Plan plan) {
 		this.planes.add(plan);
 	}
+
+	@Override
+	public String toString() {
+		return "Rutina [id_rutina=" + id_rutina + ", nombre=" + nombre + ", semanas=" + semanas + ", nivel=" + nivel
+				+ ", comentario=" + comentario + ", ejercicios=\n" + ejercicios + ", planes=" + planes + "]\n";
+	}
+	
+	
 	
 	
 }
