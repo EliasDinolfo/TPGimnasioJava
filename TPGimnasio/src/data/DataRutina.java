@@ -8,6 +8,7 @@ import java.util.LinkedList;
 
 import entities.Ejercicio;
 import entities.Grupo_Musculo;
+import entities.Plan;
 import entities.Rutina;
 
 public class DataRutina {
@@ -190,6 +191,43 @@ public class DataRutina {
 					p.setSemanas(rs.getString("semanas"));
 					
 					eje.setRutinas(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void setRutinas(Plan plan) {
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select ru.*\r\n"
+					+ "from rutina ru\r\n"
+					+ "inner join plan_rutina pr\r\n"
+					+ "	on ru.id_rutina=pr.id_rutina\r\n"
+					+ "where pr.id_plan=?");
+			stmt.setInt(1, plan.getId_plan());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Rutina p=new Rutina();
+					p.setId_rutina(rs.getInt("id_rutina"));
+					p.setNombre(rs.getString("nombre"));
+					p.setComentario(rs.getString("comentario"));
+					p.setNivel(rs.getString("nivel"));
+					p.setSemanas(rs.getString("semanas"));
+					
+					plan.setRutinas(p);
 				}
 			}
 			

@@ -10,6 +10,8 @@ public class DataPlan {
 	public LinkedList<Plan> getAll(){
 		Statement stmt=null;
 		ResultSet rs=null;
+		DataRutina dr= new DataRutina();
+		DataInstructor di= new DataInstructor();
 		LinkedList<Plan> planes= new LinkedList<Plan>();
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
@@ -22,6 +24,8 @@ public class DataPlan {
 					p.setNombre(rs.getString("nombre"));
 					p.setDescripcion(rs.getString("descripcion"));
 					p.setFecha_expiracion(rs.getObject("fecha_expiracion", LocalDate.class));
+					di.setInstructores(p);
+					dr.setRutinas(p);
 					planes.add(p);
 				}
 			}
@@ -43,6 +47,8 @@ public class DataPlan {
 	
 	public Plan getById(int id) {
 		Plan p=null;
+		DataRutina dr= new DataRutina();
+		DataInstructor di= new DataInstructor();
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		try {
@@ -57,6 +63,8 @@ public class DataPlan {
 				p.setDescripcion(rs.getString("descripcion"));
 				p.setNombre(rs.getString("nombre"));
 				p.setFecha_expiracion(rs.getObject("fecha_expiracion",LocalDate.class));
+				di.setInstructores(p);
+				dr.setRutinas(p);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

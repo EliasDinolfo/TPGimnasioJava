@@ -15,7 +15,7 @@ public class DataInstructor {
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
 			rs= stmt.executeQuery("select * from instructor");
-			//intencionalmente no se recupera la password
+			
 			if(rs!=null) {
 				while(rs.next()) {
 					Instructor in=new Instructor();
@@ -171,4 +171,45 @@ public class DataInstructor {
             }
 		}
 	}
+	
+	
+	public void setInstructores(Plan plan) {
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select ins.*\r\n"
+					+ "from instructor ins\r\n"
+					+ "inner join plan_instructor pi\r\n"
+					+ "	on ins.dni=pi.dni\r\n"
+					+ "where pi.id_plan=?");
+			stmt.setInt(1, plan.getId_plan());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Instructor p=new Instructor();
+					p.setDni(rs.getString("dni"));
+					p.setTipo_doc(rs.getString("tipo_doc"));
+					p.setNombre(rs.getString("nombre"));
+					p.setApellido(rs.getString("apellido"));
+					p.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
+					p.setEmail(rs.getString("email"));
+					p.setTelefono(rs.getString("telefono"));
+					plan.setInstructores(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 }

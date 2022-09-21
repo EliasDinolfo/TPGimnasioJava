@@ -30,10 +30,10 @@ public class Principal {
 		DataPlan dp= new DataPlan();
 		LinkedList<Plan> planes =new LinkedList<Plan>();
 		planes.addAll(dp.getAll());
-//		Ejercicio ru= dr.getById(1);
+//		Plan ru= dp.getById(3);
 		
 		System.out.println(planes);
-		
+//		System.out.println(ru);
 		
 		
 	}

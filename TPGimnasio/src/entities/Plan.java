@@ -11,15 +11,7 @@ public class Plan {
 	private LinkedList<Instructor> instructores = new LinkedList<Instructor>();
 	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
 	
-	public Plan(int id_plan, String nombre, String descripcion, LocalDate fecha_expiracion,
-			LinkedList<Instructor> instructores, LinkedList<Rutina> rutinas) {
-		this.id_plan = id_plan;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.fecha_expiracion = fecha_expiracion;
-		this.instructores = instructores;
-		this.rutinas = rutinas;
-	}
+	
 	public Plan(int id_plan, String nombre, String descripcion, LocalDate fecha_expiracion) {
 		this.id_plan = id_plan;
 		this.nombre = nombre;
@@ -59,11 +51,14 @@ public class Plan {
 	public void setRutinas(Rutina rutina) {
 		this.rutinas.add(rutina);
 	}
+
 	@Override
 	public String toString() {
 		return "Plan [id_plan=" + id_plan + ", nombre=" + nombre + ", descripcion=" + descripcion
-				+ ", fecha_expiracion=" + fecha_expiracion + "]\n";
+				+ ", fecha_expiracion=" + fecha_expiracion + ", instructores=" + instructores + ", rutinas=" + rutinas
+				+ "]\n";
 	}
+	
 	
 	
 }
