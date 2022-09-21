@@ -62,7 +62,7 @@ public class Plan {
 	@Override
 	public String toString() {
 		return "Plan [id_plan=" + id_plan + ", nombre=" + nombre + ", descripcion=" + descripcion
-				+ ", fecha_expiracion=" + fecha_expiracion + "]";
+				+ ", fecha_expiracion=" + fecha_expiracion + "]\n";
 	}
 	
 	

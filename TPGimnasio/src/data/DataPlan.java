@@ -6,22 +6,23 @@ import entities.*;
 
 public class DataPlan {
 	
-	/*
+	
 	public LinkedList<Plan> getAll(){
 		Statement stmt=null;
 		ResultSet rs=null;
-		LinkedList<Rol> roles= new LinkedList<>();
+		LinkedList<Plan> planes= new LinkedList<Plan>();
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from persona");
-			//intencionalmente no se recupera la password
+			rs= stmt.executeQuery("select * from plan");
+			
 			if(rs!=null) {
 				while(rs.next()) {
-					Rol p=new Rol();
-					p.setId_rol(rs.getInt("id_rol"));
+					Plan p=new Plan();
+					p.setId_plan(rs.getInt("id_plan"));
+					p.setNombre(rs.getString("nombre"));
 					p.setDescripcion(rs.getString("descripcion"));
-					
-					roles.add(p);
+					p.setFecha_expiracion(rs.getObject("fecha_expiracion", LocalDate.class));
+					planes.add(p);
 				}
 			}
 			
@@ -37,9 +38,9 @@ public class DataPlan {
 				e.printStackTrace();
 			}
 		}
-		return roles;
+		return planes;
 	}
-	*/
+	
 	public Plan getById(int id) {
 		Plan p=null;
 		PreparedStatement stmt=null;
