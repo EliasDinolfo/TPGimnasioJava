@@ -10,6 +10,7 @@ public class Plan {
 	private LocalDate fecha_expiracion;
 	private LinkedList<Instructor> instructores = new LinkedList<Instructor>();
 	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
+	private LinkedList<Usuario> usuarios= new LinkedList<Usuario>();
 	
 	
 	public Plan(int id_plan, String nombre, String descripcion, LocalDate fecha_expiracion) {
@@ -51,13 +52,18 @@ public class Plan {
 	public void setRutinas(Rutina rutina) {
 		this.rutinas.add(rutina);
 	}
+	public void setUsuarios(Usuario user) {
+		this.usuarios.add(user);
+	}
 
 	@Override
 	public String toString() {
 		return "Plan [id_plan=" + id_plan + ", nombre=" + nombre + ", descripcion=" + descripcion
 				+ ", fecha_expiracion=" + fecha_expiracion + ", instructores=" + instructores + ", rutinas=" + rutinas
-				+ "]\n";
+				+ ", usuarios=" + usuarios + "]\n";
 	}
+
+	
 	
 	
 	

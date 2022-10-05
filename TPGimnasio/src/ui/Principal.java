@@ -27,13 +27,17 @@ public class Principal {
 //		System.out.println(ej);
 		
 	
-		DataPlan dp= new DataPlan();
-		LinkedList<Plan> planes =new LinkedList<Plan>();
-		planes.addAll(dp.getAll());
-//		Plan ru= dp.getById(3);
-		
-		System.out.println(planes);
+//		DataPlan dp= new DataPlan();
+//		LinkedList<Plan> planes =new LinkedList<Plan>();
+//		planes.addAll(dp.getAll());
+////		Plan ru= dp.getById(3);
+//		
+//		System.out.println(planes);
 //		System.out.println(ru);
+		
+		DataUsuario du = new DataUsuario();
+		Usuario u = du.getById(1);
+		System.out.println(u); 
 		
 		
 	}

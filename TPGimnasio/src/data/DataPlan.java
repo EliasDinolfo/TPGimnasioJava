@@ -12,6 +12,7 @@ public class DataPlan {
 		ResultSet rs=null;
 		DataRutina dr= new DataRutina();
 		DataInstructor di= new DataInstructor();
+		DataUsuario du= new DataUsuario();
 		LinkedList<Plan> planes= new LinkedList<Plan>();
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
@@ -26,6 +27,7 @@ public class DataPlan {
 					p.setFecha_expiracion(rs.getObject("fecha_expiracion", LocalDate.class));
 					di.setInstructores(p);
 					dr.setRutinas(p);
+					du.setUsuarios(p);
 					planes.add(p);
 				}
 			}
@@ -49,6 +51,7 @@ public class DataPlan {
 		Plan p=null;
 		DataRutina dr= new DataRutina();
 		DataInstructor di= new DataInstructor();
+		DataUsuario du= new DataUsuario();
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		try {
@@ -65,6 +68,7 @@ public class DataPlan {
 				p.setFecha_expiracion(rs.getObject("fecha_expiracion",LocalDate.class));
 				di.setInstructores(p);
 				dr.setRutinas(p);
+				du.setUsuarios(p);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -211,6 +215,41 @@ public class DataPlan {
 					p.setDescripcion(rs.getString("descripcion"));
 					p.setFecha_expiracion(rs.getObject("fecha_expiracion",LocalDate.class));
 					rut.setPlanes(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void setPlanes(Usuario usu) {
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select pl.*\r\n"
+					+ "from plan pl\r\n"
+					+ "inner join usuario_plan up\r\n"
+					+ "	on pl.id_plan=up.id_plan\r\n"
+					+ "where up.id_usuario=?");
+			stmt.setInt(1, usu.getId_usuario());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Plan p=new Plan();
+					p.setId_plan(rs.getInt("id_plan"));
+					p.setNombre(rs.getString("nombre"));
+					p.setDescripcion(rs.getString("descripcion"));
+					p.setFecha_expiracion(rs.getObject("fecha_expiracion",LocalDate.class));
+					usu.setPlanes(p);
 				}
 			}
 			

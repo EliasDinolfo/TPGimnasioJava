@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 public class Usuario {
 	private int id_usuario;
@@ -16,12 +17,13 @@ public class Usuario {
 	private String direccion;
 	private LocalDate fecha_nacimiento;
 	private Rol rol;
-	private Plan plan;
+	private LinkedList<Plan> planes= new LinkedList<Plan>();
+	
 	
 	
 	public Usuario(int id_usuario, String nombre, String apellido, String telefono, String tipo_doc, String dni,
 			String email, String genero, String username, String contrasenia, String direccion,
-			LocalDate fecha_nacimiento, Rol rol, Plan plan) {
+			LocalDate fecha_nacimiento) {
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -34,8 +36,7 @@ public class Usuario {
 		this.contrasenia = contrasenia;
 		this.direccion = direccion;
 		this.fecha_nacimiento = fecha_nacimiento;
-		this.rol = rol;
-		this.plan = plan;
+		
 	}
 	
 	public Usuario() {}
@@ -118,11 +119,9 @@ public class Usuario {
 	public void setRol(Rol rol) {
 		this.rol = rol;
 	}
-	public Plan getPlan() {
-		return plan;
-	}
-	public void setPlan(Plan plan) {
-		this.plan = plan;
+	
+	public void setPlanes(Plan plan) {
+		this.planes.add(plan);
 	}
 
 	@Override
@@ -130,7 +129,7 @@ public class Usuario {
 		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono="
 				+ telefono + ", tipo_doc=" + tipo_doc + ", dni=" + dni + ", email=" + email + ", genero=" + genero
 				+ ", username=" + username + ", contrasenia=" + contrasenia + ", direccion=" + direccion
-				+ ", fecha_nacimiento=" + fecha_nacimiento + ", rol=" + rol + ", plan=" + plan + "]";
+				+ ", fecha_nacimiento=" + fecha_nacimiento + ", rol=" + rol + ", plan=" + planes + "]\n";
 	}
 	
 	
