@@ -18,6 +18,7 @@ public class Usuario {
 	private LocalDate fecha_nacimiento;
 	private Rol rol;
 	private LinkedList<Plan> planes= new LinkedList<Plan>();
+	private LinkedList<Cuota> cuotas = new LinkedList<Cuota>();
 	
 	
 	
@@ -123,14 +124,21 @@ public class Usuario {
 	public void setPlanes(Plan plan) {
 		this.planes.add(plan);
 	}
+	
+	public void setCuotas(Cuota cuota) {
+		this.cuotas.add(cuota);
+	}
 
 	@Override
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono="
 				+ telefono + ", tipo_doc=" + tipo_doc + ", dni=" + dni + ", email=" + email + ", genero=" + genero
 				+ ", username=" + username + ", contrasenia=" + contrasenia + ", direccion=" + direccion
-				+ ", fecha_nacimiento=" + fecha_nacimiento + ", rol=" + rol + ", plan=" + planes + "]\n";
+				+ ", fecha_nacimiento=" + fecha_nacimiento + ", rol=" + rol + ", planes=" + planes + ", cuotas="
+				+ cuotas + "]\n";
 	}
+	
+	
 	
 	
 	

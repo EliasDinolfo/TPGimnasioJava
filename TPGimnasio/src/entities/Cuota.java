@@ -6,8 +6,12 @@ public class Cuota {
 	private LocalDate fecha_pago;
 	private double monto;
 	private String forma_pago;
-	private Plan plan;
 	private Usuario usuario;
+	
+	@Override
+	public String toString() {
+		return "Cuota [fecha_pago=" + fecha_pago + ", monto=" + monto + ", forma_pago=" + forma_pago + "]\n";
+	}
 	
 	public LocalDate getFecha_pago() {
 		return fecha_pago;
@@ -27,12 +31,7 @@ public class Cuota {
 	public void setForma_pago(String forma_pago) {
 		this.forma_pago = forma_pago;
 	}
-	public Plan getPlan() {
-		return plan;
-	}
-	public void setPlan(Plan plan) {
-		this.plan = plan;
-	}
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}

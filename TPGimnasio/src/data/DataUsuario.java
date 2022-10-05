@@ -12,6 +12,7 @@ public class DataUsuario {
 		ResultSet rs=null;
 		DataRol dr= new DataRol();
 		DataPlan dp= new DataPlan();
+		DataCuota dc=new DataCuota();
 		LinkedList<Usuario> usuarios= new LinkedList<>();
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
@@ -34,6 +35,7 @@ public class DataUsuario {
 					u.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
 					u.setRol(dr.getById(rs.getInt("id_rol")));
 					dp.setPlanes(u);
+					dc.setCuotas(u);
 					usuarios.add(u);
 				}
 			}
@@ -56,6 +58,7 @@ public class DataUsuario {
 	public Usuario getById(int id) {
 		DataRol dr= new DataRol();
 		DataPlan dp= new DataPlan();
+		DataCuota dc=new DataCuota();
 		Usuario u=null;
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
@@ -82,6 +85,7 @@ public class DataUsuario {
 				u.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
 				u.setRol(dr.getById(rs.getInt("id_rol")));
 				dp.setPlanes(u);
+				dc.setCuotas(u);
 				
 			}
 		} catch (SQLException e) {
