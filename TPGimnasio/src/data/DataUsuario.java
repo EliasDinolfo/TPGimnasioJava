@@ -6,22 +6,35 @@ import entities.*;
 
 public class DataUsuario {
 	
-	/*
-	public LinkedList<Plan> getAll(){
+	
+	public LinkedList<Usuario> getAll(){
 		Statement stmt=null;
 		ResultSet rs=null;
-		LinkedList<Rol> roles= new LinkedList<>();
+		DataRol dr= new DataRol();
+		DataPlan dp= new DataPlan();
+		LinkedList<Usuario> usuarios= new LinkedList<>();
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
-			rs= stmt.executeQuery("select * from persona");
-			//intencionalmente no se recupera la password
+			rs= stmt.executeQuery("select * from usuario");
+			
 			if(rs!=null) {
 				while(rs.next()) {
-					Rol p=new Rol();
-					p.setId_rol(rs.getInt("id_rol"));
-					p.setDescripcion(rs.getString("descripcion"));
-					
-					roles.add(p);
+					Usuario u=new Usuario();
+					u.setId_usuario(rs.getInt("id_usuario"));
+					u.setNombre(rs.getString("nombre"));
+					u.setApellido(rs.getString("apellido"));
+					u.setTelefono(rs.getString("telefono"));
+					u.setTipo_doc(rs.getString("tipo_doc"));
+					u.setDni(rs.getString("dni"));
+					u.setEmail(rs.getString("email"));
+					u.setGenero(rs.getString("genero"));
+					u.setUsername(rs.getString("username"));
+					u.setContrasenia(rs.getString("password"));
+					u.setDireccion(rs.getString("direccion"));
+					u.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
+					u.setRol(dr.getById(rs.getInt("id_rol")));
+					dp.setPlanes(u);
+					usuarios.add(u);
 				}
 			}
 			
@@ -37,9 +50,9 @@ public class DataUsuario {
 				e.printStackTrace();
 			}
 		}
-		return roles;
+		return usuarios;
 	}
-	*/
+	
 	public Usuario getById(int id) {
 		DataRol dr= new DataRol();
 		DataPlan dp= new DataPlan();

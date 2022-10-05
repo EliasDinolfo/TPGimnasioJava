@@ -2,7 +2,7 @@ package ui;
 
 
 
-import java.time.LocalDate;
+
 import java.util.LinkedList;
 
 import data.*;
@@ -35,9 +35,14 @@ public class Principal {
 //		System.out.println(planes);
 //		System.out.println(ru);
 		
+//		DataUsuario du = new DataUsuario();
+//		Usuario u = du.getById(1);
+//		System.out.println(u); 
+		
 		DataUsuario du = new DataUsuario();
-		Usuario u = du.getById(1);
-		System.out.println(u); 
+		LinkedList<Usuario> usuarios=new LinkedList<Usuario>();
+		usuarios.addAll(du.getAll());
+		System.out.println(usuarios);
 		
 		
 	}

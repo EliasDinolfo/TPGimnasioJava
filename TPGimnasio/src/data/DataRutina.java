@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.LinkedList;
 
 import entities.Ejercicio;
-import entities.Grupo_Musculo;
+
 import entities.Plan;
 import entities.Rutina;
 
