@@ -11,6 +11,8 @@ public class Plan {
 	private LinkedList<Instructor> instructores = new LinkedList<Instructor>();
 	private LinkedList<Rutina> rutinas = new LinkedList<Rutina>();
 	private LinkedList<Usuario> usuarios= new LinkedList<Usuario>();
+	private LinkedList<Costo> costos= new LinkedList<Costo>();
+	private LinkedList<Horario> horarios= new LinkedList<Horario>();
 	
 	
 	public Plan(int id_plan, String nombre, String descripcion, LocalDate fecha_expiracion) {
@@ -55,13 +57,20 @@ public class Plan {
 	public void setUsuarios(Usuario user) {
 		this.usuarios.add(user);
 	}
+	public void setCostos(Costo costo) {
+		this.costos.add(costo);
+	}
+	public void setHorarios(Horario horario) {
+		this.horarios.add(horario);
+	}
 
 	@Override
 	public String toString() {
 		return "Plan [id_plan=" + id_plan + ", nombre=" + nombre + ", descripcion=" + descripcion
 				+ ", fecha_expiracion=" + fecha_expiracion + ", instructores=" + instructores + ", rutinas=" + rutinas
-				+ ", usuarios=" + usuarios + "]\n";
+				+ ", usuarios=" + usuarios + ", costos=" + costos + ", horarios=" + horarios + "]";
 	}
+	
 
 	
 	

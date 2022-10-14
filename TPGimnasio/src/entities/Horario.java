@@ -41,4 +41,11 @@ public class Horario {
 	public Plan getPlan() {
 		return plan;
 	}
+
+	@Override
+	public String toString() {
+		return "Horario [hora_inicio=" + hora_inicio + ", hora_fin=" + hora_fin + ", dias_semana=" + dias_semana
+				+ ", plan=" + plan + "]";
+	}
+	
 }

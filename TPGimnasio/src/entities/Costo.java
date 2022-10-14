@@ -33,6 +33,11 @@ public class Costo {
 	public void setPlan(Plan plan) {
 		this.plan = plan;
 	}
+
+	@Override
+	public String toString() {
+		return "Costo [costo=" + costo + ", fecha_vigencia=" + fecha_vigencia + ", plan=" + plan + "]";
+	}
 	
 	
 }

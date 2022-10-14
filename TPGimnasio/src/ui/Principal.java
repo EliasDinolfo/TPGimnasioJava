@@ -1,8 +1,5 @@
 package ui;
 
-
-
-
 import java.util.LinkedList;
 
 import data.*;
@@ -13,10 +10,12 @@ public class Principal {
 	public static void main(String[] args) {
 		
 		
-		DataUsuario du = new DataUsuario();
-		LinkedList<Usuario> usuarios=new LinkedList<Usuario>();
-		usuarios.addAll(du.getAll());
-		System.out.println(usuarios);
+		DataHorario dh = new DataHorario();
+		Plan plan = new Plan();
+		plan.setId_plan(1);
+		dh.setHorarios(plan);
+		System.out.println(plan);
+
 		
 		
 	}

@@ -13,6 +13,7 @@ public class DataPlan {
 		DataRutina dr= new DataRutina();
 		DataInstructor di= new DataInstructor();
 		DataUsuario du= new DataUsuario();
+		DataCosto dc = new DataCosto();
 		LinkedList<Plan> planes= new LinkedList<Plan>();
 		try {
 			stmt= dbConnector.getInstancia().getConn().createStatement();
@@ -28,6 +29,7 @@ public class DataPlan {
 					di.setInstructores(p);
 					dr.setRutinas(p);
 					du.setUsuarios(p);
+					dc.setCostos(p);
 					planes.add(p);
 				}
 			}
@@ -52,6 +54,7 @@ public class DataPlan {
 		DataRutina dr= new DataRutina();
 		DataInstructor di= new DataInstructor();
 		DataUsuario du= new DataUsuario();
+		DataCosto dc = new DataCosto();
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		try {
@@ -69,6 +72,7 @@ public class DataPlan {
 				di.setInstructores(p);
 				dr.setRutinas(p);
 				du.setUsuarios(p);
+				dc.setCostos(p);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -265,6 +269,7 @@ public class DataPlan {
 			}
 		}
 	}
+	
 	
 	
 }
