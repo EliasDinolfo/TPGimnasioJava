@@ -9,11 +9,10 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		
+		LinkedList<Plan> planes = new LinkedList<Plan>();
 		DataPlan dh = new DataPlan();
-		Plan plan = new Plan();
-		plan=dh.getById(1);
-		System.out.println(plan);
+		planes.addAll(dh.getAll());
+		System.out.println(planes);
 
 		
 		
