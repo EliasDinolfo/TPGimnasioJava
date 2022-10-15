@@ -10,10 +10,9 @@ public class Principal {
 	public static void main(String[] args) {
 		
 		
-		DataHorario dh = new DataHorario();
+		DataPlan dh = new DataPlan();
 		Plan plan = new Plan();
-		plan.setId_plan(1);
-		dh.setHorarios(plan);
+		plan=dh.getById(1);
 		System.out.println(plan);
 
 		
