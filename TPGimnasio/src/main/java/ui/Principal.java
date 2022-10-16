@@ -1,19 +1,19 @@
 package ui;
 
-import java.util.LinkedList;
 
-import data.*;
-import entities.*;
 
 public class Principal {
 
 	public static void main(String[] args) {
+		//este paquete se borrara en el futuro. ahora queda para probar la capa de logica
 		
-		LinkedList<Plan> planes = new LinkedList<Plan>();
-		DataPlan dh = new DataPlan();
-		planes.addAll(dh.getAll());
-		System.out.println(planes);
-
+		Menu menu=new Menu();
+		menu.start();
+		
+		
+		
+		
+		
 		
 	}
 
