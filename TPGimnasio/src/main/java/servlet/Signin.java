@@ -1,11 +1,16 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.LinkedList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import entities.*;
+import logic.*;
 
 /**
  * Servlet implementation class Signin
@@ -34,14 +39,29 @@ public class Signin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		Usuario user = new Usuario();
+		Login ctrLogin = new Login();
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		response.getWriter().append("User: ").append(username)
-		.append(" Password: ").append(password)
-		.append(" post at: ").append(request.getContextPath());
-		//doGet(request, response);
+		user.setUsername(username);
+		user.setContrasenia(password);
+		
+		user=ctrLogin.validate(user);
+		
+		LinkedList<Usuario> users = ctrLogin.getAll();
+		
+		request.getSession().setAttribute("usuario", user);
+		request.setAttribute("listaUsuarios", users);
+		
+		request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);;
+		
+		
+//		response.getWriter().append("Bienvenido ").append(user.getNombre()).append(" ")
+//		.append(user.getApellido());
+		
 	}
 
 }

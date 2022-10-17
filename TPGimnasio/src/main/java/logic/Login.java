@@ -33,4 +33,9 @@ public class Login {
 	}
 	
 	
+	public LinkedList<Usuario> getAll(){
+		return dataUsu.getAll();
+	}
+	
+	
 }
