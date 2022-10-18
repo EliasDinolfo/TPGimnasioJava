@@ -54,7 +54,7 @@ public class Signin extends HttpServlet {
 		LinkedList<Usuario> users = ctrLogin.getAll();
 		
 		request.getSession().setAttribute("usuario", user);
-		request.setAttribute("listaUsuarios", users);
+		request.setAttribute("listaUsuarios", users);//esto es mas que nada para traer la linkedList
 		
 		request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);;
 		
