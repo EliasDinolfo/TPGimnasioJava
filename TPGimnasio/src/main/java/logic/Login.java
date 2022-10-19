@@ -24,13 +24,11 @@ public class Login {
 				userReturn.setId_usuario(usu.getId_usuario());
 				
 				userReturn=dataUsu.getById(userReturn.getId_usuario());				
-				
 			}
-		}
-		
-		
+		}	
 		return userReturn;
 	}
+	
 	
 	
 	public LinkedList<Usuario> getAll(){
