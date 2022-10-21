@@ -1,5 +1,7 @@
 <%@page import="java.util.LinkedList"%>
 <%@page import="entities.Usuario"%>
+<%@page import="entities.Grupo_Musculo"%>
+<%@page import="entities.Instructor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -27,7 +29,20 @@
 </head>
 <body>
 	<div class="container">
-	 	<div class="row">
+    <ul class="nav nav-tabs mt-3">
+      <li class="nav-item">
+        <a class="nav-link active"  data-toggle="tab" href="#opcion1" >Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  data-toggle="tab" href="#opcion2">Planes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  data-toggle="tab" href="#opcion3">Grupos Musculares</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="opcion1">
+     	<div class="row">
 	 		<h4>Usuarios</h4>
 	 			<div class="col-12 col-sm-12 col-lg-12">
 	 				<div class="table-responsive">
@@ -77,6 +92,25 @@
 	 				</div>
 	 			</div>
 	 	</div>
-	</div>
+      </div>
+      <div class="tab-pane fade" id="opcion2" >
+      Cras non purus urna. Vestibulum nec felis felis. Quisque luctus vehicula ipsum,
+      id pellentesque nulla luctus at. Maecenas ut sodales velit. Sed orci leo,
+      </div>
+      <div class="tab-pane fade" id="opcion3">
+      Etiam congue, metus eu ultricies euismod, est magna condimentum sem, eget commodo
+      elit nisl id sapien. Proin sodales accumsan nulla non molestie. Nulla tempus
+      congue arcu, a sagittis ante dapibus vitae. Proin tincidunt tincidunt accumsan.
+      dignissim id dapibus eget, posuere eu nibh.
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+
 </body>
 </html>

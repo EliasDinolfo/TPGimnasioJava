@@ -3,12 +3,12 @@ package ui;
 import java.util.Scanner;
 
 import entities.Usuario;
-import logic.Login;
+import logic.UsuarioLogic;
 
 public class Menu {
-
+	/*
 	Scanner in = new Scanner(System.in);
-	Login ctrlLogin =new Login();
+	UsuarioLogic ctrlLogin =new UsuarioLogic();
 	
 	public void start() {
 		
@@ -32,5 +32,5 @@ public class Menu {
 			System.out.println("Usuario/contraseña incorrecto o sin registrar");
 		}
 		in.close();
-	}
+	} */
 }

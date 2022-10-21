@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entities.Usuario;
-import logic.UsuarioCRUD;
+import logic.UsuarioLogic;
 
 /**
  * Servlet implementation class Registro
@@ -54,12 +54,9 @@ public class Registro extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String password2 = request.getParameter("passwordTwo");
-		
-		if (password.equals(password2)) {
-			UsuarioCRUD ctrlUser = new UsuarioCRUD();
+		UsuarioLogic usuarioLogic = new UsuarioLogic();
+		if (usuarioLogic.validarContrasenias(password, password2)) {
 			Usuario user = new Usuario();
-			
-			
 			user.setNombre(name);
 			user.setApellido(surname);
 			user.setTelefono(telephone);
@@ -73,10 +70,10 @@ public class Registro extends HttpServlet {
 			DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		    LocalDate fechaNac = LocalDate.parse(fechaNacString, dateFormat);
 			user.setFecha_nacimiento(fechaNac);
-			user.setRol(ctrlUser.setRol(3));
+			user.setRol(usuarioLogic.setRol(3));
 			
 			try {
-				ctrlUser.altaUser(user);
+				usuarioLogic.altaUser(user);
 				
 				request.getSession().setAttribute("usuario", user);
 				
@@ -87,7 +84,11 @@ public class Registro extends HttpServlet {
 				response.getWriter().append("Error ").append(msg);
 			}
 			
-		} 
+		}
+		else {
+			request.setAttribute("mensaje", "Las contraseñas ingresadas son diferentes.");
+			request.getRequestDispatcher("registro.jsp").forward(request, response);
+		}
 		
 		
 		

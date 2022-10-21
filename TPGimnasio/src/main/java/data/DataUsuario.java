@@ -103,6 +103,55 @@ public class DataUsuario {
 		return u;
 	}
 	
+	public Usuario getByUsernamePassword(String username, String password) {
+		DataRol dr= new DataRol();
+		DataPlan dp= new DataPlan();
+		DataCuota dc=new DataCuota();
+		Usuario u=null;
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement(
+					"select * from usuario where username=? and password=?"
+					);
+			stmt.setString(1, username);
+			stmt.setString(2, password);
+			rs=stmt.executeQuery();
+			if(rs!=null && rs.next()) {
+				u=new Usuario();
+				
+				u.setId_usuario(rs.getInt("id_usuario"));
+				u.setNombre(rs.getString("nombre"));
+				u.setApellido(rs.getString("apellido"));
+				u.setTelefono(rs.getString("telefono"));
+				u.setTipo_doc(rs.getString("tipo_doc"));
+				u.setDni(rs.getString("dni"));
+				u.setEmail(rs.getString("email"));
+				u.setGenero(rs.getString("genero"));
+				u.setUsername(rs.getString("username"));
+				u.setContrasenia(rs.getString("password"));
+				u.setDireccion(rs.getString("direccion"));
+				u.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
+				u.setRol(dr.getById(rs.getInt("id_rol")));
+				dp.setPlanes(u);
+				dc.setCuotas(u);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return u;
+	}
+	
 	public void add(Usuario u) {
 		PreparedStatement stmt= null;
 		ResultSet keyResultSet=null;

@@ -41,7 +41,7 @@ public class Signin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Usuario user = new Usuario();
-		Login ctrLogin = new Login();
+		UsuarioLogic usuarioLogic = new UsuarioLogic();
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -49,14 +49,22 @@ public class Signin extends HttpServlet {
 		user.setUsername(username);
 		user.setContrasenia(password);
 		
-		user=ctrLogin.validate(user);
+		user=usuarioLogic.validarLoginUsuario(user);
 		
-		LinkedList<Usuario> users = ctrLogin.getAll();
-		
-		request.getSession().setAttribute("usuario", user);
-		request.setAttribute("listaUsuarios", users);//esto es mas que nada para traer la linkedList
-		
-		request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);;
+		if(user!=null) {
+			
+			LinkedList<Usuario> users = usuarioLogic.getAll();
+			//LinkedList<Grupo_Musculo> grupo_musculo=usuarioLogic.get
+			
+			request.getSession().setAttribute("usuario", user);
+			request.setAttribute("listaUsuarios", users);
+			
+			request.getRequestDispatcher("WEB-INF/AdminManagement.jsp").forward(request, response);
+		}
+		else {
+			request.setAttribute("mensaje", "El usuario y/o contraseña ingresados son incorrectos.");
+			request.getRequestDispatcher("signin.jsp").forward(request, response);
+		}
 		
 		
 //		response.getWriter().append("Bienvenido ").append(user.getNombre()).append(" ")
