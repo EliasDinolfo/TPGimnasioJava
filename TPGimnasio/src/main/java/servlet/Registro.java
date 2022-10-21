@@ -45,9 +45,9 @@ public class Registro extends HttpServlet {
 		String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
 		String telephone = request.getParameter("telephone");
-		String tipoDoc = request.getParameter("tipoDoc");
+		String tipoDoc = request.getParameter("selectTipoDoc");
 		String dni = request.getParameter("dni");
-		String sex = request.getParameter("sexo");
+		String sex = request.getParameter("selectGenero");
 		String email = request.getParameter("dni");
 		String direccion = request.getParameter("direccion");
 		String fechaNacString = request.getParameter("fechaNacimiento");
@@ -55,9 +55,7 @@ public class Registro extends HttpServlet {
 		String password = request.getParameter("password");
 		String password2 = request.getParameter("passwordTwo");
 		
-		
 		if (password.equals(password2)) {
-			
 			UsuarioCRUD ctrlUser = new UsuarioCRUD();
 			Usuario user = new Usuario();
 			
