@@ -36,5 +36,9 @@ public class UsuarioLogic {
 		return dataUsu.getAll();
 	}
 	
+	public Usuario getById(int id) {
+		return dataUsu.getById(id);
+	}
+	
 	
 }

@@ -24,11 +24,11 @@
 <!-- Bootstrap core CSS -->
 <link href="style/bootstrap.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="style/start.css" rel="stylesheet">
+<link href="style/styles.css" rel="stylesheet">
 
 </head>
 <body>
-	<div class="container">
+	<div class="container movete">
     <ul class="nav nav-tabs mt-3">
       <li class="nav-item">
         <a class="nav-link active"  data-toggle="tab" href="#opcion1" >Usuarios</a>
@@ -67,7 +67,8 @@
 	 						</thead>
 	 						<tbody>
 	 						
-	 						<% for(Usuario usu : userlist){%>
+	 						<% for(Usuario usu : userlist){
+	 								if(usu.getRol().getId_rol()!=1){%><!-- para que no muestre al administrador -->
 	 							<tr>
 	 								<td><%=usu.getId_usuario() %></td>
 	 								<td><%=usu.getNombre() %></td>
@@ -81,11 +82,26 @@
 	 								<td><%=usu.getDireccion() %></td>
 	 								<td><%=usu.getFecha_nacimiento() %></td>
 	 								<td><%=usu.getRol().getDescripcion() %></td>
-	 								<td></td><!-- editar -->
-	 								<td></td><!-- borrar -->
+	 								<td><!-- editar -->
+	 									<div>
+	 										<form action="ABMCUsuario" method="post">
+	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
+	 											<button type="submit" class="btn btn-warning" name="modificar" value="modificare">Modificar</button>
+	 										</form>
+	 									</div>
+	 								</td>
+	 								<td><!-- borrar -->
+	 									<div>
+	 										<form action="ABMCUsuario" method="post">
+	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
+	 											<button type="submit" class="btn btn-danger" name="eliminar" value="eliminare">Eliminar</button>
+	 										</form>
+	 									</div>
+	 								</td>
+	 								
 	 								
 	 							</tr>
-	 						<%} %>
+	 						<%}} %>
 	 						</tbody>
 	 						
 	 					</table>
