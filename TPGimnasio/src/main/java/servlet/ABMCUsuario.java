@@ -43,13 +43,23 @@ public class ABMCUsuario extends HttpServlet {
 		
 		
 		
-		String opcion = request.getParameter("eliminar");
+		String opcion = request.getParameter("optionBM");
 		String idUser = request.getParameter("idUser");
 		
 		u=ctrlUsu.getById(Integer.parseInt(idUser));
 		
+		switch (opcion) {
+		case "modificacion":
+			
+			break;
+
+		case "baja":
+				ctrlUsu.bajaUser(u);
+			break;
+		}
 		
-		response.getWriter().append("POST de servlet abmc ").append(u.getUsername());
+		
+		//response.getWriter().append("POST de servlet abmc ").append(u.getUsername()).append(" ").append(opcion);
 	}
 
 }

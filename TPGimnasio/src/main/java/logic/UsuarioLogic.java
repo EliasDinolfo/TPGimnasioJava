@@ -40,5 +40,9 @@ public class UsuarioLogic {
 		return dataUsu.getById(id);
 	}
 	
+	public void bajaUser(Usuario u) {
+		dataUsu.remove(u);
+	}
+	
 	
 }

@@ -60,7 +60,7 @@
 	 								<th>Username</th>
 	 								<th>Direccion</th>
 	 								<th>Fecha nacimiento</th>
-	 								<th>Rol</th>
+	 								
 	 								<th></th>
 	 								<th></th>
 	 							</tr>
@@ -68,7 +68,7 @@
 	 						<tbody>
 	 						
 	 						<% for(Usuario usu : userlist){
-	 								if(usu.getRol().getId_rol()!=1){%><!-- para que no muestre al administrador -->
+	 								if(usu.getRol().getId_rol()==3){%><!-- para que no muestre al administrador -->
 	 							<tr>
 	 								<td><%=usu.getId_usuario() %></td>
 	 								<td><%=usu.getNombre() %></td>
@@ -81,12 +81,12 @@
 	 								<td><%=usu.getUsername() %></td>
 	 								<td><%=usu.getDireccion() %></td>
 	 								<td><%=usu.getFecha_nacimiento() %></td>
-	 								<td><%=usu.getRol().getDescripcion() %></td>
+	 	
 	 								<td><!-- editar -->
 	 									<div>
 	 										<form action="ABMCUsuario" method="post">
 	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
-	 											<button type="submit" class="btn btn-warning" name="modificar" value="modificare">Modificar</button>
+	 											<button type="submit" class="btn btn-warning" name="optionBM" value="modificacion">Modificar</button>
 	 										</form>
 	 									</div>
 	 								</td>
@@ -94,7 +94,7 @@
 	 									<div>
 	 										<form action="ABMCUsuario" method="post">
 	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
-	 											<button type="submit" class="btn btn-danger" name="eliminar" value="eliminare">Eliminar</button>
+	 											<button type="submit" class="btn btn-danger" name="optionBM" value="baja">Eliminar</button>
 	 										</form>
 	 									</div>
 	 								</td>
