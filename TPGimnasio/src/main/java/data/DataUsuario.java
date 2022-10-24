@@ -230,8 +230,35 @@ public class DataUsuario {
 		}
 	}
 	
+	
+	
+	public void bajaUsuariodePlan(Usuario u) {
+		PreparedStatement stmt= null;
+
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"delete from usuario_plan where id_usuario=?"
+							);
+			stmt.setInt(1, u.getId_usuario());
+			
+			stmt.executeUpdate();			
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	
 	public void remove(Usuario usuario) {
 		PreparedStatement stmt= null;
+		bajaUsuariodePlan(usuario);
 		try {
 			stmt=dbConnector.getInstancia().getConn().
 					prepareStatement(
