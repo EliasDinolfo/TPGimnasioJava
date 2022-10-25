@@ -34,24 +34,24 @@ public class ABMCUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		UsuarioLogic ctrlUsu= new UsuarioLogic();
-		
-		
-		//String idUser = request.getParameter("idUser");
-		String idUserLogin = request.getParameter("idUserLogin");
-		
-		//u=ctrlUsu.getById(Integer.parseInt(idUser));
-		Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));
-		
-		LinkedList<Usuario> users = ctrlUsu.getAll();
-
-		request.getSession().setAttribute("usuarioLogin", userLogin);
-		request.setAttribute("listaUsuarios", users);
-			
-		
-		
-		 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/AdminManagement.jsp");
-	     dispatcher.forward(request, response);
+//		UsuarioLogic ctrlUsu= new UsuarioLogic();
+//		
+//		
+//		//String idUser = request.getParameter("idUser");
+//		String idUserLogin = request.getParameter("idUserLogin");
+//		
+//		//u=ctrlUsu.getById(Integer.parseInt(idUser));
+//		Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));
+//		
+//		LinkedList<Usuario> users = ctrlUsu.getAll();
+//
+//		request.getSession().setAttribute("usuarioLogin", userLogin);
+//		request.setAttribute("listaUsuarios", users);
+//			
+//		
+//		
+//		 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/AdminManagement.jsp");
+//	     dispatcher.forward(request, response);
 		
 	}
 
