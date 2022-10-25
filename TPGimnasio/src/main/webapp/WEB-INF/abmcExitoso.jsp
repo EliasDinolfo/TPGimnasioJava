@@ -20,8 +20,10 @@
 	<h1>abmc existoso <%=u.getNombre()%> <%=u.getId_usuario() %></h1>
 	
 	
-	<form action="ABMCUsuario" method="get">
-		<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>" />
+	
+	<form action="signin" method="post">
+		<input type="hidden" class="custom-control-input"  name="username" value="<%=userLogin.getUsername()%>" />
+		<input type="hidden" class="custom-control-input"  name="password" value="<%=userLogin.getContrasenia()%>" />
 		<button type="submit" class="btn btn-primary btn-lg">Large button</button>
 
 		
