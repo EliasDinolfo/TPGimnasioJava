@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.LinkedList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,32 +32,58 @@ public class ABMCUsuario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		UsuarioLogic ctrlUsu= new UsuarioLogic();
+		
+		
+		//String idUser = request.getParameter("idUser");
+		String idUserLogin = request.getParameter("idUserLogin");
+		
+		//u=ctrlUsu.getById(Integer.parseInt(idUser));
+		Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));
+		
+		LinkedList<Usuario> users = ctrlUsu.getAll();
+
+		request.getSession().setAttribute("usuarioLogin", userLogin);
+		request.setAttribute("listaUsuarios", users);
+			
+		
+		
+		 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/AdminManagement.jsp");
+	     dispatcher.forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Usuario u = new Usuario();
+		
+//		Usuario u = new Usuario();
 		UsuarioLogic ctrlUsu= new UsuarioLogic();
 		
 		
 		
 		String opcion = request.getParameter("optionBM");
 		String idUser = request.getParameter("idUser");
+		String idUserLogin = request.getParameter("idUserLogin");
 		
-		u=ctrlUsu.getById(Integer.parseInt(idUser));
+		Usuario u =ctrlUsu.getById(Integer.parseInt(idUser));
+		Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));
+		
+		request.getSession().setAttribute("usuarioLogin", userLogin);
+		request.setAttribute("usuario", u);
+		
 		
 		switch (opcion) {
 		case "modificacion":
-			
+				request.getRequestDispatcher("WEB-INF/abmcExitoso.jsp").forward(request, response);;
 			break;
 
 		case "baja":
 				ctrlUsu.bajaUser(u);
+				request.getRequestDispatcher("WEB-INF/abmcExitoso.jsp").forward(request, response);
 			break;
 		}
 		

@@ -56,7 +56,7 @@ public class Signin extends HttpServlet {
 			LinkedList<Usuario> users = usuarioLogic.getAll();
 			//LinkedList<Grupo_Musculo> grupo_musculo=usuarioLogic.get
 			
-			request.getSession().setAttribute("usuario", user);
+			request.getSession().setAttribute("usuarioLogin", user);
 			request.setAttribute("listaUsuarios", users);
 			
 			request.getRequestDispatcher("WEB-INF/AdminManagement.jsp").forward(request, response);

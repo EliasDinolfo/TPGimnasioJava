@@ -31,7 +31,7 @@
 		
 		</form>
 		
-		<a href="registro.html" class="link text-center"><p>Registrarme</p></a>
+		<a href="registro.jsp" class="link text-center"><p>Registrarme</p></a>
 	</div>
 	
 	

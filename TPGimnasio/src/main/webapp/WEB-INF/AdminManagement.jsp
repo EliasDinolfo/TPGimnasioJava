@@ -15,7 +15,7 @@
 <meta name="author" content="">
    
  <%
- 	Usuario u =(Usuario)session.getAttribute("usuario");
+ 	Usuario userLogin =(Usuario)session.getAttribute("usuarioLogin");
  	LinkedList<Usuario> userlist=(LinkedList<Usuario>)request.getAttribute("listaUsuarios");
  %>  
    
@@ -28,6 +28,7 @@
 
 </head>
 <body>
+	<h4>Usuario: <%=userLogin.getUsername()%></h4>
 	<div class="container movete">
     <ul class="nav nav-tabs mt-3">
       <li class="nav-item">
@@ -85,6 +86,7 @@
 	 								<td><!-- editar -->
 	 									<div>
 	 										<form action="ABMCUsuario" method="post">
+	 											<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
 	 											<button type="submit" class="btn btn-warning" name="optionBM" value="modificacion">Modificar</button>
 	 										</form>
@@ -93,6 +95,7 @@
 	 								<td><!-- borrar -->
 	 									<div>
 	 										<form action="ABMCUsuario" method="post">
+	 											<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
 	 											<button type="submit" class="btn btn-danger" name="optionBM" value="baja">Eliminar</button>
 	 										</form>
