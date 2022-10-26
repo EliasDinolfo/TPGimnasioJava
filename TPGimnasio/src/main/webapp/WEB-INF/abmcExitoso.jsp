@@ -17,16 +17,14 @@
 <body>
 	<h2>el del login es: <%=userLogin.getUsername() %></h2>
 	<br />
-	<h1>abmc existoso <%=u.getNombre()%> <%=u.getId_usuario() %></h1>
+	<h1>abmc existoso <%=u.getUsername()%> <%=u.getId_usuario() %></h1>
 	
 	
 	
 	<form action="signin" method="post">
 		<input type="hidden" class="custom-control-input"  name="username" value="<%=userLogin.getUsername()%>" />
 		<input type="hidden" class="custom-control-input"  name="password" value="<%=userLogin.getContrasenia()%>" />
-		<button type="submit" class="btn btn-primary btn-lg">Large button</button>
-
-		
+		<button type="submit" class="btn btn-primary btn-lg">ir a perfil</button>
 	</form>
 	 
 </body>

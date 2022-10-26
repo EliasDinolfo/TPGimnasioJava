@@ -23,6 +23,10 @@ public class UsuarioLogic {
 		dataUsu.add(u);
 	}
 	
+	public void modifyUser(Usuario u) {
+		dataUsu.update(u);
+	}
+	
 	public Usuario validarLoginUsuario(Usuario u)  {
 		Usuario userReturn=dataUsu.getByUsernamePassword(u.getUsername(), u.getContrasenia());
 		return userReturn;

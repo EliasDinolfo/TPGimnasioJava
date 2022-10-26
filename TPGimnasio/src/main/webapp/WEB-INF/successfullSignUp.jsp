@@ -9,6 +9,7 @@
 <%
  	Usuario u =(Usuario)session.getAttribute("usuario");
  %> 
+ <link  href="style/bootstrap.css" rel="stylesheet "/>
 </head>
 <body>
 	<h1>Llegaste el jsp del registro</h1>
@@ -19,6 +20,12 @@
 	
 	<%=u.getId_usuario()%></h3>
 	
+	<form action="signin" method="post">
+		<input type="hidden" class="custom-control-input"  name="username" value="<%=u.getUsername()%>" />
+		<input type="hidden" class="custom-control-input"  name="password" value="<%=u.getContrasenia()%>" />
+		<button type="submit" class="btn btn-primary btn-lg">Large button</button>
 
+		
+	</form>
 </body>
 </html>

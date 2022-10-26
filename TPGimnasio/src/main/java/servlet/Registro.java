@@ -77,7 +77,7 @@ public class Registro extends HttpServlet {
 				
 				request.getSession().setAttribute("usuario", user);
 				
-				request.getRequestDispatcher("WEB-INF/DespuesTeElimino.jsp").forward(request, response);
+				request.getRequestDispatcher("WEB-INF/successfullSignUp.jsp").forward(request, response);
 				
 			} catch (Exception e) {
 				String msg=e.getMessage();

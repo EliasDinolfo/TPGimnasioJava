@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 
 import javax.servlet.RequestDispatcher;
@@ -64,7 +66,7 @@ public class ABMCUsuario extends HttpServlet {
 		UsuarioLogic ctrlUsu= new UsuarioLogic();
 		
 		
-		
+		String bandera="";
 		String opcion = request.getParameter("optionBM");
 		String idUser = request.getParameter("idUser");
 		String idUserLogin = request.getParameter("idUserLogin");
@@ -77,8 +79,54 @@ public class ABMCUsuario extends HttpServlet {
 		
 		
 		switch (opcion) {
+		case "alta":
+			request.getRequestDispatcher("WEB-INF/abmcExitoso.jsp").forward(request, response);;
+		break;
+		
 		case "modificacion":
-				request.getRequestDispatcher("WEB-INF/abmcExitoso.jsp").forward(request, response);;
+			//devolver una bandera q primero rediriga a modificar el user y una vez q fue hecho que se haga el update
+			bandera=request.getParameter("bandera");
+			
+			if (bandera.equalsIgnoreCase("aModificar")) {
+				request.getRequestDispatcher("WEB-INF/updateClient.jsp").forward(request, response);
+			}else {
+				
+				String name = request.getParameter("name");
+				String surname = request.getParameter("surname");
+				String telephone = request.getParameter("telephone");
+				String tipoDoc = request.getParameter("selectTipoDoc");
+				String dni = request.getParameter("dni");
+				String sex = request.getParameter("selectGenero");
+				String email = request.getParameter("dni");
+				String direccion = request.getParameter("direccion");
+				String fechaNacString = request.getParameter("fechaNacimiento");
+				String username = request.getParameter("username");
+				String password = request.getParameter("password");
+				String password2 = request.getParameter("passwordTwo");
+				
+				if (ctrlUsu.validarContrasenias(password, password2)) {
+					
+					u.setNombre(name);
+					u.setApellido(surname);
+					u.setTelefono(telephone);
+					u.setTipo_doc(tipoDoc);
+					u.setDni(dni);
+					u.setEmail(email);
+					u.setGenero(sex);
+					u.setUsername(username);
+					u.setContrasenia(password);
+					u.setDireccion(direccion);
+					DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+				    LocalDate fechaNac = LocalDate.parse(fechaNacString, dateFormat);
+					u.setFecha_nacimiento(fechaNac);
+					
+				}
+				
+				ctrlUsu.modifyUser(u);
+				request.setAttribute("usuario", u);
+				request.getRequestDispatcher("WEB-INF/abmcExitoso.jsp").forward(request, response);
+			}
+				
 			break;
 
 		case "baja":

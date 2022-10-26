@@ -88,6 +88,7 @@
 	 										<form action="ABMCUsuario" method="post">
 	 											<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
+	 											<input type="hidden" class="custom-control-input"  name="bandera" value="aModificar">
 	 											<button type="submit" class="btn btn-warning" name="optionBM" value="modificacion">Modificar</button>
 	 										</form>
 	 									</div>

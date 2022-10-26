@@ -59,7 +59,7 @@ public class Signin extends HttpServlet {
 			request.getSession().setAttribute("usuarioLogin", user);
 			request.setAttribute("listaUsuarios", users);
 			
-			request.getRequestDispatcher("WEB-INF/AdminManagement.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
 		}
 		else {
 			request.setAttribute("mensaje", "El usuario y/o contraseña ingresados son incorrectos.");
