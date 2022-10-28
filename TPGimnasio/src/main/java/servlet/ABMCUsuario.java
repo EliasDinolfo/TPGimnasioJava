@@ -33,6 +33,11 @@ public class ABMCUsuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    
+    
+    
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
@@ -90,6 +95,8 @@ public class ABMCUsuario extends HttpServlet {
 			if (bandera.equalsIgnoreCase("aModificar")) {
 				request.getRequestDispatcher("WEB-INF/updateClient.jsp").forward(request, response);
 			}else {
+				
+				
 				
 				String name = request.getParameter("name");
 				String surname = request.getParameter("surname");
