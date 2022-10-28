@@ -202,7 +202,7 @@ public class DataUsuario {
 					prepareStatement(
 							"update usuario set nombre=?, apellido=?, telefono=?,"
 							+ "tipo_doc=?, dni=?, email=?, genero=?, username=?, password=?,"
-							+ "direccion=? id_rol=?, fecha_nacimiento=?"
+							+ "direccion=?, id_rol=?, fecha_nacimiento=?"
 							+ "where id_usuario=?");
 			stmt.setString(1, usuario.getNombre());
 			stmt.setString(2, usuario.getApellido());
