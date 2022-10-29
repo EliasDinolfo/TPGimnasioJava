@@ -24,109 +24,72 @@
 <!-- Bootstrap core CSS -->
 <link href="style/bootstrap.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="style/styles.css" rel="stylesheet">
+<style><%@include file="/WEB-INF/estilos/estilo.css"%></style>
 
 </head>
 <body>
-	<h4>Usuario: <%=userLogin.getUsername()%></h4>
-	<div class="container movete">
-    <ul class="nav nav-tabs mt-3">
-      <li class="nav-item">
-        <a class="nav-link active"  data-toggle="tab" href="#opcion1" >Usuarios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  data-toggle="tab" href="#opcion2">Planes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  data-toggle="tab" href="#opcion3">Grupos Musculares</a>
-      </li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane fade show active" id="opcion1">
-     	<div class="row">
-	 		<h4>Usuarios</h4>
-	 			<div class="col-12 col-sm-12 col-lg-12">
-	 				<div class="table-responsive">
-	 					<table class="table">
-	 						<thead>
-	 							<tr>
-	 								<th>ID</th>
-	 								<th>Nombre</th>
-	 								<th>Apellido</th>
-	 								<th>Telefono</th>
-	 								<th>Tipo Documento</th>
-	 								<th>DNI</th>
-	 								<th>Email</th>
-	 								<th>Genero</th>
-	 								<th>Username</th>
-	 								<th>Direccion</th>
-	 								<th>Fecha nacimiento</th>
-	 								
-	 								<th></th>
-	 								<th></th>
-	 							</tr>
-	 						</thead>
-	 						<tbody>
-	 						
-	 						<% for(Usuario usu : userlist){
-	 								if(usu.getRol().getId_rol()==3){%><!-- para que no muestre al administrador -->
-	 							<tr>
-	 								<td><%=usu.getId_usuario() %></td>
-	 								<td><%=usu.getNombre() %></td>
-	 								<td><%=usu.getApellido() %></td>
-	 								<td><%=usu.getTelefono() %></td>
-	 								<td><%=usu.getTipo_doc() %></td>
-	 								<td><%=usu.getDni() %></td>
-	 								<td><%=usu.getEmail() %></td>
-	 								<td><%=usu.getGenero() %></td>
-	 								<td><%=usu.getUsername() %></td>
-	 								<td><%=usu.getDireccion() %></td>
-	 								<td><%=usu.getFecha_nacimiento() %></td>
-	 	
-	 								<td><!-- editar -->
-	 									<div>
-	 										<form action="ABMCUsuario" method="post">
-	 											<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
-	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
-	 											<input type="hidden" class="custom-control-input"  name="bandera" value="aModificar">
-	 											<button type="submit" class="btn btn-warning" name="optionBM" value="modificacion">Modificar</button>
-	 										</form>
-	 									</div>
-	 								</td>
-	 								<td><!-- borrar -->
-	 									<div>
-	 										<form action="ABMCUsuario" method="post">
-	 											<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
-	 											<input type="hidden" class="custom-control-input"  name="idUser" value="<%=usu.getId_usuario()%>">
-	 											<button type="submit" class="btn btn-danger" name="optionBM" value="baja">Eliminar</button>
-	 										</form>
-	 									</div>
-	 								</td>
-	 								
-	 								
-	 							</tr>
-	 						<%}} %>
-	 						</tbody>
-	 						
-	 					</table>
-	 				</div>
-	 			</div>
-	 	</div>
+	<%if(userLogin.getRol().getId_rol() == 1){ %>
+		<h1 class="text-center">Administrador <%=userLogin.getUsername() %></h1>
+    <div class="grande container-fluid d-flex justify-content-center flex-wrap align-content-center">
+
+		<form action="Conexion" method="post">
+		
+			<div class="card box1 ">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+       			<div class="card-body">
+       				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+       				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
+          			<button class="btn btn-link text-center" type="submit" name="optionBM" value="firstlog">Usuarios</button>
+        		</div>		
+    		</div>
+			
+		</form>
+      
+
+
+      <div class="card box1">
+        <a href="#"  class="text-decoration-none text-dark">
+        <img class="card-img-top" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">Planes</h5>
+        </div>
+      </a>
       </div>
-      <div class="tab-pane fade" id="opcion2" >
-      Cras non purus urna. Vestibulum nec felis felis. Quisque luctus vehicula ipsum,
-      id pellentesque nulla luctus at. Maecenas ut sodales velit. Sed orci leo,
+
+      <div class="card box1">
+        <a href="#" class="text-decoration-none text-dark">
+        <img class="card-img-top" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">Instructores</h5>
+        </div>
+      </a>
       </div>
-      <div class="tab-pane fade" id="opcion3">
-      Etiam congue, metus eu ultricies euismod, est magna condimentum sem, eget commodo
-      elit nisl id sapien. Proin sodales accumsan nulla non molestie. Nulla tempus
-      congue arcu, a sagittis ante dapibus vitae. Proin tincidunt tincidunt accumsan.
-      dignissim id dapibus eget, posuere eu nibh.
+
+      <div class="card box1">
+        <a href="#"  class="text-decoration-none text-dark">
+        <img class="card-img-top" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">Rutinas</h5>
+        </div>
+      </a>
       </div>
-    </div>
-  </div>
-  
-  
+
+      <div class="card box1">
+        <a href="#" class="text-decoration-none text-dark">
+        <img class="card-img-top" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center ">Grupo Musculo</h5>
+        </div>
+      </a>
+      </div>
+
+
+   </div>
+   <% }else if(userLogin.getRol().getId_rol() == 2){ %>
+  		<h1>menu de encargado</h1>
+  <%}else if(userLogin.getRol().getId_rol() == 3){ %>
+  		<h1>menu usuario</h1>
+  <%} %>
   
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

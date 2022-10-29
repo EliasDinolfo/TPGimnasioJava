@@ -1,0 +1,23 @@
+
+.grande{
+    /* border: 1px solid black; */
+    height: 94vh;
+    background-color: antiquewhite;
+}
+
+.card{
+    width: 200px;
+    border: 2px solid black;
+    height: 190px;
+    margin:20px;
+    border:none;
+}
+
+[a]{
+	text-decoration: none;
+}
+
+.box1:hover{
+   box-shadow:1px 1px 10px black ;
+}
+

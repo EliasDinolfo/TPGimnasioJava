@@ -53,11 +53,11 @@ public class Signin extends HttpServlet {
 		
 		if(user!=null) {
 			
-			LinkedList<Usuario> users = usuarioLogic.getAll();
+//			LinkedList<Usuario> users = usuarioLogic.getAll();
 			//LinkedList<Grupo_Musculo> grupo_musculo=usuarioLogic.get
 			
 			request.getSession().setAttribute("usuarioLogin", user);
-			request.setAttribute("listaUsuarios", users);
+//			request.setAttribute("listaUsuarios", users);
 			
 			request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
 		}
