@@ -126,18 +126,17 @@ public class DataInstructor {
 		try {
 			stmt=dbConnector.getInstancia().getConn().
 					prepareStatement(
-							"update instructor set tipo_doc=?, nombre=?,"
+							"update instructor set nombre=?,"
 							+ "apellido=?, fecha_nacimiento=?, email=?, telefono=?"
 							+ "where dni=?");
 			
-			stmt.setString(1, instructor.getTipo_doc());
-			stmt.setString(2, instructor.getNombre());
-			stmt.setString(3, instructor.getApellido());
-			stmt.setObject(4, instructor.getFecha_nacimiento());
-			stmt.setString(5, instructor.getEmail());
-			stmt.setString(6, instructor.getTelefono());
+			stmt.setString(1, instructor.getNombre());
+			stmt.setString(2, instructor.getApellido());
+			stmt.setObject(3, instructor.getFecha_nacimiento());
+			stmt.setString(4, instructor.getEmail());
+			stmt.setString(5, instructor.getTelefono());
 			
-			stmt.setString(7, instructor.getDni());
+			stmt.setString(6, instructor.getDni());
 				
 			stmt.executeUpdate();
 		} catch (SQLException e) {

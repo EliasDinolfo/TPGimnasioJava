@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.Instructor;
 import entities.Usuario;
+import logic.InstructorLogic;
 import logic.UsuarioLogic;
 
 /**
@@ -49,13 +51,24 @@ public class Conexion extends HttpServlet {
 //		Usuario u =ctrlUsu.getById(Integer.parseInt(idUser));
 		Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));
 		
-		LinkedList<Usuario> users = ctrlUsu.getAll();
-		
-		
 		request.getSession().setAttribute("usuarioLogin", userLogin);
-		request.setAttribute("listaUsuarios", users);
+		
+		switch (opcion) {
+		case "firstlog": {
+			LinkedList<Usuario> users = ctrlUsu.getAll();
+			request.setAttribute("listaUsuarios", users);
+			request.getRequestDispatcher("WEB-INF/UsersList.jsp").forward(request, response);
+		}
+		case "instructores":
+			InstructorLogic ctrlIns = new InstructorLogic();
+			LinkedList<Instructor> instructores = ctrlIns.getAll();
+			request.setAttribute("listaInstructores", instructores);
+			request.getRequestDispatcher("WEB-INF/InstructoresList.jsp").forward(request, response);
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + opcion);
+		}
 
-		request.getRequestDispatcher("WEB-INF/UsersList.jsp").forward(request, response);
+		
 	}
 
 }
