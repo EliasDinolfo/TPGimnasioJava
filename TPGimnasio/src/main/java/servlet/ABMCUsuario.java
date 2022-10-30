@@ -99,6 +99,10 @@ public class ABMCUsuario extends HttpServlet {
 			
 			request.getRequestDispatcher("WEB-INF/altaEncargado.jsp").forward(request, response);
 		break;
+		case "consulta":
+			
+			request.getRequestDispatcher("WEB-INF/consulta.jsp").forward(request, response);
+		break;
 		
 		case "modificacion":
 			//devolver una bandera q primero rediriga a modificar el user y una vez q fue hecho que se haga el update
