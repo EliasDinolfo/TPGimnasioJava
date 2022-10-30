@@ -15,7 +15,7 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 <!-- Bootstrap core CSS -->
 <link href="style/bootstrap.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="style/styles.css" rel="stylesheet">
+<style><%@include file="/WEB-INF/estilos/estilo.css"%></style>
 </head>
 <body>
 	<h4>Usuario: <%=userLogin.getUsername()%></h4>
@@ -45,6 +45,7 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 	 					<table class="table">
 	 						<thead>
 	 							<tr>
+	 								<th></th>
 	 								<th>ID</th>
 	 								<th>Nombre</th>
 	 								<th>Apellido</th>
@@ -68,6 +69,19 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 										if (usu.getRol().getId_rol() == 3) {
 									%><!-- para que no muestre al administrador -->
 									<tr>
+									
+									<td>
+											<!-- consulta -->
+											<div>
+												<form action="ABMCUsuario" method="post">
+													<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+													<input type="hidden" class="custom-control-input" name="idUser" value="<%=usu.getId_usuario()%>">
+													 <input type="hidden" class="custom-control-input" name="bandera" value="aModificar">
+													<button type="submit" class="btn btn-consulta btn-primary text-center " name="optionBM" value="consulta">!</button>
+												</form>
+											</div>
+										</td>
+									
 										<td><%=usu.getId_usuario()%></td>
 										<td><%=usu.getNombre()%></td>
 										<td><%=usu.getApellido()%></td>

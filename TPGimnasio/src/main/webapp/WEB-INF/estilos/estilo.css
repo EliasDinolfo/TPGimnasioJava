@@ -13,8 +13,14 @@
     border:none;
 }
 
-.btn{
+.cuadros{
 	background: transparent;
+}
+
+.btn-consulta{
+	width:35px;
+	height:35px;
+	border-radius: 20px;
 }
 
 .box1:hover{
