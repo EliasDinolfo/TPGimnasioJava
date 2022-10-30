@@ -8,7 +8,6 @@
 <title>Registro</title>
 <link rel="stylesheet" href="style/styles.css">
 <link href="style/bootstrap.css" rel="stylesheet">
-
 </head>
 <body>
 	
@@ -20,7 +19,10 @@
             <button type="button" class="close" data-dismiss="alert">
               <span>x</span>
             </button>
-   		 </div>      
+   		 </div>    
+   		 
+   
+   		 
 		<h1 class="text-center">Registro</h1>
 		<form action="registro" method="post" class="form-registro ">
 		
@@ -66,7 +68,7 @@
 					<option value="femenino">Femenino</option>
 					<option value="masculino">Masculino</option>
 					<option value="noBinario">No Binario</option>
-					<option value="notAnswer">Prefiero no decirlo</option>
+					<option value="notAnswered">Prefiero no decirlo</option>
 					<option value="UNDEFINED">Otro</option>
 				</select>
 			</div>

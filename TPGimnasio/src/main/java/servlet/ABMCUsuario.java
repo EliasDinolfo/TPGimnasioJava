@@ -73,19 +73,31 @@ public class ABMCUsuario extends HttpServlet {
 		
 		String bandera="";
 		String opcion = request.getParameter("optionBM");
-		String idUser = request.getParameter("idUser");
+		Usuario u ;
+		
+		
 		String idUserLogin = request.getParameter("idUserLogin");
 		
-		Usuario u =ctrlUsu.getById(Integer.parseInt(idUser));
+		
 		Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));
 		
 		request.getSession().setAttribute("usuarioLogin", userLogin);
-		request.setAttribute("usuario", u);
+		
+		
+		if(!opcion.equalsIgnoreCase("alta")) {
+			String idUser = request.getParameter("idUser");
+			u =ctrlUsu.getById(Integer.parseInt(idUser));
+			request.setAttribute("usuario", u);
+		}else {
+			 u = new Usuario();
+			request.setAttribute("usuario", u);
+		}
 		
 		
 		switch (opcion) {
 		case "alta":
-			request.getRequestDispatcher("WEB-INF/abmcExitoso.jsp").forward(request, response);;
+			
+			request.getRequestDispatcher("WEB-INF/altaEncargado.jsp").forward(request, response);
 		break;
 		
 		case "modificacion":

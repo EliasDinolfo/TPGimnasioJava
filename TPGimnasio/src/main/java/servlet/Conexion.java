@@ -54,8 +54,7 @@ public class Conexion extends HttpServlet {
 		
 		request.getSession().setAttribute("usuarioLogin", userLogin);
 		request.setAttribute("listaUsuarios", users);
-//		request.setAttribute("usuario", u);
-		//listaUsuarios
+
 		request.getRequestDispatcher("WEB-INF/UsersList.jsp").forward(request, response);
 	}
 
