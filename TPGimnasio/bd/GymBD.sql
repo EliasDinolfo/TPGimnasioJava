@@ -91,7 +91,6 @@ CREATE TABLE `ejercicio` (
 
 LOCK TABLES `ejercicio` WRITE;
 /*!40000 ALTER TABLE `ejercicio` DISABLE KEYS */;
-INSERT INTO `ejercicio` VALUES (1,'Squat','Sentadillas o cuclillas, ejercicio bÃ¡sico del entrenamiento de fuerza','https://deportesyeducacionfisica.com/wp-content/uploads/2012/03/hacer-sentadillas-correctamente.jpg',NULL),(2,'Crunches','Ejercicio abdominal','https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/crunch-1588842220.jpg?resize=480:*',NULL),(3,'Plank','Ejercicio abdominal','https://mejorconsalud.as.com/wp-content/uploads/2016/11/Hacer-plank-todos-los-di%CC%81as.jpg',NULL),(4,'Push Press','Ejercicios de empuje con hombros','https://www.rutinaejercicios.com/pushpress.jpg',NULL),(5,'SDHP','Sumo Deadlift High Pull. Ejercicio compuesto','https://i.ytimg.com/vi/gh55vVlwlQg/maxresdefault.jpg',NULL),(6,'KB Row','Remo con pesa rusa','https://i.blogs.es/23f5ad/kbinfo_dblbentoverrow/450_1000.webp',NULL),(7,'Power Clean','Ejercicio compuesto decarga de barra','https://i.ytimg.com/vi/0aP3tgKZcHQ/maxresdefault.jpg',NULL),(8,'Front Squat','Sentadilla con barra en la parte posterior','https://static.strengthlevel.com/images/illustrations/front-squat-1000x1000.jpg',NULL),(9,'Box Jump','Salto sobre cajÃ³n','https://media.istockphoto.com/vectors/box-jumps-woman-silhouettes-colorful-plyometric-exercise-illustration-vector-id1214450733?k=20&m=1214450733&s=170667a&w=0&h=sNbGnKZdb10KXppplGN25nYrAtPY82-iqiOsHQn5Q6c=',NULL),(10,'HSPU','Handstand Push Up. Empuje hacia arriba de todo el cuerpo','https://www.estilorx.com/wp-content/uploads/2015/03/handstand-pushup-flexiones-invertidas-crossfit.jpg',NULL),(11,'Hollow Rock','Ejercicio abdominal','https://images.hola.com/imagenes/estar-bien/20210315185932/ejercicio-abdominales-hollow-rock/0-929-847/hollow-rock-z.jpg',NULL),(12,'Run','Correr','https://us.123rf.com/450wm/neyro2008/neyro20081509/neyro2008150900122/45734642-ejecuci%C3%B3n-de-siluetas-de-personas-corrida-deporte-fitness-activo-el-ejercicio-y-la-atleta-ilustraci%C3%B3.jpg',NULL),(13,'Rope Jump','Salto a la cuerda','https://www.mensjournal.com/wp-content/uploads/mf/101-best-workouts-the-best-jump-rope-workout-3.jpg',NULL),(14,'Push Ups','Lagartijas','https://www.outsideonline.com/wp-content/uploads/2017/07/27/perfect-push-up_s.jpg',NULL),(15,'V-Ups','Ejercicio abdominal','https://previews.123rf.com/images/logo3in1/logo3in11806/logo3in1180600007/103193136-mujer-mostrando-paso-de-entrenamiento-abdominal-con-ejercicio-v-ups-ilustraci%C3%B3n-sobre-movimientos-co.jpg',NULL),(16,'Pull Ups',NULL,'https://www.puntofape.com/wp-content/uploads/2016/05/pullup-con-agarre-abierto.jpg',NULL),(17,'Muscle Ups','Ejercicio compuesto','https://mundoentrenamiento.com/wp-content/uploads/2021/08/ejecucion-del-muscle-up.jpeg',NULL),(18,'Deadlift','Peso muerto','https://image.shutterstock.com/image-vector/man-doing-barbell-deadlifts-exercise-260nw-2031951569.jpg',NULL),(19,'Burpee',NULL,'https://i.imgur.com/a56Ib2p.jpg',NULL);
 /*!40000 ALTER TABLE `ejercicio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +117,6 @@ CREATE TABLE `ejercicio_grupo` (
 
 LOCK TABLES `ejercicio_grupo` WRITE;
 /*!40000 ALTER TABLE `ejercicio_grupo` DISABLE KEYS */;
-INSERT INTO `ejercicio_grupo` VALUES (3,1),(7,1),(8,1),(9,2),(9,3),(2,4),(6,4),(3,5),(6,5),(7,5),(8,5),(2,6),(10,6),(3,7),(7,7),(10,7),(3,8),(7,8),(8,8),(3,9),(7,9),(8,9),(12,9),(2,10),(4,10),(5,10),(6,10),(10,10),(9,11),(3,12),(7,12),(8,12),(12,12),(3,13),(7,13),(8,13),(12,13),(1,14),(4,14),(5,14),(10,14),(9,15),(2,16),(4,16),(5,16),(6,16),(10,16),(1,17),(2,17),(4,17),(5,17),(6,17),(10,17),(7,18),(1,19),(3,19),(4,19),(5,19),(7,19),(8,19),(10,19),(12,19);
 /*!40000 ALTER TABLE `ejercicio_grupo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +142,6 @@ CREATE TABLE `grupo_musculo` (
 
 LOCK TABLES `grupo_musculo` WRITE;
 /*!40000 ALTER TABLE `grupo_musculo` DISABLE KEYS */;
-INSERT INTO `grupo_musculo` VALUES (1,'Pectoral','MÃºsculo compuesto, conecta la parte delantera del pecho humano'),(2,'Dorsal','MÃºsculo compuesto, localizado posterior al brazo'),(3,'CuÃ¡driceps','Compuesto de cuatro cabezas musculares'),(4,'BÃ­ceps','Pertenece a la regiÃ³n anterior del brazo, formado por dos cabezas'),(5,'TrÃ­ceps','MÃºsculo situado en la regiÃ³n posterior del brazo'),(6,'Hombros',NULL),(7,'Isquios','Grupo de 3 mÃºsculos, extendido a lo largo de la parte posterior del muslo desde la cadera hasta la zona justo debajo de la rodilla'),(8,'GlÃºteos','MÃºsculos situados detras de la pelvis'),(9,'Abdominales',NULL),(10,'Antebrazo',NULL),(11,'Cuello',NULL),(12,'Gemelos','Formado por 2 cabezas musculares, situado en la regiÃ³n posterior de la pierna');
 /*!40000 ALTER TABLE `grupo_musculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,7 +198,6 @@ CREATE TABLE `instructor` (
 
 LOCK TABLES `instructor` WRITE;
 /*!40000 ALTER TABLE `instructor` DISABLE KEYS */;
-INSERT INTO `instructor` VALUES ('37129807','DNI','Aurelio','Buendia','1989-02-12','aurelionsol@gmail.com','2478 51-5909'),('42019128','DNI','Juana','Perello','1996-10-29','juannapep@gmail.com','341 890-9442'),('43149283','DNI','Hugo','Lozano','1999-02-28','hugitoloz@outlook.com','3436 43-0399'),('44874221','DNI','Maria','Carrera','1997-04-25','mariacarrera@gmail.com','341 506-9595');
 /*!40000 ALTER TABLE `instructor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,6 +213,7 @@ CREATE TABLE `plan` (
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   `fecha_expiracion` date NOT NULL,
+  `baja_logica` tinyint NULL,
   PRIMARY KEY (`id_plan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -227,7 +224,6 @@ CREATE TABLE `plan` (
 
 LOCK TABLES `plan` WRITE;
 /*!40000 ALTER TABLE `plan` DISABLE KEYS */;
-INSERT INTO `plan` VALUES (1,'All Levels','Entrenamiento apto para todas las edades y gÃ©nero','2022-12-31'),(2,'Advanced','Entrenamiento de crossfit avanzado','2022-12-31'),(3,'Cardio','Ejercicios cardiovasculares','2023-12-31'),(4,'Funcional','Ejercicios que se adaptan a los movimientos naturales del cuerpo humano','2023-12-31'),(5,'Yoga','Posturas fÃ­sicas, ejercicios de respiraciÃ³n y meditaciÃ³n','2022-12-31'),(6,'Fuerza','Entrenamiento de fuerza muscular','2024-12-31');
 /*!40000 ALTER TABLE `plan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -304,7 +300,6 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES (1,'admin'),(2,'encargado'),(3,'usuario');
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -396,7 +391,6 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Lucas','Saavedra','341 635-7732','DNI','42044863','luc4ssavv@gmail.com','Masculino','lucassav12','contraseniaa11','Balcarce 1458',2,'1996-03-28'),(2,'Juan Jose','Ibarra','341 228-7356','DNI','39239476','jjibarra@outlook.com','Masculino','jujoabc','milanesagrande892','Italia 892',2,'1989-06-12'),(3,'Luis','Nieto','3329 59-5483','DNI','42965423','luisingnn@gmail.com','Masculino','luchotop','guantelete','9 de Julio 3023',3,'2000-04-26'),(4,'Angela','Castro','341 672-8871','DNI','42164672','angelacastro0@gmail.com.ar','Femenino','angieecc','f4bric4dep4stas','Cerrito 464',3,'1999-12-10'),(5,'German','Perez','3460 69-1417','DNI','38923598','germanoperez@gmail.com','Masculino','germancito','aleatorio0o0','Francia 1221',3,'1985-01-27'),(6,'Sara','Guirado','3415 96-5937','DNI','43077525','saritaguirado20@gmail.com','Femenino','saraa19','unodostres321','Moreno 2013',3,'2002-04-28'),(7,'Camila','Morilla','3412 76-8213','DNI','45698127','acamiliamor@outlook.com',NULL,'camillusy','pizzaconanchoas','Zeballos 1342',3,'2004-02-26'),(8,'Andres','Jimeno','3464 62-0330','DNI','36289631','adresjimeno@abc.gov.ar','Masculino','andresitoo','andresstmb','Saavedra 543',3,'1985-07-22'),(9,'Josefina','Sanchez','341 553-9241','DNI','40123891','josesanchez@gmail.com','Femenino','josesa','facildehackear0','Laprida 2020',2,'1994-12-31'),(10,'Administrador','Supremo','000 000-0000','DNI','1000000','adminsupremo@god.com','UNDEFINED','admin','admin','Nowhere 0000',1,'0000-01-01');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
