@@ -32,56 +32,90 @@
 		<h1 class="text-center">Administrador <%=userLogin.getUsername() %></h1>
     <div class="grande container-fluid d-flex justify-content-center flex-wrap align-content-center">
 
+		
 		<form action="Conexion" method="post">
 		
 			<div class="card box1 ">
+			<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+			<button class="btn  text-center p-0" type="submit" name="optionBM" value="firstlog">
         		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
        			<div class="card-body">
-       				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+       				
        				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
-          			<button class="btn btn-link text-center" type="submit" name="optionBM" value="firstlog">Usuarios</button>
-        		</div>		
+          			<h5>Usuarios</h5>
+        		</div>	
+        		</button>	
     		</div>
 			
 		</form>
       
 
+	<form action="#" method="post">
+		
+			<div class="card box1 ">
+				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
+				<button class="btn  text-center p-0" type="submit" name="optionBM" value="firstlog">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+       			<div class="card-body">
+       				
+       				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
+          			<h5>Planes</h5>
+        		</div>	
+        		</button>	
+    		</div>
+			
+	</form>
+	
+	<form action="#" method="post">
+		
+			<div class="card box1 ">
+				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
+				<button class="btn  text-center p-0" type="submit" name="optionBM" value="firstlog">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+       			<div class="card-body">
+       				
+       				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
+          			<h5>Instructores</h5>
+        		</div>	
+        		</button>	
+    		</div>
+			
+	</form>
+		
+     <form action="#" method="post">
+		
+			<div class="card box1 ">
+				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
+				<button class="btn  text-center p-0" type="submit" name="optionBM" value="firstlog">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+       			<div class="card-body">
+       				
+       				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
+          			<h5>Rutinas</h5>
+        		</div>	
+        		</button>	
+    		</div>
+			
+	</form> 
 
-      <div class="card box1">
-        <a href="#"  class="text-decoration-none text-dark">
-        <img class="card-img-top" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title text-center">Planes</h5>
-        </div>
-      </a>
-      </div>
+     <form action="#" method="post">
+		
+			<div class="card box1 ">
+				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
+				<button class="btn  text-center p-0" type="submit" name="optionBM" value="firstlog">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+       			<div class="card-body">
+       				
+       				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
+          			<h5>Grupo Musculo</h5>
+        		</div>	
+        		</button>	
+    		</div>
+			
+	</form> 
 
-      <div class="card box1">
-        <a href="#" class="text-decoration-none text-dark">
-        <img class="card-img-top" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title text-center">Instructores</h5>
-        </div>
-      </a>
-      </div>
 
-      <div class="card box1">
-        <a href="#"  class="text-decoration-none text-dark">
-        <img class="card-img-top" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title text-center">Rutinas</h5>
-        </div>
-      </a>
-      </div>
-
-      <div class="card box1">
-        <a href="#" class="text-decoration-none text-dark">
-        <img class="card-img-top" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title text-center ">Grupo Musculo</h5>
-        </div>
-      </a>
-      </div>
+     
 
 
    </div>
