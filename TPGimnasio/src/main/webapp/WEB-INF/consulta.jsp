@@ -20,7 +20,7 @@
 <body>
 
 	<h1>EL QUE INICIO SESION: <%=userLogin.getUsername() %> </h1>
-	<h2>pagina que vamos a mostrar todos los datos de un user</h2>
+	<h2>pagina que vamos a mostrar todos los datos de un userr</h2>
 	<ul>
 		<li>ID USUARIO: <%=u.getId_usuario() %></li>
 		<li>USERNAME: <%=u.getUsername() %></li>
