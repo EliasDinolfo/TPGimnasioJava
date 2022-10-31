@@ -46,18 +46,12 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 	 						<thead>
 	 							<tr>
 	 								<th></th>
-	 								<th>ID</th>
+	 								<th>Username</th>
 	 								<th>Nombre</th>
 	 								<th>Apellido</th>
-	 								<th>Telefono</th>
-	 								<th>Tipo Documento</th>
-	 								<th>DNI</th>
 	 								<th>Email</th>
-	 								<th>Genero</th>
-	 								<th>Username</th>
-	 								<th>Direccion</th>
-	 								<th>Fecha nacimiento</th>
-	 								<th>Rol</th>
+	 								<th>DNI</th>
+	
 	 								<th></th>
 	 								<th></th>
 	 							</tr>
@@ -82,17 +76,12 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 											</div>
 										</td>
 									
-										<td><%=usu.getId_usuario()%></td>
+										<td><%=usu.getUsername()%></td>
 										<td><%=usu.getNombre()%></td>
 										<td><%=usu.getApellido()%></td>
-										<td><%=usu.getTelefono()%></td>
-										<td><%=usu.getTipo_doc()%></td>
-										<td><%=usu.getDni()%></td>
 										<td><%=usu.getEmail()%></td>
-										<td><%=usu.getGenero()%></td>
-										<td><%=usu.getUsername()%></td>
-										<td><%=usu.getDireccion()%></td>
-										<td><%=usu.getFecha_nacimiento()%></td>
+										<td><%=usu.getDni()%></td>
+										
 
 										<td>
 											<!-- editar -->
@@ -151,18 +140,12 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 	 						<thead>
 	 							<tr>
 	 								<th></th>
-	 								<th>ID</th>
+	 								<th>Username</th>
 	 								<th>Nombre</th>
 	 								<th>Apellido</th>
-	 								<th>Telefono</th>
-	 								<th>Tipo Documento</th>
-	 								<th>DNI</th>
 	 								<th>Email</th>
-	 								<th>Genero</th>
-	 								<th>Username</th>
-	 								<th>Direccion</th>
-	 								<th>Fecha nacimiento</th>
-	 								<th>Rol</th>
+	 								<th>DNI</th>
+	
 	 								<th></th>
 	 								<th></th>
 	 							</tr>
@@ -187,17 +170,11 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 											</div>
 										</td>
 									
-										<td><%=usu.getId_usuario()%></td>
+										<td><%=usu.getUsername()%></td>
 										<td><%=usu.getNombre()%></td>
 										<td><%=usu.getApellido()%></td>
-										<td><%=usu.getTelefono()%></td>
-										<td><%=usu.getTipo_doc()%></td>
-										<td><%=usu.getDni()%></td>
 										<td><%=usu.getEmail()%></td>
-										<td><%=usu.getGenero()%></td>
-										<td><%=usu.getUsername()%></td>
-										<td><%=usu.getDireccion()%></td>
-										<td><%=usu.getFecha_nacimiento()%></td>
+										<td><%=usu.getDni()%></td>
 
 										<td>
 											<!-- editar -->
