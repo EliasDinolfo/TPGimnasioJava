@@ -53,13 +53,10 @@
 	<form action="#" method="post">
 		
 			<div class="card box1 ">
-<<<<<<< HEAD
+
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
-				<button class="btn  text-center p-0" type="submit" name="optionBM" value="firstlog">
-=======
-				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
-				<button class="cuadros btn  text-center p-0" type="submit" name="optionBM" value="firstlog">
->>>>>>> branch 'master' of https://github.com/EliasDinolfo/TPGimnasioJava
+				<button class="btn  text-center p-0" type="submit" name="optionBM" value="firstlog"> 
+
         		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
        			<div class="card-body">
        				
@@ -74,13 +71,8 @@
 	<form action="Conexion" method="post">
 		
 			<div class="card box1 ">
-<<<<<<< HEAD
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 				<button class="btn  text-center p-0" type="submit" name="optionBM" value="instructores">
-=======
-				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
-				<button class="btn cuadros text-center p-0" type="submit" name="optionBM" value="firstlog">
->>>>>>> branch 'master' of https://github.com/EliasDinolfo/TPGimnasioJava
         		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
        			<div class="card-body">
        				
@@ -96,11 +88,10 @@
 		
 			<div class="card box1 ">
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
-<<<<<<< HEAD
+
 				<button class="btn  text-center p-0" type="submit" name="optionBM" value="instructores">
-=======
+
 				<button class="btn cuadros text-center p-0" type="submit" name="optionBM" value="firstlog">
->>>>>>> branch 'master' of https://github.com/EliasDinolfo/TPGimnasioJava
         		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
        			<div class="card-body">
        				

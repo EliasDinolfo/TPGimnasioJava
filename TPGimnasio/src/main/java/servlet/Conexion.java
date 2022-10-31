@@ -58,12 +58,14 @@ public class Conexion extends HttpServlet {
 			LinkedList<Usuario> users = ctrlUsu.getAll();
 			request.setAttribute("listaUsuarios", users);
 			request.getRequestDispatcher("WEB-INF/UsersList.jsp").forward(request, response);
+			break;
 		}
 		case "instructores":
 			InstructorLogic ctrlIns = new InstructorLogic();
 			LinkedList<Instructor> instructores = ctrlIns.getAll();
 			request.setAttribute("listaInstructores", instructores);
 			request.getRequestDispatcher("WEB-INF/InstructoresList.jsp").forward(request, response);
+			break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
 		}
