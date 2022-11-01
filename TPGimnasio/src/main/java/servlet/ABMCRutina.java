@@ -72,14 +72,12 @@ public class ABMCRutina extends HttpServlet {
 				request.getRequestDispatcher("WEB-INF/altaRutina.jsp").forward(request, response);
 			}
 			else {
-				int id_rutina = Integer.parseInt(request.getParameter("id"));
 				String nombre = request.getParameter("nombre");
 				String semanas = request.getParameter("semanas");
 				String nivel = request.getParameter("nivel");
 				String comentario = request.getParameter("comentario");
 			
 				Rutina rut = new Rutina();
-				rut.setId_rutina(id_rutina);
 				rut.setNombre(nombre);
 				rut.setSemanas(semanas);
 				rut.setNivel(nivel);

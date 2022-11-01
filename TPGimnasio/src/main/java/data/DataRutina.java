@@ -28,7 +28,7 @@ public class DataRutina {
 					Rutina in=new Rutina();
 					in.setId_rutina(rs.getInt("id_rutina"));
 					in.setNombre(rs.getString("nombre"));
-					in.setComentario(rs.getString("semanas"));
+					in.setSemanas(rs.getString("semanas"));
 					in.setNivel(rs.getString("nivel"));
 					in.setComentario(rs.getString("comentario"));
 					de.setEjercicios(in);
