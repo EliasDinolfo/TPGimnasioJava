@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entities.Instructor;
 import entities.Rutina;
 import entities.Usuario;
 import logic.RutinaLogic;
@@ -110,7 +107,7 @@ public class ABMCRutina extends HttpServlet {
 				int id_rutina = Integer.parseInt(request.getParameter("id"));
 				String nombre = request.getParameter("nombre");
 				String semanas = request.getParameter("semanas");
-				String nivel = request.getParameter("nivel");
+				String nivel = request.getParameter("selectNivel");
 				String comentario = request.getParameter("comentario");
 				
 				r.setId_rutina(id_rutina);
