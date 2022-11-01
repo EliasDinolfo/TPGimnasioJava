@@ -56,6 +56,9 @@ public class Rutina {
 	public void setPlanes(Plan plan) {
 		this.planes.add(plan);
 	}
+	public LinkedList<Plan> getPlanes(){
+		return planes;
+	}
 
 	@Override
 	public String toString() {
