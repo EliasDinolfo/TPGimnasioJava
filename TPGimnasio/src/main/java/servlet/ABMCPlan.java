@@ -51,9 +51,7 @@ public class ABMCPlan extends HttpServlet {
 		String opcion = request.getParameter("optionBM");
 		Plan p;
 		
-		String idUserLogin = request.getParameter("idUserLogin");
-		Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));		
-		request.getSession().setAttribute("usuarioLogin", userLogin);
+		
 		
 		LinkedList<Plan> planes = ctrlPlan.getAll();
 		request.setAttribute("listaPlanes", planes);
@@ -62,7 +60,10 @@ public class ABMCPlan extends HttpServlet {
 //			String idUser = request.getParameter("idUser");
 //			u =ctrlUsu.getById(Integer.parseInt(idUser));
 //			request.setAttribute("usuario", u);
-	
+			String idUserLogin = request.getParameter("idUserLogin");
+			Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));		
+			request.getSession().setAttribute("usuarioLogin", userLogin);
+			
 			String idPlan = request.getParameter("idPlan");
 			
 			 p =ctrlPlan.getById(Integer.parseInt(idPlan));
