@@ -46,6 +46,7 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 	 						<thead>
 	 							<tr>
 	 								<th></th>
+	 								<th>ID</th>
 	 								<th>Username</th>
 	 								<th>Nombre</th>
 	 								<th>Apellido</th>
@@ -75,7 +76,7 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 												</form>
 											</div>
 										</td>
-									
+										<td><%=usu.getId_usuario()%></td>
 										<td><%=usu.getUsername()%></td>
 										<td><%=usu.getNombre()%></td>
 										<td><%=usu.getApellido()%></td>
@@ -140,6 +141,7 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 	 						<thead>
 	 							<tr>
 	 								<th></th>
+	 								<th>ID</th>
 	 								<th>Username</th>
 	 								<th>Nombre</th>
 	 								<th>Apellido</th>
@@ -170,6 +172,7 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 											</div>
 										</td>
 									
+										<td><%=usu.getId_usuario()%></td>
 										<td><%=usu.getUsername()%></td>
 										<td><%=usu.getNombre()%></td>
 										<td><%=usu.getApellido()%></td>

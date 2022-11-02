@@ -258,13 +258,14 @@ public class DataUsuario {
 	
 	public void remove(Usuario usuario) {
 		PreparedStatement stmt= null;
-		bajaUsuariodePlan(usuario);
+		
 		try {
 			stmt=dbConnector.getInstancia().getConn().
 					prepareStatement(
 							"delete from usuario where id_usuario=?");
 			stmt.setInt(1, usuario.getId_usuario());
 			stmt.executeUpdate();
+			bajaUsuariodePlan(usuario);
 		} catch (SQLException e) {
             e.printStackTrace();
 		} finally {
