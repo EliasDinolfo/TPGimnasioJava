@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entities.Instructor;
+import entities.Plan;
 import entities.Rutina;
 import entities.Usuario;
 import logic.InstructorLogic;
+import logic.PlanesLogic;
 import logic.RutinaLogic;
 import logic.UsuarioLogic;
 
@@ -73,6 +75,13 @@ public class Conexion extends HttpServlet {
 			LinkedList<Rutina> rutinas = ctrlRut.getAll();
 			request.setAttribute("listaRutina", rutinas);
 			request.getRequestDispatcher("WEB-INF/listaRutina.jsp").forward(request, response);
+			break;
+			
+		case "planes":
+			PlanesLogic ctrlPlan = new PlanesLogic();
+			LinkedList<Plan> planes = ctrlPlan.getAll();
+			request.setAttribute("listaPlanes", planes);
+			request.getRequestDispatcher("WEB-INF/PlanList.jsp").forward(request, response);
 			break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
