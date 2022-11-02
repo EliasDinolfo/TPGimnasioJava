@@ -21,9 +21,20 @@ LinkedList<Plan> planlist = (LinkedList<Plan>) request.getAttribute("listaPlanes
 
 </head>
 <body>
+	<div <%= request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert alert-danger alert-dismissible">
+            <p><%= request.getAttribute("mensaje") %></p>
+            <button type="button" class="close" data-dismiss="alert">
+              <span>x</span>
+            </button>
+    </div> 
 	<h2>Lista de planes</h2>
 	
 	<div class="container">
+	 		<div class="">
+	 			<form action="ABMCPlan" method="post" >											
+	 				<button type="submit" class="btn btn-success" name="optionBM" value="alta">Agregar</button>
+	 			</form>
+	 		</div>
 	<div class="col-12 col-sm-12 col-lg-12">
 	 				<div class="table-responsive">
 	 					<table class="table">
@@ -40,10 +51,7 @@ LinkedList<Plan> planlist = (LinkedList<Plan>) request.getAttribute("listaPlanes
 	 						</thead>
 	 						<tbody>
 	 						
-	 						<%
-									for (Plan pl : planlist ) {
-										
-									%><!-- para que no muestre al administrador -->
+	 						<%for (Plan pl : planlist ) {%>
 									<tr>
 									
 									<td>
@@ -68,7 +76,7 @@ LinkedList<Plan> planlist = (LinkedList<Plan>) request.getAttribute("listaPlanes
 											<div>
 												<form action="ABMCPlan" method="post">
 													<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
-													<input type="hidden" class="custom-control-input" name="idUser" value="<%=pl.getId_plan()%>">
+													<input type="hidden" class="custom-control-input" name="idPlan" value="<%=pl.getId_plan()%>">
 													 <input type="hidden" class="custom-control-input" name="bandera" value="aModificar">
 													<button type="submit" class="btn btn-warning" name="optionBM" value="modificacion">Modificar</button>
 												</form>
@@ -79,7 +87,7 @@ LinkedList<Plan> planlist = (LinkedList<Plan>) request.getAttribute("listaPlanes
 											<div>
 												<form action="ABMCPlan" method="post">
 													<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
-													<input type="hidden" class="custom-control-input" name="idUser" value="<%=pl.getId_plan()%>">
+													<input type="hidden" class="custom-control-input" name="idPlan" value="<%=pl.getId_plan()%>">
 													<button type="submit" class="btn btn-danger" name="optionBM" value="baja">Eliminar</button>
 												</form>
 											</div>
@@ -97,5 +105,10 @@ LinkedList<Plan> planlist = (LinkedList<Plan>) request.getAttribute("listaPlanes
 						</div>
 					</div>
 					</div>
+					
+					
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
