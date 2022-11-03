@@ -93,6 +93,8 @@ public class ABMCInstructor extends HttpServlet {
 				try {
 					ctrlIns.altaInstructor(ins);
 					request.setAttribute("mensaje", "Instructor añadido satisfactoriamente.");
+					request.setAttribute("color","alert alert-success");
+					request.setAttribute("idFila", ins.getDni());
 					request.getRequestDispatcher("WEB-INF/InstructoresList.jsp").forward(request, response);
 						
 				} catch (Exception e) {
@@ -113,7 +115,7 @@ public class ABMCInstructor extends HttpServlet {
 				String nombre = request.getParameter("name");
 				String apellido = request.getParameter("surname");
 				String telefono = request.getParameter("telephone");
-				String email = request.getParameter("dni");
+				String email = request.getParameter("email");
 				String fechaNacString = request.getParameter("fechaNacimiento");
 				i.setDni(dni);
 				i.setNombre(nombre);
@@ -126,18 +128,26 @@ public class ABMCInstructor extends HttpServlet {
 				
 				ctrlIns.modifyInstructor(i);
 				request.setAttribute("mensaje", "Instructor modificado satisfactoriamente.");
+				request.setAttribute("color","alert alert-success");
+				request.setAttribute("idFila", i.getDni());
 				request.getRequestDispatcher("WEB-INF/InstructoresList.jsp").forward(request, response);
 			}
 				
 			break;
-
+		case "consulta":
+			
+			request.getRequestDispatcher("WEB-INF/consultaInstructor.jsp").forward(request, response);
+		break;
+			
 		case "baja":
 				int planes=ctrlIns.bajaInstructor(i);
 				if(planes>0) {
 					request.setAttribute("mensaje", "No se puede eliminar el instructor, porque está inscripto en "+planes+" planes.");
+					request.setAttribute("color","alert alert-danger");
 				}
 				else {
 					request.setAttribute("mensaje", "Instructor eliminado satisfactoriamente.");
+					request.setAttribute("color","alert alert-success");
 				}
 				request.getRequestDispatcher("WEB-INF/InstructoresList.jsp").forward(request, response);
 			break;

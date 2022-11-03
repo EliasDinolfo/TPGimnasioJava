@@ -15,37 +15,38 @@
  %>
 </head>
 <body>
-	<h1>Aqui vamos a modificar el instructor</h1>
+<div class="container">
+	<h1>Modificación del Instructor:</h1>
 	
-	<h2>este es el instructor que modificaremos : <%=i.getNombre()+' '+i.getApellido() %>  DNI: <%=i.getDni() %></h2>
+	<h2><%=i.getNombre()+' '+i.getApellido() %>  DNI: <%=i.getDni() %></h2>
 	
 	
 	<form action="ABMCInstructor" method="post">
 		 <input type="hidden" class="custom-control-input" name="dni" value="<%=i.getDni()%>">
 		<div class="form-group  ">
 				<label for="inputNombre" class=""> Nombre</label>
-				<input id="inputNombre" name="name" class="form-control "  type="text" required>
+				<input id="inputNombre" name="name" class="form-control "  type="text" placeholder="<%=i.getNombre()%>" value="<%=i.getNombre()%>" required>
 			</div>
 			
 			<div class="form-group  ">
 				<label for="inputApellido" class=""> Apellido</label>
-				<input id="inputApellido" name="surname" class="form-control "  type="text">
+				<input id="inputApellido" name="surname" class="form-control " placeholder="<%=i.getApellido()%>" value="<%=i.getApellido()%>" type="text">
 			</div>
 			
 			<div class="form-group ">
 				<label for="inputTelefono" class=""> Telefono</label>
-				<input id="inputTelefono" name="telephone" class="form-control"  type="number">
+				<input id="inputTelefono" name="telephone" class="form-control" placeholder="<%=i.getTelefono()%>" value="<%=i.getTelefono()%>" type="number">
 			</div>
 			
 			<div class="form-group row ">
 				<label for="inputEmail" class="col-2"> Email</label>
-				<input id="inputEmail" name="email" class="form-control col-8"  type="email">
+				<input id="inputEmail" name="email" class="form-control col-8" placeholder="<%=i.getEmail()%>" placeholder="<%=i.getTelefono()%>" value="<%=i.getEmail()%>" type="email">
 			</div>
 			
 			
 			<div class="form-group row ">
 				<label for="inputFechaNacimiento" class="col-5">Fecha de nacimiento</label>
-				<input id="inputFechaNacimiento" name="fechaNacimiento" class="form-control col-5"  type="date" required>
+				<input id="inputFechaNacimiento" name="fechaNacimiento" class="form-control col-5" value="<%=i.getFecha_nacimiento()%>" type="date" required>
 			</div>		
 	
 		<div class="form-group">
@@ -56,7 +57,7 @@
 	 	</div>
 	 	
 	 </form>
-	 
+</div>	 
 	 
 </body>
 </html>

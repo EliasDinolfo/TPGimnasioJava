@@ -21,13 +21,12 @@ LinkedList<Instructor> instructorlist = insLogic.getAll();
 <link href="style/styles.css" rel="stylesheet">
 </head>
 <body>
-	 <div <%= request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert alert-danger alert-dismissible">
+	 <div <%=request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert-dismissible <%=request.getAttribute("color")%>">
             <p><%= request.getAttribute("mensaje") %></p>
             <button type="button" class="close" data-dismiss="alert">
-              <span>x</span>
+            <span>x</span>
             </button>
     </div>   
-
 	<h4>Usuario: <%=userLogin.getUsername()%></h4>
 	<div class="container">
      	<div class="row">
@@ -41,8 +40,8 @@ LinkedList<Instructor> instructorlist = insLogic.getAll();
 					 </form>
 				 </div>
 	 			<div class="col-12 col-sm-12 col-lg-12">
-	 				<div class="table-responsive">
-	 					<table class="table">
+	 			
+	 					<table class="table table-responsive">
 	 						<thead>
 	 							<tr>
 	 								<th>DNI</th>
@@ -61,7 +60,18 @@ LinkedList<Instructor> instructorlist = insLogic.getAll();
 	 						<%
 									for (Instructor ins : instructorlist) {
 									%>
-									<tr>
+									<tr class="<%= ins.getDni().equals(request.getAttribute("idFila"))?"table-secondary":""%>">
+									<td>
+											<!-- consulta -->
+											<div>
+												<form action="ABMCInstructor" method="post">
+													<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+													<input type="hidden" class="custom-control-input" name="dniInstructor" value="<%=ins.getDni()%>">
+													 <input type="hidden" class="custom-control-input" name="bandera" value="aModificar">
+													<button type="submit" class="btn btn-consulta btn-primary text-center " name="optionBM" value="consulta">!</button>
+												</form>
+											</div>
+										</td>
 										<td><%=ins.getDni()%></td>
 										<td><%=ins.getTipo_doc()%></td>
 										<td><%=ins.getNombre()%></td>
@@ -91,16 +101,6 @@ LinkedList<Instructor> instructorlist = insLogic.getAll();
 												</form>
 											</div>
 										</td>
-										<td>
-											<!-- borrar -->
-											<div>
-												<form action="#" method="post">
-													<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
-													<input type="hidden" class="custom-control-input" name="dniInstructor" value="<%=ins.getDni()%>">
-													<button disabled type="submit" class="btn btn-primary" name="optionBM" value="plan">Planes</button>
-												</form>
-											</div>
-										</td>
 
 									</tr>
 									<%				
@@ -109,7 +109,7 @@ LinkedList<Instructor> instructorlist = insLogic.getAll();
 								</tbody>
 
 							</table>
-						</div>
+					
 					</div>
 				</div>
 		</div>	
