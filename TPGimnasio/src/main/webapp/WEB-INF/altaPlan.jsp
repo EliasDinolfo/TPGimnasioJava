@@ -20,10 +20,16 @@ Plan p =(Plan)request.getAttribute("plan");
 </head>
 <body>
 <h2>Alta de un plan</h2>
+<h2>usuario: <%=userLogin.getUsername() %></h2>
 
 <div class="container">
 	<form action="ABMCPlan" method="post">
 	
+			<div class="form-group  ">
+				<label for="inputID" class=""> ID  Plan</label>
+				<input id="inputID" name="idPlan" class="form-control "  type="number" required>
+			</div>
+			
 			<div class="form-group  ">
 				<label for="inputNombre" class=""> Nombre</label>
 				<input id="inputNombre" name="name" class="form-control "  type="text" required>

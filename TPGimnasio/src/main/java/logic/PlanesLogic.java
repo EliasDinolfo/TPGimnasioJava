@@ -11,7 +11,7 @@ public class PlanesLogic {
 	private DataPlan dataP= new DataPlan();
 	
 	
-	public void altaPlan(Plan p) {
+	public void add(Plan p) {
 		dataP.add(p);
 	}
 	
@@ -27,7 +27,7 @@ public class PlanesLogic {
 		return dataP.getById(id);
 	}
 	
-	public void bajaPlan(Plan p) {
+	public void delete(Plan p) {
 		dataP.remove(p);
 	}
 	

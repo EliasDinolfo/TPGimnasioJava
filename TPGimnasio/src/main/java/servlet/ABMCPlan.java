@@ -86,12 +86,12 @@ public class ABMCPlan extends HttpServlet {
 			}else {
 				
 				
-				
+				String idPlan = request.getParameter("idPlan");
 				String nombre = request.getParameter("name");
 				String descripcion = request.getParameter("description");
 				String fechaExpiracion = request.getParameter("fechaExpiracion");
 				
-					
+					p.setId_plan(Integer.parseInt(idPlan));
 					p.setNombre(nombre);
 					p.setDescripcion(descripcion);
 					DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -99,9 +99,11 @@ public class ABMCPlan extends HttpServlet {
 					p.setFecha_expiracion(fechaExp);
 				
 				
-				ctrlPlan.altaPlan(p);
-				request.setAttribute("plan", p);
-				request.getRequestDispatcher("WEB-INF/PlanList.jsp").forward(request, response);
+				ctrlPlan.add(p);
+				
+//				request.setAttribute("mensaje", "Alta de plan exitoso");
+//				request.setAttribute("color", "primary");
+				request.getRequestDispatcher("WEB-INF/successfullPlancreated.jsp").forward(request, response);
 			}
 			
 			

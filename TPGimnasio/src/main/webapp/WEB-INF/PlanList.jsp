@@ -21,7 +21,7 @@ LinkedList<Plan> planlist = (LinkedList<Plan>) request.getAttribute("listaPlanes
 
 </head>
 <body>
-	<div <%= request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert alert-danger alert-dismissible">
+	<div <%= request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert alert-<%=request.getAttribute("color")==null? "danger" :"primary" %> alert-dismissible">
             <p><%= request.getAttribute("mensaje") %></p>
             <button type="button" class="close" data-dismiss="alert">
               <span>x</span>

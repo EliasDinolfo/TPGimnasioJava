@@ -51,7 +51,7 @@ public class Conexion extends HttpServlet {
 		String opcion = request.getParameter("optionBM");
 //		String idUser = request.getParameter("idUser");
 		String idUserLogin = request.getParameter("idUserLogin");
-		
+		String posible;
 //		Usuario u =ctrlUsu.getById(Integer.parseInt(idUser));
 		Usuario userLogin =ctrlUsu.getById(Integer.parseInt(idUserLogin));
 		
@@ -78,11 +78,24 @@ public class Conexion extends HttpServlet {
 			break;
 			
 		case "planes":
+			
+			
+			
 			PlanesLogic ctrlPlan = new PlanesLogic();
 			LinkedList<Plan> planes = ctrlPlan.getAll();
 			request.setAttribute("listaPlanes", planes);
+			
+			
+			 posible=request.getParameter("alta");
+			if(posible.equalsIgnoreCase("altadeplan")) {
+				request.setAttribute("mensaje", "Alta de plan exitoso");
+				request.setAttribute("color", "primary");
+			}
+			
 			request.getRequestDispatcher("WEB-INF/PlanList.jsp").forward(request, response);
+			
 			break;
+			
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
 		}
