@@ -79,7 +79,32 @@ public class ABMCPlan extends HttpServlet {
 		
 		switch (opcion) {
 		case "alta":
-			request.getRequestDispatcher("WEB-INF/altaPlan.jsp").forward(request, response);
+			bandera=request.getParameter("bandera");
+			
+			if (bandera.equalsIgnoreCase("aModificar")) {
+				request.getRequestDispatcher("WEB-INF/altaPlan.jsp").forward(request, response);
+			}else {
+				
+				
+				
+				String nombre = request.getParameter("name");
+				String descripcion = request.getParameter("description");
+				String fechaExpiracion = request.getParameter("fechaExpiracion");
+				
+					
+					p.setNombre(nombre);
+					p.setDescripcion(descripcion);
+					DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+					LocalDate fechaExp = LocalDate.parse(fechaExpiracion, dateFormat);
+					p.setFecha_expiracion(fechaExp);
+				
+				
+				ctrlPlan.altaPlan(p);
+				request.setAttribute("plan", p);
+				request.getRequestDispatcher("WEB-INF/PlanList.jsp").forward(request, response);
+			}
+			
+			
 			break;
 		
 		case "modificacion":
