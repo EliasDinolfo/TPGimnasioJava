@@ -63,12 +63,17 @@ public class Ejercicio {
 	public void setRutinas(Rutina rutina) {
 		this.rutinas.add(rutina);
 	}
+	
+	public LinkedList<Rutina> getRutinas(){
+		return rutinas;
+	}
+	
 	public void setGrupos_musculares(Grupo_Musculo grupo_muscular) {
 		this.grupos_musculares.add(grupo_muscular);
 	}
 
-	
-	
-	
+	public LinkedList<Grupo_Musculo> getGrupos_musculares(){
+		return grupos_musculares;
+	}
 	
 }
