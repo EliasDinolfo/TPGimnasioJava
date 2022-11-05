@@ -15,7 +15,6 @@
 	Ejercicio e =(Ejercicio)request.getAttribute("ejercicio");
  %>
  
-
 </head>
 <body>
 		<div class="container  ">

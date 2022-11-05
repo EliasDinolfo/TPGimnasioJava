@@ -68,13 +68,13 @@ public class ABMCRutina extends HttpServlet {
 		
 		case "alta":
 			bandera=request.getParameter("bandera");
-			if(bandera.equalsIgnoreCase("aAÃ±adir")) {
+			if(bandera.equalsIgnoreCase("aAñadir")) {
 				request.getRequestDispatcher("WEB-INF/altaRutina.jsp").forward(request, response);
 			}
 			else {
 				String nombre = request.getParameter("nombre");
 				String semanas = request.getParameter("semanas");
-				String nivel = request.getParameter("nivel");
+				String nivel = request.getParameter("selectNivel");
 				String comentario = request.getParameter("comentario");
 			
 				Rutina rut = new Rutina();
@@ -85,7 +85,7 @@ public class ABMCRutina extends HttpServlet {
 				
 				try {
 					ctrlRut.altaRutina(rut);
-					request.setAttribute("mensaje", "Rutina aÃ±adido satisfactoriamente.");
+					request.setAttribute("mensaje", "Rutina añadido satisfactoriamente.");
 					request.getRequestDispatcher("WEB-INF/listaRutina.jsp").forward(request, response);
 						
 				} catch (Exception e) {
