@@ -37,9 +37,9 @@
 				<label for="selectNivel" name="lblNivel"> Nivel</label>
 				<select class="form-select" name="selectNivel">
 					<option selected> Seleccione uno</option>
-					<option value="facil">Facil</option>
-					<option value="medio">Medio</option>
-					<option value="dificil">Dificil</option>
+					<option value="Facil">Facil</option>
+					<option value="Medio">Medio</option>
+					<option value="Dificil">Dificil</option>
 				</select>
 			</div>
 			
