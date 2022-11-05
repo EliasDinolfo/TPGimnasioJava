@@ -21,6 +21,7 @@ LinkedList<Plan> planlist = (LinkedList<Plan>) request.getAttribute("listaPlanes
 
 </head>
 <body>
+	<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
 	<div <%= request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert alert-<%=request.getAttribute("color")==null? "danger" :"primary" %> alert-dismissible">
             <p><%= request.getAttribute("mensaje") %></p>
             <button type="button" class="close" data-dismiss="alert">

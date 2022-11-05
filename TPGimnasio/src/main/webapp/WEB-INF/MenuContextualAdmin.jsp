@@ -8,7 +8,7 @@
         		Admin
       			</button>
       		<div class="dropdown-menu align">
-        	<button class="dropdown-item">Menu Admin</button>
+        	<a class="dropdown-item" href="Signin">Menu Admin</a>
         	<a class="dropdown-item" href="Signout">Cerrar Sesión</a>
       		</div>
     		</div>  

@@ -32,13 +32,12 @@ public class Signin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*if(request.getSession().getAttribute("usuarioLogin")!=null) {
+		if(request.getSession().getAttribute("usuarioLogin")!=null) {
 			request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
 		}
 		else {
 			request.getRequestDispatcher("signin.jsp").forward(request, response);
 		}
-		*/
 	}
 
 	/**

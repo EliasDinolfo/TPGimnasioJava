@@ -18,6 +18,7 @@ LinkedList<Usuario> userlist = (LinkedList<Usuario>) request.getAttribute("lista
 <style><%@include file="/WEB-INF/estilos/estilo.css"%></style>
 </head>
 <body>
+	<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
 	<h4>Usuario: <%=userLogin.getUsername()%></h4>
 	<div class="container">
     <ul class="nav nav-tabs my-3">
