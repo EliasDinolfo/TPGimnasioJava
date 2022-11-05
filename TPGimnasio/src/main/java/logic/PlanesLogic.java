@@ -6,6 +6,7 @@ import data.DataCosto;
 import data.DataPlan;
 import entities.Costo;
 import entities.Plan;
+import entities.Usuario;
 
 
 public class PlanesLogic {
@@ -44,6 +45,32 @@ public class PlanesLogic {
 		
 		
 		return costo;
+	}
+	
+	public LinkedList<Plan> getPlanesDisponibles(Usuario u){
+		LinkedList<Plan> planesUsuario = dataP.getPlanesUsuario(u);
+		LinkedList<Plan> planesTotales = dataP.getAll();
+		LinkedList<Plan> planesDisponibles = dataP.getAll();
+		
+		Plan planAEliminar = new Plan();
+		
+		for (Plan pt : planesTotales) {
+			for (Plan pu : planesUsuario) {
+				if (pt.getId_plan() == pu.getId_plan()) {
+					for (Plan pd : planesDisponibles) {
+						if (pt.getId_plan() == pd.getId_plan()) {
+							planAEliminar = pd;;
+						}
+					}
+					planesDisponibles.remove(planAEliminar);
+				}
+			}
+		}
+		return planesDisponibles;
+	}
+	
+	public void addUsuarioPlan(int idU, int idP) {
+		dataP.addUsuarioPlan(idU, idP);
 	}
 	
 }

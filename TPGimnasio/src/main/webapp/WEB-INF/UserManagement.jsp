@@ -138,7 +138,21 @@
    <% }else if(userLogin.getRol().getId_rol() == 2){ %>
   		<h1>menu de encargado</h1>
   <%}else if(userLogin.getRol().getId_rol() == 3){ %>
-  		<h1>menu usuario</h1>
+  		<h1 class="text-center">Usuario: <%=userLogin.getUsername() %></h1>
+  			<div class="grande container-fluid d-flex justify-content-center flex-wrap align-content-center">
+  				<form action="ConexionUsuario" method="post">
+		
+				<div class="card box1 ">
+					<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+					<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="inscripcionPlan">
+        			<img class="card-img-top border-0" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS23zB6-hZd7_8E3SJNnqedIPnKrJY1QON9AoTICa2d6l4_pO3W3cs5QFLFixyJCwKa_ME&usqp=CAU" alt="Imagen inscripcion">
+       				<div class="card-body">
+       					<h5>Inscribirse a un plan</h5>
+        			</div>	
+        			</button>	
+    			</div>	
+	</form> 
+  			</div>
   <%} %>
   
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

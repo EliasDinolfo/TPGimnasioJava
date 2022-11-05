@@ -274,7 +274,70 @@ public class DataPlan {
 		}
 	}
 	
+	public LinkedList<Plan> getPlanesUsuario(Usuario u){
+		PreparedStatement stmt = null;
+		ResultSet rs=null;
+		DataRutina dr= new DataRutina();
+		DataInstructor di= new DataInstructor();
+		DataUsuario du= new DataUsuario();
+		DataCosto dc = new DataCosto();
+		DataHorario dh=new DataHorario();
+		LinkedList<Plan> planes= new LinkedList<Plan>();
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select pl.*\r\n"
+					+ "from plan pl\r\n"
+					+ "inner join usuario_plan up\r\n"
+					+ "	on pl.id_plan=up.id_plan\r\n"
+					+ "where up.id_usuario=?");
+			stmt.setInt(1, u.getId_usuario());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Plan p=new Plan();
+					p.setId_plan(rs.getInt("id_plan"));
+					p.setNombre(rs.getString("nombre"));
+					p.setDescripcion(rs.getString("descripcion"));
+					p.setFecha_expiracion(rs.getObject("fecha_expiracion",LocalDate.class));
+					di.setInstructores(p);
+					dr.setRutinas(p);
+					du.setUsuarios(p);
+					dc.setCostos(p);
+					dh.setHorarios(p);
+					planes.add(p);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return planes;
+	}
 	
-	
+	public void addUsuarioPlan(int idU, int idP) {
+		PreparedStatement stmt = null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("insert into usuario_plan(id_usuario,id_plan) "
+					+ "values(?,?)");
+			stmt.setInt(1, idU);
+			stmt.setInt(2, idP);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
 
