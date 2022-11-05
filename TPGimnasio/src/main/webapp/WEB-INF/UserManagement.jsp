@@ -103,7 +103,7 @@
      <form action="#" method="post">
 		
 			<div class="card box1 ">
-				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
+				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="firstLog">
         		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
        			<div class="card-body">
@@ -116,11 +116,11 @@
 			
 	</form> 
 	
-	<form action="#" method="post">
+	<form action="Conexion" method="post">
 		
 			<div class="card box1 ">
-				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="">
-				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="firstLog">
+				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="ejercicios">
         		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
        			<div class="card-body">
        				

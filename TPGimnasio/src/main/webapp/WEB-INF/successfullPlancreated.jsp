@@ -23,10 +23,9 @@ Plan p =(Plan)request.getAttribute("plan");
 
 				<!--  request.setAttribute("mensaje", "Alta de plan exitoso");
 				request.setAttribute("color", "primary");-->
-
 	<form action="Conexion" method="post">
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
-				<input type="hidden" class="custom-control-input"  name="alta" value="altadeplan">
+				<input type="hidden" class="custom-control-input"  name="alta" value="modificacion">
 				<button class="btn btn-primary " type="submit" name="optionBM" value="planes"> volver</button>
 					
 	</form>

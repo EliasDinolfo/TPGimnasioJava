@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.Ejercicio;
 import entities.Instructor;
 import entities.Plan;
 import entities.Rutina;
 import entities.Usuario;
+import logic.EjercicioLogic;
 import logic.InstructorLogic;
 import logic.PlanesLogic;
 import logic.RutinaLogic;
@@ -78,9 +80,7 @@ public class Conexion extends HttpServlet {
 			break;
 			
 		case "planes":
-			
-			
-			
+		
 			PlanesLogic ctrlPlan = new PlanesLogic();
 			LinkedList<Plan> planes = ctrlPlan.getAll();
 			request.setAttribute("listaPlanes", planes);
@@ -94,6 +94,12 @@ public class Conexion extends HttpServlet {
 			
 			request.getRequestDispatcher("WEB-INF/PlanList.jsp").forward(request, response);
 			
+			break;
+		case "ejercicios":
+			EjercicioLogic ctrlEje = new EjercicioLogic();
+			LinkedList<Ejercicio> ejercicios = ctrlEje.getAll();
+			request.setAttribute("listaEjercicios", ejercicios);
+			request.getRequestDispatcher("WEB-INF/listaEjercicio.jsp").forward(request, response);
 			break;
 			
 		default:
