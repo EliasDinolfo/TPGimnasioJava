@@ -44,8 +44,7 @@ public class Horario {
 
 	@Override
 	public String toString() {
-		return "Horario [hora_inicio=" + hora_inicio + ", hora_fin=" + hora_fin + ", dias_semana=" + dias_semana
-				+ ", plan=" + plan + "]";
+		return "Horario [hora_inicio=" + hora_inicio + ", hora_fin=" + hora_fin + ", dias_semana=" + dias_semana +"]\n";
 	}
 	
 }

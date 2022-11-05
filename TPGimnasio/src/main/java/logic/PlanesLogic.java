@@ -3,8 +3,10 @@ package logic;
 import java.util.LinkedList;
 
 import data.DataCosto;
+import data.DataHorario;
 import data.DataPlan;
 import entities.Costo;
+import entities.Horario;
 import entities.Plan;
 import entities.Usuario;
 
@@ -13,6 +15,7 @@ public class PlanesLogic {
 
 	private DataPlan dataP= new DataPlan();
 	private DataCosto dataC=new DataCosto();
+	private DataHorario datah=new DataHorario();
 	private Costo costo=new Costo();
 	
 	public void add(Plan p) {
@@ -73,4 +76,11 @@ public class PlanesLogic {
 		dataP.addUsuarioPlan(idU, idP);
 	}
 	
+	public LinkedList<Horario> getHorarios(Plan p){
+		
+		LinkedList<Horario> horarios=new LinkedList<Horario>();
+		horarios.addAll(datah.getHorarios(p));
+	
+		return  horarios;
+	}
 }
