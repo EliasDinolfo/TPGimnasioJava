@@ -100,9 +100,7 @@ public class ABMCPlan extends HttpServlet {
 				
 				
 				ctrlPlan.add(p);
-				
-//				request.setAttribute("mensaje", "Alta de plan exitoso");
-//				request.setAttribute("color", "primary");
+
 				request.getRequestDispatcher("WEB-INF/successfullPlancreated.jsp").forward(request, response);
 			}
 			
@@ -115,11 +113,8 @@ public class ABMCPlan extends HttpServlet {
 			if (bandera.equalsIgnoreCase("aModificar")) {
 				request.getRequestDispatcher("WEB-INF/updatePlan.jsp").forward(request, response);
 			}else {
-				
-				
-				
-				String nombre = request.getParameter("nombre");
-				String descripcion = request.getParameter("descripcion");
+				String nombre = request.getParameter("name");
+				String descripcion = request.getParameter("description");
 				String fechaExpiracion = request.getParameter("fechaExpiracion");
 				
 					
@@ -133,6 +128,8 @@ public class ABMCPlan extends HttpServlet {
 				ctrlPlan.modifyPlan(p);
 				request.setAttribute("plan", p);
 				request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
+//				request.setAttribute("mensaje", "Presionaste consulta. A completar");
+//				request.getRequestDispatcher("WEB-INF/updateplanexitoso.jsp").forward(request, response);
 			}
 				
 			break;

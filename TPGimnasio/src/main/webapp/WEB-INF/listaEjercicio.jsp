@@ -11,8 +11,9 @@
 <title>Insert title here</title>
 <%
 Usuario userLogin = (Usuario) session.getAttribute("usuarioLogin");
-EjercicioLogic ejLogic = new EjercicioLogic();
-LinkedList<Ejercicio> ejerciciolist = ejLogic.getAll();
+LinkedList<Ejercicio> ejerciciolist = (LinkedList<Ejercicio>) request.getAttribute("listaEjercicios");
+//EjercicioLogic ejLogic = new EjercicioLogic();
+//LinkedList<> ejerciciolist = ejLogic.getAll();
 %>
 
 <!-- Bootstrap core CSS -->
@@ -63,7 +64,10 @@ LinkedList<Ejercicio> ejerciciolist = ejLogic.getAll();
 										<td><%=ej.getId_ejercicio()%></td>
 										<td><%=ej.getNombre()%></td>
 										<td><%=ej.getComentario()%></td>
-										<td><%=ej.getImagen()%></td>
+										<td>
+										
+										<img class="card-img-top border-0" src="<%=ej.getImagen()%>" alt="imagen" alt=" image cap">
+										</td>
 										<td><%=ej.getVideo()%></td>
 
 										<td>
