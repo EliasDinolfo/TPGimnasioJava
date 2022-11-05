@@ -86,16 +86,25 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 	</div>
 	
 	<div class="container mt-3">
-		<h2>Costo del plan:
+	
+		<div class="costosPlan">
+			<h2>Costo del plan:
 		
-		 <%Costo costo= ctrlPlan.getCostoActualPlan(p); %>
+					 <%Costo costo= ctrlPlan.getCostoActualPlan(p); %>
 		  
-		   <%if(costo != null){%>
-				$ <%=costo.getCosto() %>
-				 <%}else{%>
-					 Por el momento no hay informacion del costo de este plan. 
-			<% }%>
+		  				 <%if(costo != null){%>
+							$ <%=costo.getCosto() %>
+						 <%}else{%>
+					 		Por el momento no hay informacion del costo de este plan. 
+					<% }%>
 			</h2>
+		</div>
+		<div class="horariosPlan">
+		
+		</div>
+			
+			
+			
 	</div>
 	
 	  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
