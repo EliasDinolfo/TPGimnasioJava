@@ -1,3 +1,5 @@
+<%@page import="entities.Horario"%>
+<%@page import="java.util.LinkedList"%>
 <%@page import="entities.Costo"%>
 <%@page import="logic.PlanesLogic"%>
 <%@page import="entities.Plan"%>
@@ -88,7 +90,7 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 	<div class="container mt-3">
 	
 		<div class="costosPlan">
-			<h2>Costo del plan:
+			<h2>Costo mensual del plan:
 		
 					 <%Costo costo= ctrlPlan.getCostoActualPlan(p); %>
 		  
@@ -99,8 +101,41 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 					<% }%>
 			</h2>
 		</div>
-		<div class="horariosPlan">
 		
+		<div class="horariosPlan ">
+			<h2>Dia y Hora de clases</h2>
+			<%LinkedList<Horario> horarios= ctrlPlan.getHorarios(p); %>
+			
+			<%if(horarios.size()!=0){%>
+			<div class="table-responsive">
+				<table class="table table-light  table-bordered">
+					<thead class="table-dark">
+						<tr>
+							<th> Dias</th>
+	 						<th> Hora Inicio</th>
+	 						<th> Hora fin</th>
+						</tr>
+	 					
+
+					</thead>
+					
+				 	<tbody >
+				 		<%for (Horario hs : horarios) {%>
+				 		<tr>
+				 		
+				 				<td><%=hs.getDias_semana()%></td>
+								<td><%=hs.getHora_inicio()%></td>
+								<td><%=hs.getHora_fin()%></td>
+				 		</tr>
+				 				
+										
+				 		<%} %>
+				 	</tbody>
+				</table>
+			</div>
+			<%}else{ %>
+				<h3>Por el momento no hay informacion del horario de este plan</h3>
+			<%} %>
 		</div>
 			
 			

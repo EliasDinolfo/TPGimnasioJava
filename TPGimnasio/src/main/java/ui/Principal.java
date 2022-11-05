@@ -1,17 +1,22 @@
 package ui;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 import data.DataCosto;
+import data.DataHorario;
 import data.DataPlan;
 import data.DataUsuario;
 import entities.Costo;
+import entities.Horario;
+import entities.Plan;
 import entities.Usuario;
 import logic.PlanesLogic;
 import logic.UsuarioLogic;
 
 public class Principal {
 
+	@SuppressWarnings("null")
 	public static void main(String[] args) {
 		//este paquete se borrara en el futuro. ahora queda para probar la capa de logica
 		
@@ -40,17 +45,23 @@ public class Principal {
 		
 		DataPlan dp=new DataPlan();
 //		DataCosto dc=new DataCosto();
+		DataHorario dh= new DataHorario();
 		PlanesLogic ctp=new PlanesLogic();
 		//System.out.println(ctp.getCostoActualPlan(dp.getById(99999)));
 //		System.out.println(dc.getCosto());
-		Costo costo= ctp.getCostoActualPlan(dp.getById(99999)); 
+//		Costo costo= ctp.getCostoActualPlan(dp.getById(99999)); 
 		 
-		 if(costo != null){
-			 System.out.println(costo.getCosto());
-			 }else{
-				 System.out.println("no hay costo para este plan");
-		 }
+//		 if(costo != null){
+//			 System.out.println(costo.getCosto());
+//			 }else{
+//				 System.out.println("no hay costo para este plan");
+//		 }
 		
+		LinkedList<Horario> horarios= new LinkedList<Horario>();
+		
+		horarios.addAll(ctp.getHorarios(dp.getById(3)));
+		
+		System.out.println(horarios);
 		
 	} 
 		
