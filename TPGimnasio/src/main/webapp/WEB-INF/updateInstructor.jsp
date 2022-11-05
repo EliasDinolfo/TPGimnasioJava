@@ -55,7 +55,11 @@
 	 		<input type="hidden" class="custom-control-input"  name="bandera" value="Modificado">
 	 		<button type="submit" class="btn btn-warning" name="optionBM" value="modificacion">Modificar</button>
 	 	</div>
-	 	
+	 </form>
+	 <form action="ABMCInstructor" method="get">
+			<div class="form-group">
+      			<button type="submit" class="btn btn-secondary">Volver</button>
+    		</div>
 	 </form>
 </div>	 
 	 

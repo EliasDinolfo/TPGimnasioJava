@@ -44,6 +44,7 @@ LinkedList<Instructor> instructorlist = insLogic.getAll();
 	 					<table class="table table-responsive">
 	 						<thead>
 	 							<tr>
+	 								<th></th>
 	 								<th>DNI</th>
 	 								<th>Tipo Documento</th>
 	 								<th>Nombre</th>

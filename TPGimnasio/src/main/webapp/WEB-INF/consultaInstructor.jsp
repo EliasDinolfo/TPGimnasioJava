@@ -132,14 +132,18 @@
 				</form>
 			</div>
 											
-			<div class="botonn">
+			<div class="botonn mb-3">
 				<form action="ABMCInstructor" method="post">
 						<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 						<input type="hidden" class="custom-control-input" name="dniInstructor" value="<%=i.getDni()%>">
 						<button type="submit" class="btn btn-danger" name="optionBM" value="baja">Eliminar</button>
 				</form>
 			</div>	
-			
+			<div class="botonn mb-3">
+				<form action="ABMCInstructor" method="get">	
+      				<button type="submit" class="btn btn-secondary">Volver</button>
+      			</form>
+    		</div>
 	</div>
 						
 	</div>										

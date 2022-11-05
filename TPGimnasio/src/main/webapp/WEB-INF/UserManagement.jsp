@@ -29,9 +29,9 @@
 </head>
 <body>
 	<%if(userLogin.getRol().getId_rol() == 1){ %>
+	<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
 		<h1 class="text-center">Administrador <%=userLogin.getUsername() %></h1>
     <div class="grande container-fluid d-flex justify-content-center flex-wrap align-content-center">
-
 		
 		<form action="Conexion" method="post">
 		
@@ -132,8 +132,6 @@
 			
 	</form> 
 
-
-     
 
 
    </div>

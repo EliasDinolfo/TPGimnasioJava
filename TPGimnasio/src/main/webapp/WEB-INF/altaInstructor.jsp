@@ -35,9 +35,9 @@
 				<input id="inputDni" name="dni" class="form-control col-8"  type="number" required>
 			</div>
 			
-			<div class="form-group">
-				<label for="selectTipoDoc" name="lblTipoDoc"> Tipo documento</label>
-				<select class="form-select" name="selectTipoDoc">
+			<div class="form-group row">
+				<label for="selectTipoDoc" name="lblTipoDoc" class="col-2">Tipo documento</label>
+				<select class="form-select col-3" name="selectTipoDoc">
 					<option selected> Seleccione uno</option>
 					<option value="dni">DNI</option>
 					<option value="pasaporte">Pasaporte</option>
@@ -67,8 +67,8 @@
 			</div>
 			
 			<div class="form-group row ">
-				<label for="inputFechaNacimiento" class="col-5">Fecha de nacimiento</label>
-				<input id="inputFechaNacimiento" name="fechaNacimiento" class="form-control col-5"  type="date" required>
+				<label for="inputFechaNacimiento" class="col-2">Fecha de nacimiento</label>
+				<input id="inputFechaNacimiento" name="fechaNacimiento" class="form-control col-8"  type="date" required>
 			</div>
 			
 			
@@ -76,7 +76,11 @@
       			<button type="submit" class="btn btn-primary mb-2">Agregar</button>
     		</div>		
 		</form>
-		
+		<form action="ABMCInstructor" method="get">
+			<div class="col-auto">
+      			<button type="submit" class="btn btn-secondary mb-2">Volver</button>
+    		</div>
+		</form>
 	</div>
 </body>
 </html>
