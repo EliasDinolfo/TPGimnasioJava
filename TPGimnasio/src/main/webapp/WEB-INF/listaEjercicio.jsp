@@ -22,7 +22,6 @@ LinkedList<Ejercicio> ejerciciolist = (LinkedList<Ejercicio>) request.getAttribu
 <link href="style/styles.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
 	 <div <%= request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert alert-danger alert-dismissible">
             <p><%= request.getAttribute("mensaje") %></p>
             <button type="button" class="close" data-dismiss="alert">
@@ -67,7 +66,7 @@ LinkedList<Ejercicio> ejerciciolist = (LinkedList<Ejercicio>) request.getAttribu
 										<td><%=ej.getComentario()%></td>
 										<td>
 										
-										<img class="card-img-top border-0" src="<%=ej.getImagen()%>" alt="imagen" alt=" image cap">
+											<img class="card-img-top border-0" src="<%=ej.getImagen()%>" alt="imagen" alt=" image cap">
 										</td>
 										<td><%=ej.getVideo()%></td>
 

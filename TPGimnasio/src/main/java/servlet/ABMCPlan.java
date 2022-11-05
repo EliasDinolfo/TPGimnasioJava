@@ -135,9 +135,9 @@ public class ABMCPlan extends HttpServlet {
 			break;
 		case "consulta":
 			
-//			request.getRequestDispatcher("WEB-INF/consulta.jsp").forward(request, response);
-			request.setAttribute("mensaje", "Presionaste consulta. A completar");
-			request.getRequestDispatcher("WEB-INF/PlanList.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/consultaPlan.jsp").forward(request, response);
+//			request.setAttribute("mensaje", "Presionaste consulta. A completar");
+//			request.getRequestDispatcher("WEB-INF/PlanList.jsp").forward(request, response);
 			break;
 		case "baja":
 //				ctrlPlan.bajaPlan(p);

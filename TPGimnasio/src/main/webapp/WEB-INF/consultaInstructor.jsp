@@ -64,7 +64,7 @@
 			
 			<div class="col">
 				<label class="font-weight-bold ">DNI</label>
-				<input class="form-control text-center bg-light" type="date" value="<%=i.getDni() %>" disabled>
+				<input class="form-control text-center bg-light" type="text" value="<%=i.getDni() %>" disabled>
 			</div>	
 		</div>
 			
@@ -82,7 +82,7 @@
 			
 			<div class="col">
 				<label class="font-weight-bold ">Fecha Nacimiento</label>
-				<input class="form-control text-center bg-light" type="text" value="<%=i.getFecha_nacimiento() %>" disabled>
+				<input class="form-control text-center bg-light" type="date" value="<%=i.getFecha_nacimiento() %>" disabled>
 			</div>
 			
 			
