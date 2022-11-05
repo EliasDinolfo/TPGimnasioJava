@@ -11,9 +11,9 @@
 <title>Insert title here</title>
 <%
 Usuario userLogin = (Usuario) session.getAttribute("usuarioLogin");
-LinkedList<Ejercicio> ejerciciolist = (LinkedList<Ejercicio>) request.getAttribute("listaEjercicios");
-//EjercicioLogic ejLogic = new EjercicioLogic();
-//LinkedList<> ejerciciolist = ejLogic.getAll();
+// LinkedList<Ejercicio> ejerciciolist = (LinkedList<Ejercicio>) request.getAttribute("listaEjercicios");
+EjercicioLogic ejLogic = new EjercicioLogic();
+LinkedList<Ejercicio> ejerciciolist = ejLogic.getAll();
 %>
 
 <!-- Bootstrap core CSS -->
