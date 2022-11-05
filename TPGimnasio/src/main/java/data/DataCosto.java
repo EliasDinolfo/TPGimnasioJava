@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 import entities.Costo;
 import entities.Plan;
@@ -41,4 +42,50 @@ public class DataCosto {
 			}
 		}
 	}
+	
+	
+	public LinkedList<Costo> getCosto(Plan p) {
+		
+		LinkedList<Costo> costos= new LinkedList<Costo>();
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement(
+					"SELECT * FROM costo \r\n"
+					+ "where id_plan=? \r\n"
+					+ "ORDER BY fecha_vigencia desc"
+					);
+			stmt.setInt(1, p.getId_plan());
+			rs=stmt.executeQuery();
+			if(rs!=null ) {
+				while(rs.next()) {
+				Costo c=new Costo();
+				c.setCosto(rs.getDouble("costo"));
+				c.setFecha_vigencia(rs.getObject("fecha_vigencia", LocalDate.class));
+				c.setPlan(p);
+				costos.add(c);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if (costos.size()>0) {
+			return costos;
+		}else {
+			
+			costos=null;
+			return costos;
+		}
+		
+	}
+	
+	
 }

@@ -1,0 +1,40 @@
+
+.container{
+	border-radius: 30px 30px;
+	background:#f2e9e4;
+	/*min-height: 90vh;*/ /*volver a poner eso luego*/
+}
+
+.dentro{
+	/*border:1px solid black;*/
+	margin: 5px 0;
+}
+
+.inputdesc{
+	width: 700px;
+	
+}
+
+.row{
+	margin-top:5px;
+	margin-bottom: 5px;
+}
+
+.comeabcck{
+	margin-left: 400px;
+}
+
+
+.botonn{
+	width: 150px;
+}
+
+
+
+
+
+
+
+
+
+

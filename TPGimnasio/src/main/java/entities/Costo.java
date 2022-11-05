@@ -36,7 +36,7 @@ public class Costo {
 
 	@Override
 	public String toString() {
-		return "Costo [costo=" + costo + ", fecha_vigencia=" + fecha_vigencia + ", plan=" + plan + "]";
+		return "Costo [costo=" + costo + ", fecha_vigencia=" + fecha_vigencia + ", plan=" + plan.getId_plan() + "]\n";
 	}
 	
 	

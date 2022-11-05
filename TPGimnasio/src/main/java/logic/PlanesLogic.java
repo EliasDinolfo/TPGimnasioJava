@@ -2,14 +2,17 @@ package logic;
 
 import java.util.LinkedList;
 
+import data.DataCosto;
 import data.DataPlan;
+import entities.Costo;
 import entities.Plan;
 
 
 public class PlanesLogic {
 
 	private DataPlan dataP= new DataPlan();
-	
+	private DataCosto dataC=new DataCosto();
+	private Costo costo=new Costo();
 	
 	public void add(Plan p) {
 		dataP.add(p);
@@ -29,6 +32,18 @@ public class PlanesLogic {
 	
 	public void delete(Plan p) {
 		dataP.remove(p);
+	}
+	
+	public Costo getCostoActualPlan(Plan p) {
+		Costo costo;
+		if (dataC.getCosto(p) != null) {
+			 costo = dataC.getCosto(p).getFirst();	
+		}else {
+			costo=null;
+		}
+		
+		
+		return costo;
 	}
 	
 }

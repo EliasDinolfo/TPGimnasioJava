@@ -63,6 +63,8 @@ public class Plan {
 	public void setHorarios(Horario horario) {
 		this.horarios.add(horario);
 	}
+	
+	
 
 	@Override
 	public String toString() {
