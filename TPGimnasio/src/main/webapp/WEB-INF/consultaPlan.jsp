@@ -1,3 +1,4 @@
+<%@page import="entities.Instructor"%>
 <%@page import="entities.Horario"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="entities.Costo"%>
@@ -34,6 +35,23 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 			</form>
 	
 		</div>
+		
+		
+	<div class="container">
+	<div class="costosPlan">
+			<h2>Costo mensual del plan:
+		
+					 <%Costo costo= ctrlPlan.getCostoActualPlan(p); %>
+		  
+		  				 <%if(costo != null){%>
+							$ <%=costo.getCosto() %>
+						 <%}else{%>
+					 		Por el momento no hay informacion del costo de este plan. 
+					<% }%>
+			</h2>
+		</div>
+	</div>	
+		
 	<div class="container d-flex flex-row justify-content-around align-items-center mt-3 pb-3 pt-3"> <!--     -->
 	
 	<div class="dentro d-flex flex-column  justify-content-center align-items-start"> <!--  -->
@@ -89,20 +107,9 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 	
 	<div class="container mt-3">
 	
-		<div class="costosPlan">
-			<h2>Costo mensual del plan:
 		
-					 <%Costo costo= ctrlPlan.getCostoActualPlan(p); %>
-		  
-		  				 <%if(costo != null){%>
-							$ <%=costo.getCosto() %>
-						 <%}else{%>
-					 		Por el momento no hay informacion del costo de este plan. 
-					<% }%>
-			</h2>
-		</div>
 		
-		<div class="horariosPlan ">
+		<div class="horariosPlan py-3">
 			<h2>Dia y Hora de clases</h2>
 			<%LinkedList<Horario> horarios= ctrlPlan.getHorarios(p); %>
 			
@@ -135,6 +142,47 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 			</div>
 			<%}else{ %>
 				<h3>Por el momento no hay informacion del horario de este plan</h3>
+			<%} %>
+		</div>
+		
+		<div class="instructoresPlan">
+			<h2>instructores</h2>
+			<%LinkedList<Instructor> instructores= ctrlPlan.getInstructores(p); %>
+			<%if(instructores.size()!=0){%>
+			<div class="table-responsive">
+				<table class="table table-light  table-bordered">
+					<thead class="table-dark">
+						<tr>
+							<th>Nombre</th>
+	 						<th>Apellido</th>
+	 						<th>Tipo Doc.</th>
+	 						<th>DNI</th>
+	 						<th>E-mail</th>
+	 						<th>Telefono</th>
+						</tr>
+	 					
+
+					</thead>
+					
+				 	<tbody >
+				 		<%for (Instructor ins : instructores) {%>
+				 		<tr>
+				 		
+				 				<td><%=ins.getNombre()%></td>
+								<td><%=ins.getApellido()%></td>
+								<td><%=ins.getTipo_doc()%></td>
+								<td><%=ins.getDni()%></td>
+								<td><%=ins.getEmail()%></td>
+								<td><%=ins.getTelefono()%></td>
+				 		</tr>
+				 				
+										
+				 		<%} %>
+				 	</tbody>
+				</table>
+			</div>
+			<%}else{ %>
+				<h3>Por el momento no hay informacion de instructores en este plan</h3>
 			<%} %>
 		</div>
 			

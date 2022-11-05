@@ -28,8 +28,7 @@ public class Instructor {
 	@Override
 	public String toString() {
 		return "Instructor [dni=" + dni + ", tipo_doc=" + tipo_doc + ", nombre=" + nombre + ", apellido=" + apellido
-				+ ", fecha_nacimiento=" + fecha_nacimiento + ", email=" + email + ", telefono=" + telefono + ", planes="
-				+ planes + "]\n";
+				+ ", fecha_nacimiento=" + fecha_nacimiento + ", email=" + email + ", telefono=" + telefono  + "]\n";
 	}
 
 	public Instructor() {}

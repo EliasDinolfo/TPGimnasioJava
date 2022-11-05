@@ -210,5 +210,48 @@ public class DataInstructor {
 		}
 	}
 	
+	public LinkedList<Instructor> getInstructoresPlanes(Plan p) {
+		DataPlan dp =new DataPlan();
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		LinkedList<Instructor> instructores= new LinkedList<>();
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select ins.*\r\n"
+					+ "from instructor ins\r\n"
+					+ "inner join plan_instructor pi\r\n"
+					+ "	on ins.dni=pi.dni\r\n"
+					+ "where pi.id_plan=?");
+			stmt.setInt(1, p.getId_plan());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Instructor ins=new Instructor();
+					ins.setDni(rs.getString("dni"));
+					ins.setTipo_doc(rs.getString("tipo_doc"));
+					ins.setNombre(rs.getString("nombre"));
+					ins.setApellido(rs.getString("apellido"));
+					ins.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
+					ins.setEmail(rs.getString("email"));
+					ins.setTelefono(rs.getString("telefono"));
+					
+					instructores.add(ins);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return instructores;
+	}
+	
+	
 	
 }
