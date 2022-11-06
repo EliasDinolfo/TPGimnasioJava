@@ -249,6 +249,56 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 		
 	</div>
 	
+	<div class="container mt-3">
+			<h2>Usuarios inscriptos en el plan</h2>
+			<%LinkedList<Usuario> usuarios= ctrlPlan.getUsuariosPlan(p); %>
+			<%if(usuarios.size()!=0){%>
+			<div class="table-responsive">
+				<table class="table table-light  table-bordered">
+					<thead class="table-dark">
+						<tr>
+							<th>Alumno</th>
+	 						<th>User</th>
+	 						<th>E-mail</th>
+	 						<th>Tipo Doc.</th>
+	 						<th>DNI</th>
+	 						<th>Telefono</th>
+	 						<th>Sexo</th>
+	 						<th>Fecha Nacimiento</th>
+	 						<th>Direccion</th>
+						</tr>
+	 					
+
+					</thead>
+					
+				 	<tbody >
+				 		<%for (Usuario u : usuarios) {%>
+				 		<tr>
+				 		
+				 				<td><%=u.getNombre()%> <%=u.getApellido()%></td>
+								<td><%=u.getUsername()%></td>
+								<td><%=u.getEmail()%></td>
+								<td><%=u.getTipo_doc()%></td>
+								<td><%=u.getDni()%></td>
+								<td><%=u.getTelefono()%></td>
+								<td><%=u.getGenero()%></td>
+								<td><%=u.getFecha_nacimiento()%></td>
+								<td><%=u.getDireccion()%></td>
+				 		</tr>
+				 				
+										
+				 		<%} %>
+				 	</tbody>
+				</table>
+			</div>
+			<%}else{ %>
+				<h3>Por el momento no hay usuarios inscriptos en este plan en este momento</h3>
+			<%} %>
+			
+		
+	</div>
+	
+	
 	
 	
 	

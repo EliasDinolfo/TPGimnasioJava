@@ -7,6 +7,7 @@ import data.DataHorario;
 import data.DataInstructor;
 import data.DataPlan;
 import data.DataRutina;
+import data.DataUsuario;
 import entities.Costo;
 import entities.Horario;
 import entities.Instructor;
@@ -22,6 +23,7 @@ public class PlanesLogic {
 	private DataHorario datah=new DataHorario();
 	private DataInstructor datains =new DataInstructor();
 	private DataRutina dr = new DataRutina();
+	private DataUsuario du=new DataUsuario();
 	private Costo costo=new Costo();
 	
 	public void add(Plan p) {
@@ -107,6 +109,14 @@ public class PlanesLogic {
 		rutinas.addAll(dr.getRutinasDePlan(p));
 	
 		return  rutinas;
+	}
+	
+	public LinkedList<Usuario> getUsuariosPlan(Plan p){
+		
+		LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
+		usuarios.addAll(du.getUsuariosInscriptos(p));
+		
+		return usuarios;
 	}
 	
 }

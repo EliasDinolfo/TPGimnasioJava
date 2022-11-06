@@ -64,24 +64,16 @@ public class Principal {
 //				 System.out.println("no hay costo para este plan");
 //		 }
 		
-		LinkedList<Rutina> horarios= new LinkedList<Rutina>();
+		LinkedList<Usuario> horarios= new LinkedList<Usuario>();
 		
-		horarios.addAll(ctp.getRutinas(dp.getById(1)));
+		horarios.addAll(ctp.getUsuariosPlan(dp.getById(5)));
 		
 //		System.out.println(horarios);
 		
-		for (Rutina rut : horarios) {
-		
-			System.out.println(rut.getNombre()+" "+ rut.getNivel() +" " + rut.getComentario() );
+		for (Usuario rut : horarios) {
 			
-	 	
-			LinkedList<Ejercicio> ejercicios=new LinkedList<Ejercicio>();
+			System.out.println(rut);
 			
-			ejercicios.addAll(rut.getEjercicios());
-			for (Ejercicio ej : ejercicios){
-				System.out.println(ej.getNombre());
-				} 
-					
 		} 
 		
 	} 

@@ -321,6 +321,54 @@ public class DataUsuario {
 		}
 	}
 	
+	public LinkedList<Usuario> getUsuariosInscriptos(Plan p)  {
+		
+		DataEjercicio de = new DataEjercicio();
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		LinkedList<Usuario> usuarios= new LinkedList<Usuario>();
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select usu.*\r\n"
+					+ "from usuario usu\r\n"
+					+ "inner join usuario_plan up\r\n"
+					+ "	on usu.id_usuario=up.id_usuario\r\n"
+					+ "where up.id_plan=?");
+			stmt.setInt(1, p.getId_plan());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Usuario u=new Usuario();
+					u.setId_usuario(rs.getInt("id_usuario"));
+					u.setNombre(rs.getString("nombre"));
+					u.setApellido(rs.getString("apellido"));
+					u.setTelefono(rs.getString("telefono"));
+					u.setTipo_doc(rs.getString("tipo_doc"));
+					u.setDni(rs.getString("dni"));
+					u.setEmail(rs.getString("email"));
+					u.setGenero(rs.getString("genero"));
+					u.setUsername(rs.getString("username"));
+					u.setContrasenia(rs.getString("password"));
+					u.setDireccion(rs.getString("direccion"));
+					u.setFecha_nacimiento(rs.getObject("fecha_nacimiento",LocalDate.class));
+	
+					usuarios.add(u);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return usuarios;
+	}
+	
 	
 }
 
