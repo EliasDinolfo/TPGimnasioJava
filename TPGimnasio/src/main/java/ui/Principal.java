@@ -7,11 +7,14 @@ import data.DataCosto;
 import data.DataHorario;
 import data.DataInstructor;
 import data.DataPlan;
+import data.DataRutina;
 import data.DataUsuario;
 import entities.Costo;
+import entities.Ejercicio;
 import entities.Horario;
 import entities.Instructor;
 import entities.Plan;
+import entities.Rutina;
 import entities.Usuario;
 import logic.PlanesLogic;
 import logic.UsuarioLogic;
@@ -48,7 +51,8 @@ public class Principal {
 		DataPlan dp=new DataPlan();
 //		DataCosto dc=new DataCosto();
 //		DataHorario dh= new DataHorario();
-		DataInstructor insData= new DataInstructor();
+//		DataInstructor insData= new DataInstructor();
+		DataRutina dr=new DataRutina();
 		PlanesLogic ctp=new PlanesLogic();
 		//System.out.println(ctp.getCostoActualPlan(dp.getById(99999)));
 //		System.out.println(dc.getCosto());
@@ -60,11 +64,25 @@ public class Principal {
 //				 System.out.println("no hay costo para este plan");
 //		 }
 		
-		LinkedList<Instructor> horarios= new LinkedList<Instructor>();
+		LinkedList<Rutina> horarios= new LinkedList<Rutina>();
 		
-		horarios.addAll(ctp.getInstructores(dp.getById(1)));
+		horarios.addAll(ctp.getRutinas(dp.getById(1)));
 		
-		System.out.println(horarios);
+//		System.out.println(horarios);
+		
+		for (Rutina rut : horarios) {
+		
+			System.out.println(rut.getNombre()+" "+ rut.getNivel() +" " + rut.getComentario() );
+			
+	 	
+			LinkedList<Ejercicio> ejercicios=new LinkedList<Ejercicio>();
+			
+			ejercicios.addAll(rut.getEjercicios());
+			for (Ejercicio ej : ejercicios){
+				System.out.println(ej.getNombre());
+				} 
+					
+		} 
 		
 	} 
 		

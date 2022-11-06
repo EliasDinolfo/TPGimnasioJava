@@ -60,10 +60,14 @@ public class Rutina {
 		return planes;
 	}
 
+	public LinkedList<Ejercicio> getEjercicios() {
+		return ejercicios;
+	}
+
 	@Override
 	public String toString() {
 		return "Rutina [id_rutina=" + id_rutina + ", nombre=" + nombre + ", semanas=" + semanas + ", nivel=" + nivel
-				+ ", comentario=" + comentario + ", ejercicios=\n" + ejercicios + ", planes=" + planes + "]\n";
+				+ ", comentario=" + comentario + ", ejercicios=\n" + ejercicios + ", planes=" + planes + "]\n\n";
 	}
 	
 	

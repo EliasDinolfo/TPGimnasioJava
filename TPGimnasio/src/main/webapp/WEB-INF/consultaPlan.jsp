@@ -1,3 +1,5 @@
+<%@page import="entities.Ejercicio"%>
+<%@page import="entities.Rutina"%>
 <%@page import="entities.Instructor"%>
 <%@page import="entities.Horario"%>
 <%@page import="java.util.LinkedList"%>
@@ -24,8 +26,13 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 %>
 </head>
 <body>
+<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
+	
+		
+		
+	<div class="container">
 	<div class="comeabcck">
-		<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
+		
 		
 			<form action="Conexion" method="post">
 				<input type="hidden" class="custom-control-input"  name="alta" value="voleralmenu">
@@ -35,9 +42,6 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 			</form>
 	
 		</div>
-		
-		
-	<div class="container">
 	<div class="costosPlan">
 			<h2>Costo mensual del plan:
 		
@@ -110,7 +114,7 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 		
 		
 		<div class="horariosPlan py-3">
-			<h2>Dia y Hora de clases</h2>
+			<h2>Clases</h2>
 			<%LinkedList<Horario> horarios= ctrlPlan.getHorarios(p); %>
 			
 			<%if(horarios.size()!=0){%>
@@ -146,7 +150,7 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 		</div>
 		
 		<div class="instructoresPlan">
-			<h2>instructores</h2>
+			<h2>Instructores</h2>
 			<%LinkedList<Instructor> instructores= ctrlPlan.getInstructores(p); %>
 			<%if(instructores.size()!=0){%>
 			<div class="table-responsive">
@@ -190,7 +194,57 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 			
 	</div>
 	
-	  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	
+	<div class="container mt-3">
+		<h2>Rutinas y ejercicios</h2>
+		<%LinkedList<Rutina> rutinas= ctrlPlan.getRutinas(p); %>
+		<%if(rutinas.size()!=0){%>
+		
+			
+				
+					
+			<%for (Rutina rut : rutinas) {%>
+				<div class="table tablaRut">
+					<table class="table ">	
+						<thead class="">
+							<tr>
+								<th>Rutina</th>
+	 							<th>Nivel</th>
+	 							<th>Comentario</th>
+	 						</tr>
+	 					
+						</thead>
+				 		<tbody >
+				 			<tr>
+				 				<td><%=rut.getNombre()%></td>
+								<td><%=rut.getNivel()%></td>
+								<td><%=rut.getComentario()%></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				 			<%LinkedList<Ejercicio> ejercicios=new LinkedList<Ejercicio>();
+				 			ejercicios.addAll(rut.getEjercicios());
+				 			for (Ejercicio ej : ejercicios){%>
+				 				<p><%=ej.getNombre() %></p>
+				 				<%} %>
+										
+				 		<%} %>
+				 		
+					
+			
+			<%}else{ %>
+				<h3>Por el momento no hay informacion de las rutinas en este plan</h3>
+			<%} %>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

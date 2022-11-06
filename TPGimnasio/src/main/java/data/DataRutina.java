@@ -4,10 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.LinkedList;
 
 import entities.Ejercicio;
-
+import entities.Instructor;
 import entities.Plan;
 import entities.Rutina;
 
@@ -242,5 +243,48 @@ public class DataRutina {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	
+	public LinkedList<Rutina> getRutinasDePlan(Plan p) {
+		
+		DataEjercicio de = new DataEjercicio();
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		LinkedList<Rutina> rutinas= new LinkedList<Rutina>();
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select ru.*\r\n"
+					+ "from rutina ru\r\n"
+					+ "inner join plan_rutina pr\r\n"
+					+ "on ru.id_rutina=pr.id_rutina\r\n"
+					+ "where pr.id_plan=?");
+			stmt.setInt(1, p.getId_plan());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Rutina rut=new Rutina();
+					rut.setId_rutina(rs.getInt("id_rutina"));
+					rut.setNombre(rs.getString("nombre"));
+					rut.setSemanas(rs.getString("semanas"));
+					rut.setNivel(rs.getString("nivel"));
+					rut.setComentario(rs.getString("comentario"));
+					
+					de.setEjercicios(rut);
+					rutinas.add(rut);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return rutinas;
 	}
 }
