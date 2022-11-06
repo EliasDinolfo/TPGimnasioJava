@@ -74,7 +74,7 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 		
 		<div class="row text-center">
 			<div class="col text-center inputdesc">
-				<label class="font-weight-bold ">Descripcio</label>
+				<label class="font-weight-bold ">Descripcion</label>
 				<input class="form-control text-center bg-light" type="text" value="<%=p.getDescripcion() %>" disabled>
 			</div>
 				

@@ -100,11 +100,11 @@
 			
 	</form> 
 
-     <form action="#" method="post">
+     <form action="Conexion" method="post">
 		
 			<div class="card box1 ">
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
-				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="firstLog">
+				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="grupo_musculo">
         		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
        			<div class="card-body">
        				

@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entities.Ejercicio;
+import entities.Grupo_Musculo;
 import entities.Instructor;
 import entities.Plan;
 import entities.Rutina;
 import entities.Usuario;
 import logic.EjercicioLogic;
+import logic.Grupo_MusculoLogic;
 import logic.InstructorLogic;
 import logic.PlanesLogic;
 import logic.RutinaLogic;
@@ -100,6 +102,12 @@ public class Conexion extends HttpServlet {
 			LinkedList<Ejercicio> ejercicios = ctrlEje.getAll();
 			request.setAttribute("listaEjercicios", ejercicios);
 			request.getRequestDispatcher("WEB-INF/listaEjercicio.jsp").forward(request, response);
+			break;
+		case "grupo_musculo":
+			Grupo_MusculoLogic ctrlGm = new Grupo_MusculoLogic();
+			LinkedList<Grupo_Musculo> grupos_musculares = ctrlGm.getAll();
+			request.setAttribute("listaGrupos_Musculos", grupos_musculares);
+			request.getRequestDispatcher("WEB-INF/Grupo_MusculoList.jsp").forward(request, response);
 			break;
 			
 		default:

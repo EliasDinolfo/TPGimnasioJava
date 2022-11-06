@@ -36,6 +36,10 @@ public class Grupo_Musculo {
 	public void setEjercicios(Ejercicio ejercicio) {
 		this.ejercicios.add(ejercicio);
 	}
+	
+	public LinkedList<Ejercicio> getEjercicios() {
+		return ejercicios;
+	}
 
 	@Override
 	public String toString() {
