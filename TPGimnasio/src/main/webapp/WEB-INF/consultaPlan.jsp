@@ -109,11 +109,38 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 											
 	</div>
 	
-	<div class="container mt-3">
+	
+	<div class="container mid mt-2">
+	
+		<div class="container-botones  d-flex flex-row flex-wrap justify-content-around">
+		
+			<div class="mr-2 bbot" >
+			<a href="#clases" class="botones "> <h5>Clases</h5>  </a>
+			</div>
+			
+			<div class="mr-2 bbot" >
+			<a href="#instructores" class="botones"><h5>Intructores</h5> </a>
+			</div>
+			
+			<div class="mr-2 bbot" >
+			<a href="#rutinas" class="botones"><h5>Rutinas y Ejercicios</h5></a>
+			</div>
+			
+			<div class="mr-2 bbot" >
+			<a href="#usuarios" class="botones"><h5>Usuarios Inscriptos</h5> </a>
+			</div>
+
+		</div>
+		
+		
+		
+	</div>
+	
+	<div class="container mt-3" >
 	
 		
 		
-		<div class="horariosPlan py-3">
+		<div class="horariosPlan py-3" id="clases">
 			<h2>Clases</h2>
 			<%LinkedList<Horario> horarios= ctrlPlan.getHorarios(p); %>
 			
@@ -149,7 +176,7 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 			<%} %>
 		</div>
 		
-		<div class="instructoresPlan">
+		<div class="instructoresPlan" id="instructores">
 			<h2>Instructores</h2>
 			<%LinkedList<Instructor> instructores= ctrlPlan.getInstructores(p); %>
 			<%if(instructores.size()!=0){%>
@@ -195,7 +222,7 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 	</div>
 	
 	
-	<div class="container mt-3 RutinaYejer"> 
+	<div class="container mt-3 RutinaYejer" id="rutinas"> 
 		<h2>Rutinas y ejercicios</h2>
 		<%LinkedList<Rutina> rutinas= ctrlPlan.getRutinas(p); %>
 		<%if(rutinas.size()!=0){%>
@@ -249,7 +276,7 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 		
 	</div>
 	
-	<div class="container mt-3">
+	<div class="container mt-3" id="usuarios">
 			<h2>Usuarios inscriptos en el plan</h2>
 			<%LinkedList<Usuario> usuarios= ctrlPlan.getUsuariosPlan(p); %>
 			<%if(usuarios.size()!=0){%>
