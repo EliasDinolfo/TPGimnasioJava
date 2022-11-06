@@ -195,16 +195,13 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 	</div>
 	
 	
-	<div class="container mt-3">
+	<div class="container mt-3 RutinaYejer"> 
 		<h2>Rutinas y ejercicios</h2>
 		<%LinkedList<Rutina> rutinas= ctrlPlan.getRutinas(p); %>
 		<%if(rutinas.size()!=0){%>
 		
-			
-				
-					
 			<%for (Rutina rut : rutinas) {%>
-				<div class="table tablaRut">
+				<div class="table tablaRut my-2">
 					<table class="table ">	
 						<thead class="">
 							<tr>
@@ -223,12 +220,24 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 							</tbody>
 						</table>
 					</div>
+					
+					
+					
+					<div class="ejer p-4 d-flex flex-row flex-wrap justify-content-center">
+					
 				 			<%LinkedList<Ejercicio> ejercicios=new LinkedList<Ejercicio>();
 				 			ejercicios.addAll(rut.getEjercicios());
 				 			for (Ejercicio ej : ejercicios){%>
-				 				<p><%=ej.getNombre() %></p>
+				 				
+				 				<div class="card mx-2 mt-2" style="width: 18rem;">
+ 					 					<img src="<%=ej.getImagen() %>" class="card-img-top" alt="...">
+  										<div class="card-body">
+   											<h5 class="card-title"><%=ej.getNombre() %></h5>
+    										<p class="card-text"><%=ej.getComentario() %></p>
+ 										 </div>
+								</div>
 				 				<%} %>
-										
+							</div>		
 				 		<%} %>
 				 		
 					
@@ -236,8 +245,11 @@ PlanesLogic ctrlPlan= new PlanesLogic();
 			<%}else{ %>
 				<h3>Por el momento no hay informacion de las rutinas en este plan</h3>
 			<%} %>
+			
 		
 	</div>
+	
+	
 	
 	
 	
