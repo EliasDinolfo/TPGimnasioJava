@@ -67,11 +67,20 @@ public class Plan {
 	public LinkedList<Costo> getCostos() {
 		return costos;
 	}
-
-	
 	
 	public LinkedList<Horario> getHorarios() {
 		return horarios;
+	}
+	
+	
+	
+
+	public LinkedList<Rutina> getRutinas() {
+		return rutinas;
+	}
+
+	public LinkedList<Instructor> getInstructores() {
+		return instructores;
 	}
 
 	@Override

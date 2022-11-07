@@ -1,3 +1,5 @@
+<%@page import="entities.Rutina"%>
+<%@page import="logic.RutinaLogic"%>
 <%@page import="logic.InstructorLogic"%>
 <%@page import="entities.Instructor"%>
 <%@page import="java.util.LinkedList"%>
@@ -23,7 +25,6 @@ Plan p =(Plan)request.getAttribute("plan");
 </head>
 <body>
 <h2>Alta de un plan</h2>
-<h2>usuario: <%=userLogin.getUsername() %></h2>
 
 <div class="container">
 <%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
@@ -74,7 +75,101 @@ Plan p =(Plan)request.getAttribute("plan");
 			</div>
 			
 			
-			
+	
+	 	
+	 	
+	 	<div class="cajon border mb-3">
+      <h2>Elija el/los instructores del plan</h2>
+      <p>Si no esta en la lista agregue el instructor desde el menu del administrador y luego regrese aqui.</p>
+      
+      <div class="table-responsive">
+        <table class="table table-light  table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+               <th>Apellido</th>
+               <th>Tipo Doc.</th>
+               <th>DNI</th>
+               <th>E-mail</th>
+               <th>Telefono</th>
+            </tr>
+             
+
+        </thead>
+      <%
+      InstructorLogic cL=new InstructorLogic();
+      LinkedList<Instructor> instructores=new LinkedList<Instructor>(); 
+      instructores.addAll(cL.getAll()); 
+      for(Instructor ins : instructores){
+      %>
+      <tbody >
+        <tr>
+          <td>
+             <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="instructores" value="<%=ins.getDni()%>" id="flexCheckDefault">
+            </div>
+          </td>
+          <td><%=ins.getNombre()%></td>
+          <td><%=ins.getApellido()%></td>
+          <td><%=ins.getTipo_doc()%></td>
+          <td><%=ins.getDni()%></td>
+          <td><%=ins.getEmail()%></td>
+          <td><%=ins.getTelefono()%></td>
+         </tr>
+      <%} %>
+  
+  
+           </tbody>
+        </table>
+      </div>
+      
+      
+      </div>
+      
+      
+      		<div class="cajon border mb-3">
+      <h2>Elija la/las rutinas del plan</h2>
+      <p>Si no esta en la lista agregue la rutina desde el menu del administrador y luego regrese aqui.</p>
+      
+      <div class="table-responsive">
+        <table class="table table-light  table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th></th>
+              <th>Rutina</th>
+	 			<th>Nivel</th>
+	 			<th>Comentario</th>
+            </tr>
+             
+
+        </thead>
+      <%
+      RutinaLogic rL=new RutinaLogic();
+      LinkedList<Rutina> rutinas=new LinkedList<Rutina>(); 
+      rutinas.addAll(rL.getAll()); 
+      for(Rutina rut : rutinas){
+      %>
+      <tbody >
+        <tr>
+          <td>
+             <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="rutinas" value="<%=rut.getId_rutina()%>" id="flexCheckDefault">
+            </div>
+          </td>
+          		<td><%=rut.getNombre()%></td>
+		  		<td><%=rut.getNivel()%></td>
+				<td><%=rut.getComentario()%></td>
+         </tr>
+      <%} %>
+  
+  
+           </tbody>
+        </table>
+      </div>
+      
+      
+      </div>
 	 	
 	 	
 	 		<div class="form-group">

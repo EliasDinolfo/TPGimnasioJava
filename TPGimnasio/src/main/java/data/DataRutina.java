@@ -289,5 +289,35 @@ public class DataRutina {
 	}
 	
 	
+	public void addrelacionPlanRutina(Plan p) {
+		PreparedStatement stmt= null;
+		ResultSet keyResultSet=null;
+		
+		try {
+			for(Rutina rutt : p.getRutinas()) {
+				
+				stmt=dbConnector.getInstancia().getConn().
+						prepareStatement(
+							"insert into plan_rutina(id_plan, id_rutina)"
+							+" values(?,?)");
+				stmt.setInt(1, p.getId_plan());
+				stmt.setInt(2,	rutt.getId_rutina());
+				stmt.executeUpdate();
+			}
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(keyResultSet!=null)keyResultSet.close();
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+    }
+	
+	
 	
 }

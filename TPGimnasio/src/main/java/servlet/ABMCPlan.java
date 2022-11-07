@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import entities.Costo;
 import entities.Horario;
+import entities.Instructor;
 import entities.Plan;
+import entities.Rutina;
 import entities.Usuario;
 import logic.PlanesLogic;
 import logic.UsuarioLogic;
@@ -100,6 +102,9 @@ public class ABMCPlan extends HttpServlet {
 				String horaFin = request.getParameter("horaFin");
 				String diasSem = request.getParameter("diasSemana");
 				
+				String[] instructores =request.getParameterValues("instructores");
+				
+				String[] rutinas =request.getParameterValues("rutinas");
 				
 					p.setId_plan(Integer.parseInt(idPlan));
 					p.setNombre(nombre);
@@ -124,6 +129,23 @@ public class ABMCPlan extends HttpServlet {
 					hora.setHora_fin(horaFn);
 					p.setHorarios(hora);
 				//Instructores
+					
+					for (int i = 0; i < instructores.length; i++) {
+						Instructor inns= new Instructor();
+						inns.setDni(instructores[i]);
+						p.setInstructores(inns);
+						
+					}
+					
+				//Rutinas
+					for (int i = 0; i < rutinas.length; i++) {
+						Rutina rutt= new Rutina();
+						rutt.setId_rutina(Integer.parseInt(rutinas[i]));
+						p.setRutinas(rutt);
+					}
+					
+					
+					
 				
 				ctrlPlan.add(p);
 				
