@@ -164,7 +164,16 @@ public class ABMCPlan extends HttpServlet {
 				String nombre = request.getParameter("name");
 				String descripcion = request.getParameter("description");
 				String fechaExpiracion = request.getParameter("fechaExpiracion");
+
+				String costoPlan = request.getParameter("costo");
 				
+				String horaIni = request.getParameter("horaInicio");
+				String horaFin = request.getParameter("horaFin");
+				String diasSem = request.getParameter("diasSemana");
+				
+				String[] instructores =request.getParameterValues("instructores");
+				
+				String[] rutinas =request.getParameterValues("rutinas");
 					
 					p.setNombre(nombre);
 					p.setDescripcion(descripcion);
@@ -172,10 +181,15 @@ public class ABMCPlan extends HttpServlet {
 					LocalDate fechaExp = LocalDate.parse(fechaExpiracion, dateFormat);
 					p.setFecha_expiracion(fechaExp);
 				
+				System.out.println(nombre);
 				
-				ctrlPlan.modifyPlan(p);
-				request.setAttribute("plan", p);
-				request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
+					
+			//una vez terminado descomentarlo
+//				ctrlPlan.modifyPlan(p);
+//				request.setAttribute("plan", p);
+//				request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
+				
+			//aqui abajo dejar comentado
 //				request.setAttribute("mensaje", "Presionaste consulta. A completar");
 //				request.getRequestDispatcher("WEB-INF/updateplanexitoso.jsp").forward(request, response);
 			}

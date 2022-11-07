@@ -63,18 +63,23 @@ public class Principal {
 //			 }else{
 //				 System.out.println("no hay costo para este plan");
 //		 }
-		
-		LinkedList<Usuario> horarios= new LinkedList<Usuario>();
-		
-		horarios.addAll(ctp.getUsuariosPlan(dp.getById(5)));
+//		
+//		LinkedList<Usuario> horarios= new LinkedList<Usuario>();
+//		
+//		horarios.addAll(ctp.getUsuariosPlan(dp.getById(5)));
 		
 //		System.out.println(horarios);
 		
-		for (Usuario rut : horarios) {
-			
-			System.out.println(rut);
-			
-		} 
+//		for (Usuario rut : horarios) {
+//			
+//			System.out.println(rut);
+//			
+//		} 
+		Plan plan =ctp.getById(1);
+		System.out.println(ctp.getCostoActualPlan(plan));
+		
+		
+		
 		
 	} 
 		

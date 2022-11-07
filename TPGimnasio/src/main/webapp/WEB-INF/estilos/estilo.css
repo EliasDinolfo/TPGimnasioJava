@@ -35,9 +35,10 @@
 
 
 .acja{
+	margin-bottom:15px;
 	margin-left:auto;
 	margin-right:auto;
-	width: 300px;	
+	max-width: 800px;	
 }
 
 .cajon{
