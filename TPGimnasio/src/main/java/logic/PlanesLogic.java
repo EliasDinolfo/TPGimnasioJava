@@ -27,7 +27,10 @@ public class PlanesLogic {
 	private Costo costo=new Costo();
 	
 	public void add(Plan p) {
+		
 		dataP.add(p);
+		dataC.addCosto(p);
+		
 	}
 	
 	public void modifyPlan(Plan p) {

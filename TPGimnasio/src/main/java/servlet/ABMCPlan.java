@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.Costo;
 import entities.Plan;
 import entities.Usuario;
 import logic.PlanesLogic;
@@ -90,6 +91,7 @@ public class ABMCPlan extends HttpServlet {
 				String nombre = request.getParameter("name");
 				String descripcion = request.getParameter("description");
 				String fechaExpiracion = request.getParameter("fechaExpiracion");
+				String costoPlan = request.getParameter("costo");
 				
 					p.setId_plan(Integer.parseInt(idPlan));
 					p.setNombre(nombre);
@@ -97,10 +99,17 @@ public class ABMCPlan extends HttpServlet {
 					DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 					LocalDate fechaExp = LocalDate.parse(fechaExpiracion, dateFormat);
 					p.setFecha_expiracion(fechaExp);
+				//crear un nuevo objeto costo y getCosto y ponerle fecha de hoy
+					Costo costo = new Costo();
+					costo.setCosto(Double.parseDouble(costoPlan));
+					LocalDate fechaVig = LocalDate.now();
+					costo.setFecha_vigencia(fechaVig);
+					
+					p.setCostos(costo);
 				
 				
 				ctrlPlan.add(p);
-
+				
 				request.getRequestDispatcher("WEB-INF/successfullPlancreated.jsp").forward(request, response);
 			}
 			

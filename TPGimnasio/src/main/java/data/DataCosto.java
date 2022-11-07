@@ -10,6 +10,7 @@ import entities.Costo;
 import entities.Plan;
 
 public class DataCosto {
+	
 	public void setCostos(Plan plan) {
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
@@ -86,6 +87,37 @@ public class DataCosto {
 		}
 		
 	}
+	
+	
+	public void addCosto(Plan p) {
+		PreparedStatement stmt= null;
+		ResultSet keyResultSet=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"insert into costo(costo,fecha_vigencia,id_plan) "
+							+ "values(?,?,?)");
+			stmt.setDouble(1, p.getCostos().getFirst().getCosto());
+			stmt.setObject(2, p.getCostos().getFirst().getFecha_vigencia());
+			stmt.setInt(3, p.getId_plan());
+			stmt.executeUpdate();
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(keyResultSet!=null)keyResultSet.close();
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	
+	
+	
+
 	
 	
 }

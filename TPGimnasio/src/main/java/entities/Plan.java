@@ -64,7 +64,9 @@ public class Plan {
 		this.horarios.add(horario);
 	}
 	
-	
+	public LinkedList<Costo> getCostos() {
+		return costos;
+	}
 
 	@Override
 	public String toString() {

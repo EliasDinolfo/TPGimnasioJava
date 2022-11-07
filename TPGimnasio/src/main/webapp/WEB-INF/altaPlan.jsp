@@ -47,6 +47,12 @@ Plan p =(Plan)request.getAttribute("plan");
 				<input id="inputFechaExpiracion" name="fechaExpiracion" class="form-control col-5"  type="date" required>
 			</div>
 			
+			<div class="form-group mt-3 ">
+				<label for="inputCosto" class=""> Costo del plan</label>
+				<input id="inputCosto" name="costo" class="form-control "  type="number" required>
+			</div>
+			
+			
 	 	
 	 		<div class="form-group">
 	 			<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
