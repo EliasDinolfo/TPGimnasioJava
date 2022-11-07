@@ -30,7 +30,7 @@ public class PlanesLogic {
 		
 		dataP.add(p);
 		dataC.addCosto(p);
-		
+		datah.addHorarioPlanes(p);
 	}
 	
 	public void modifyPlan(Plan p) {

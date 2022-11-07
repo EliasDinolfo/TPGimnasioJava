@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entities.Costo;
+import entities.Horario;
 import entities.Plan;
 import entities.Usuario;
 import logic.PlanesLogic;
@@ -93,6 +96,11 @@ public class ABMCPlan extends HttpServlet {
 				String fechaExpiracion = request.getParameter("fechaExpiracion");
 				String costoPlan = request.getParameter("costo");
 				
+				String horaIni = request.getParameter("horaInicio");
+				String horaFin = request.getParameter("horaFin");
+				String diasSem = request.getParameter("diasSemana");
+				
+				
 					p.setId_plan(Integer.parseInt(idPlan));
 					p.setNombre(nombre);
 					p.setDescripcion(descripcion);
@@ -104,9 +112,18 @@ public class ABMCPlan extends HttpServlet {
 					costo.setCosto(Double.parseDouble(costoPlan));
 					LocalDate fechaVig = LocalDate.now();
 					costo.setFecha_vigencia(fechaVig);
-					
 					p.setCostos(costo);
-				
+				//crear un nuevo objeto Horario y getHorario y agregarle los datos
+					Horario hora=new Horario();
+					hora.setDias_semana(diasSem);
+					//DateTimeFormatter timeFormat =DateTimeFormatter.ofPattern("HH:mm");
+					DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+					LocalTime horaInicio=LocalTime.parse(horaIni, timeFormat);					
+					LocalTime horaFn=LocalTime.parse(horaFin, timeFormat);
+					hora.setHora_inicio(horaInicio);
+					hora.setHora_fin(horaFn);
+					p.setHorarios(hora);
+				//Instructores
 				
 				ctrlPlan.add(p);
 				

@@ -91,4 +91,34 @@ public LinkedList<Horario> getHorarios(Plan p) {
 		return horarios;
 		
 	}
+
+public void addHorarioPlanes(Plan p) {
+	PreparedStatement stmt= null;
+	ResultSet keyResultSet=null;
+	try {
+		
+		stmt=dbConnector.getInstancia().getConn().
+				prepareStatement(
+						"insert into horario(hora_inicio,hora_fin,dias_semana,id_plan) "
+						+ "values(?,?,?,?)");
+		stmt.setObject(1, p.getHorarios().getFirst().getHora_inicio());
+		stmt.setObject(2, p.getHorarios().getFirst().getHora_fin());
+		stmt.setString(3, p.getHorarios().getFirst().getDias_semana());
+		stmt.setInt(4, p.getId_plan());
+		stmt.executeUpdate();
+		
+	}  catch (SQLException e) {
+        e.printStackTrace();
+	} finally {
+        try {
+            if(keyResultSet!=null)keyResultSet.close();
+            if(stmt!=null)stmt.close();
+            dbConnector.getInstancia().releaseConn();
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        }
+	}
+}
+
+
 }

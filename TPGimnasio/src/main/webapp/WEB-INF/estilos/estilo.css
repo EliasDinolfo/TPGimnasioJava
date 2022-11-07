@@ -34,8 +34,15 @@
 }
 
 
+.acja{
+	margin-left:auto;
+	margin-right:auto;
+	width: 300px;	
+}
 
-
+.cajon{
+	padding:10px 30px;
+}
 
 
 .row{

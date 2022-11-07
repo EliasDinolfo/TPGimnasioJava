@@ -1,3 +1,6 @@
+<%@page import="logic.InstructorLogic"%>
+<%@page import="entities.Instructor"%>
+<%@page import="java.util.LinkedList"%>
 <%@page import="entities.Plan"%>
 <%@page import="entities.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -52,7 +55,27 @@ Plan p =(Plan)request.getAttribute("plan");
 				<input id="inputCosto" name="costo" class="form-control "  type="number" required>
 			</div>
 			
+			<div class="acja d-flex flex-row border justify-content-around">
+				<div class="form-group mt-3 ">
+					<label for="inputHinicio" class=""> Hora Inicio</label>
+					<input id="inputHinicio" name="horaInicio" class="form-control "  type="time"  required>
+				</div>
 			
+				<div class="form-group mt-3 ">
+					<label for="inputHfin" class=""> Hora Fin</label>
+					<input id="inputHfin" name="horaFin" class="form-control "  type="time" required>
+				</div>
+			
+			</div>
+			
+			<div class="form-group  ">
+				<label for="inputDias" class="">Dias de la semana de dictado</label>
+				<input id="inputDias" name="diasSemana" class="form-control "  type="text"  required>
+			</div>
+			
+			
+			
+	 	
 	 	
 	 		<div class="form-group">
 	 			<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">

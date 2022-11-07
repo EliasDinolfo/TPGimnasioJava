@@ -68,6 +68,12 @@ public class Plan {
 		return costos;
 	}
 
+	
+	
+	public LinkedList<Horario> getHorarios() {
+		return horarios;
+	}
+
 	@Override
 	public String toString() {
 		return "Plan [id_plan=" + id_plan + "]\n, nombre=" + nombre + ", descripcion=" + descripcion
