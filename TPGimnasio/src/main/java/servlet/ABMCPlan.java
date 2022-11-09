@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import javax.servlet.ServletException;
@@ -19,6 +20,7 @@ import entities.Instructor;
 import entities.Plan;
 import entities.Rutina;
 import entities.Usuario;
+import logic.InstructorLogic;
 import logic.PlanesLogic;
 import logic.UsuarioLogic;
 
@@ -167,11 +169,12 @@ public class ABMCPlan extends HttpServlet {
 
 				String costoPlan = request.getParameter("costo");
 				
-				String horaIni = request.getParameter("horaInicio");
-				String horaFin = request.getParameter("horaFin");
-				String diasSem = request.getParameter("diasSemana");
+//				String horaIni = request.getParameter("horaInicio");
+//				String horaFin = request.getParameter("horaFin");
+//				String diasSem = request.getParameter("diasSemana");
 				
 				String[] instructores =request.getParameterValues("instructores");
+//				String[] instructoresAntes =request.getParameterValues("instructoresAntesModificar");
 				
 				String[] rutinas =request.getParameterValues("rutinas");
 					
@@ -181,13 +184,64 @@ public class ABMCPlan extends HttpServlet {
 					LocalDate fechaExp = LocalDate.parse(fechaExpiracion, dateFormat);
 					p.setFecha_expiracion(fechaExp);
 				
-				System.out.println(nombre);
+					//crear un nuevo objeto costo y getCosto y ponerle fecha de hoy
+					//if ( !((ctrlPlan.getCostoActualPlan(p)).getCosto() == Double.parseDouble(costoPlan)) ) {
+//						Costo costo = new Costo();
+//						costo.setCosto(Double.parseDouble(costoPlan));
+//						LocalDate fechaVig = LocalDate.now();
+//						costo.setFecha_vigencia(fechaVig);
+//						p.setCostos(costo);
+						
+						
+					//}else {
+//						Costo costo = new Costo();
+//						costo.setCosto(0);
+//						p.setCostos(costo);
+//					}
+					
+					
+
+					
+				//(otra forma de modificar horario)
+					//Horario hora=new Horario();
+					//hora.setDias_semana(diasSem);
+					
+					//DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+					//LocalTime horaInicio=LocalTime.parse(horaIni, timeFormat);					
+					//LocalTime horaFn=LocalTime.parse(horaFin, timeFormat);
+					//hora.setHora_inicio(horaInicio);
+					//hora.setHora_fin(horaFn);
+					//p.setHorarios(hora);
+					
+				//Instructores
+					if ( !(instructores==null) ) {
+						p.getInstructores().clear();
+						for (int i = 0; i < instructores.length; i++) {
+						Instructor inns= new Instructor();
+						inns.setDni(instructores[i]);
+//						System.out.println(instructores[i]);
+						p.setInstructores(inns);
+						
+					}
+					}else {
+						p.getInstructores().clear();
+					}
+					
+					
+					
+			
+				//Rutinas
+//					for (int i = 0; i < rutinas.length; i++) {
+//						Rutina rutt= new Rutina();
+//						rutt.setId_rutina(Integer.parseInt(rutinas[i]));
+//						p.setRutinas(rutt);
+//					}
 				
 					
 			//una vez terminado descomentarlo
-//				ctrlPlan.modifyPlan(p);
-//				request.setAttribute("plan", p);
-//				request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
+				ctrlPlan.modifyPlan(p);
+				request.setAttribute("plan", p);
+				request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
 				
 			//aqui abajo dejar comentado
 //				request.setAttribute("mensaje", "Presionaste consulta. A completar");

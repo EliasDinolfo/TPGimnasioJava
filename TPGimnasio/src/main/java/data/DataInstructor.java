@@ -281,7 +281,58 @@ public class DataInstructor {
 		}
     }
 	
+	public void removeRelacionesPlan(Plan p, LinkedList<Instructor> baja) {
+		PreparedStatement stmt= null;
+		try {
+			for (Instructor del : baja) {
+				stmt=dbConnector.getInstancia().getConn().
+						prepareStatement(
+								"delete from plan_instructor where dni=? and id_plan=?");
+				stmt.setString(1, del.getDni());
+				stmt.setInt(2, p.getId_plan());
+				stmt.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
 	
+	public void addrelacionPlanInstructores(Plan p, LinkedList<Instructor> alta) {
+		PreparedStatement stmt= null;
+		ResultSet keyResultSet=null;
+		
+		try {
+			for(Instructor inst : alta) {
+				
+				stmt=dbConnector.getInstancia().getConn().
+						prepareStatement(
+							"insert into plan_instructor(dni, id_plan)"
+							+" values(?,?)");
+				stmt.setString(1, inst.getDni());
+				stmt.setInt(2, p.getId_plan());
+				stmt.executeUpdate();
+			}
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(keyResultSet!=null)keyResultSet.close();
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+    }
 	
 	
 }

@@ -1,5 +1,6 @@
 package logic;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import data.DataCosto;
@@ -36,7 +37,78 @@ public class PlanesLogic {
 	}
 	
 	public void modifyPlan(Plan p) {
+		
 		dataP.update(p);
+		
+//		if ((this.getCostoActualPlan(p)).getCosto() != 0) {
+//			dataC.addCosto(p);
+//		}
+		
+		
+//		System.out.println("\ninstructores elegidos\n");
+		
+		if (!(p.getInstructores().isEmpty())) {
+			LinkedList<Instructor> instructoresElegidos = p.getInstructores();
+			
+			
+			LinkedList<Instructor> instructoresBD=new LinkedList<Instructor>();
+			LinkedList<Instructor> listaAlta=new LinkedList<Instructor>();
+//			System.out.println("ins elegidos ahora");
+//			System.out.println(instructoresElegidos);
+			
+			instructoresBD.addAll(datains.getInstructoresPlanes(p));
+//			System.out.println("\ninstructores que ya estaban en la bd\n");
+//			System.out.println(instructoresBD);
+//			
+			if (!instructoresBD.isEmpty()) {
+				
+				
+				for (Instructor inE : instructoresElegidos) {
+					for (Instructor insB : instructoresBD) {
+						if (inE.getDni().equalsIgnoreCase(insB.getDni())) {
+//							System.out.println( inE.getDni()+  " == " +insB.getDni() );
+							//no se tiene que hacer nada osea queda igual (quizas sacarlo de la coleccion )
+							instructoresBD.remove(insB);
+//							System.out.println("se eligio al mismo instructor por lo tanto no se cambia nada");
+							break;
+						}else {
+//							System.out.println( inE.getDni()+  " <> " +insB.getDni() );
+							//aca se tendria q dar de alta
+//							System.out.println("se debe de dar de alta a: " + inE.getDni());
+							listaAlta.add(inE);
+							
+						}
+						
+					}
+				}
+				
+				for(int i=0; i<listaAlta.size(); i++){
+			        for(int j=i+1; j<listaAlta.size(); j++){
+			            if(listaAlta.get(i).equals(listaAlta.get(j))){
+			            	listaAlta.remove(j);
+			            }
+			        }
+			    }
+				
+				
+				
+				
+			}else {
+//				System.out.println("instructores de la bd esta vacio");
+				listaAlta.addAll(instructoresElegidos);
+			}
+			
+			
+//			System.out.println("lista de ins a dar de baja");
+//			System.out.println(instructoresBD);
+//			System.out.println("lista de ins a dar de alta");
+//			System.out.println(listaAlta);
+			
+			datains.removeRelacionesPlan(p , instructoresBD);
+			datains.addrelacionPlanInstructores(p, listaAlta);
+		}
+		
+		
 	}
 	
 	public LinkedList<Plan> getAll(){

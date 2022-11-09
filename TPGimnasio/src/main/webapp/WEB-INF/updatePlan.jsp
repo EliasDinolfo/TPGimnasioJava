@@ -38,12 +38,19 @@ PlanesLogic pL=new PlanesLogic();
 			</form>
 	
 		</div>
+		
+		
 <div class="container">
 	
 	
 	<h2>Vuelva a ingresar todos los datos del Plan </h2>
 	<form action="ABMCPlan" method="post">
 	
+	
+			<% for(Instructor insytr : pL.getInstructores(p)){ %>
+				<input type="hidden" class="custom-control-input" name="instructoresAntesModificar" value="<%=insytr.getDni()%>">
+			<%} %>
+			
 			<div class="form-group  ">
 				<label for="inputID" class=""> ID  Plan</label>
 				<input id="inputID" name="idPlan" class="form-control text-center"  type="number" value="<%=p.getId_plan() %>" disabled>
@@ -77,17 +84,17 @@ PlanesLogic pL=new PlanesLogic();
 		
 					<div class="form-group mt-3 ">
 						<label for="inputHinicio" class=""> Hora Inicio</label>
-						<input id="inputHinicio" name="horaInicio" class="form-control "  type="time" value="<%=ho.getHora_inicio() %>" required>
+						<input id="inputHinicio" name="horaInicio" class="form-control "  type="time" value="<%=ho.getHora_inicio() %>" disabled>
 					</div>
 			
 					<div class="form-group mt-3 ">
 						<label for="inputHfin" class=""> Hora Fin</label>
-						<input id="inputHfin" name="horaFin" class="form-control "  type="time" value="<%=ho.getHora_fin() %>" required>
+						<input id="inputHfin" name="horaFin" class="form-control "  type="time" value="<%=ho.getHora_fin() %>" disabled>
 					</div>
 				
 					<div class="form-group  ">
 						<label for="inputDias" class="">Dias de la semana de dictado</label>
-						<input id="inputDias" name="diasSemana" class="form-control "  type="text" value="<%=ho.getDias_semana() %>" required>
+						<input id="inputDias" name="diasSemana" class="form-control "  type="text" value="<%=ho.getDias_semana() %>" disabled>
 					</div>
 			
 		</div>
@@ -117,6 +124,7 @@ PlanesLogic pL=new PlanesLogic();
              
 
         </thead>
+        
       <%
       InstructorLogic cL=new InstructorLogic();
       LinkedList<Instructor> instructores=new LinkedList<Instructor>(); 
