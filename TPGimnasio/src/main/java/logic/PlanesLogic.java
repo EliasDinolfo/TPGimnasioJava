@@ -1,6 +1,5 @@
 package logic;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 
 import data.DataCosto;
@@ -25,7 +24,6 @@ public class PlanesLogic {
 	private DataInstructor datains =new DataInstructor();
 	private DataRutina dr = new DataRutina();
 	private DataUsuario du=new DataUsuario();
-	private Costo costo=new Costo();
 	
 	public void add(Plan p) {
 		
@@ -93,7 +91,42 @@ public class PlanesLogic {
 		}
 		
 		//aqui termina instructores
+		//rutinas
 		
+		if (!(p.getRutinas().isEmpty())) {
+			LinkedList<Rutina> RutinasElegidas = p.getRutinas();
+
+			LinkedList<Rutina> rutinasBD=new LinkedList<Rutina>();
+			LinkedList<Rutina> listaAlta=new LinkedList<Rutina>();
+			rutinasBD.addAll(dr.getRutinasDePlan(p));
+
+		if (!rutinasBD.isEmpty()) {
+			
+			
+			for (Rutina inE : RutinasElegidas) {
+				for (Rutina insB : rutinasBD) {
+					if ( inE.getId_rutina()== insB.getId_rutina() ) {
+						rutinasBD.remove(insB);
+						break;
+					}else {
+						listaAlta.add(inE);
+					}
+				}
+			}
+			for(int i=0; i<listaAlta.size(); i++){
+		        for(int j=i+1; j<listaAlta.size(); j++){
+		            if(listaAlta.get(i).equals(listaAlta.get(j))){
+		            	listaAlta.remove(j);
+		            }
+		        }
+		    }
+		}else {
+			listaAlta.addAll(RutinasElegidas);
+		}
+		
+		dr.removeRelacionesPlan(p , rutinasBD);
+		dr.addrelacionPlanRutina(p, listaAlta);
+	}
 		
 	}
 	

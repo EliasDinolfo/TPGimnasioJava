@@ -318,6 +318,60 @@ public class DataRutina {
 		}
     }
 	
+	public void removeRelacionesPlan(Plan p, LinkedList<Rutina> baja) {
+		PreparedStatement stmt= null;
+		try {
+			for (Rutina del : baja) {
+				stmt=dbConnector.getInstancia().getConn().
+						prepareStatement(
+								"delete from plan_rutina where id_plan=? and id_rutina=?");
+				stmt.setInt(1, p.getId_plan());
+				stmt.setInt(2, del.getId_rutina());
+				stmt.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	
+	public void addrelacionPlanRutina(Plan p, LinkedList<Rutina> alta) {
+		PreparedStatement stmt= null;
+		ResultSet keyResultSet=null;
+		
+		try {
+			for(Rutina ruit : alta) {
+				
+				stmt=dbConnector.getInstancia().getConn().
+						prepareStatement(
+							"insert into plan_rutina(id_plan, id_rutina)"
+							+" values(?,?)");
+
+				stmt.setInt(1, p.getId_plan());
+				stmt.setInt(2, ruit.getId_rutina());
+				stmt.executeUpdate();
+			}
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(keyResultSet!=null)keyResultSet.close();
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+    }
+	
 	
 	
 }
