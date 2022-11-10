@@ -117,7 +117,79 @@ public class DataCosto {
 	
 	
 	
+	public void updateCosto(Plan p, Costo costo) {
+		PreparedStatement stmt= null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"update costo set costo = ? where id_plan = ? and fecha_vigencia = ?");
+			
+			stmt.setDouble(1, costo.getCosto());
+			stmt.setInt(2, p.getId_plan());
+			stmt.setObject(3, costo.getFecha_vigencia());
+			stmt.executeUpdate();
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+            	if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	
+	public void removecosto(Plan plan, Costo costo) {
+		PreparedStatement stmt= null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"delete from costo where id_plan=? and fecha_vigencia=? ");
 
+			stmt.setInt(1, plan.getId_plan());
+			stmt.setObject(2, costo.getFecha_vigencia());
+			
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	
+	public void addCostoMod(Plan p, Costo costo) {
+		PreparedStatement stmt= null;
+		ResultSet keyResultSet=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"insert into costo(costo,fecha_vigencia,id_plan) "
+							+ "values(?,?,?)");
+			stmt.setDouble(1, costo.getCosto());
+			stmt.setObject(2, costo.getFecha_vigencia());
+			stmt.setInt(3, p.getId_plan());
+			stmt.executeUpdate();
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(keyResultSet!=null)keyResultSet.close();
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+	}
+	
 	
 	
 }

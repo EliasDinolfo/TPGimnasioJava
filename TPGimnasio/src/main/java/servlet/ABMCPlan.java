@@ -184,23 +184,21 @@ public class ABMCPlan extends HttpServlet {
 					LocalDate fechaExp = LocalDate.parse(fechaExpiracion, dateFormat);
 					p.setFecha_expiracion(fechaExp);
 				
-					//crear un nuevo objeto costo y getCosto y ponerle fecha de hoy
-					//if ( !((ctrlPlan.getCostoActualPlan(p)).getCosto() == Double.parseDouble(costoPlan)) ) {
-//						Costo costo = new Costo();
-//						costo.setCosto(Double.parseDouble(costoPlan));
-//						LocalDate fechaVig = LocalDate.now();
-//						costo.setFecha_vigencia(fechaVig);
-//						p.setCostos(costo);
-						
-						
-					//}else {
-//						Costo costo = new Costo();
-//						costo.setCosto(0);
-//						p.setCostos(costo);
-//					}
-					
-					
+					//inicio costo
 
+					if ( !(ctrlPlan.getCostoActualPlan(p).getCosto() == Double.parseDouble(costoPlan)) ) {
+						System.out.println("si cambio el costo");
+						Costo costo = new Costo();
+						costo.setCosto(Double.parseDouble(costoPlan));
+						costo.setFecha_vigencia(ctrlPlan.getCostoActualPlan(p).getFecha_vigencia());
+						p.getCostos().clear();
+						p.setCostos(costo);
+					}else {
+						System.out.println("no cambio el costo");
+						p.getCostos().clear();
+					}
+					
+					//fin costo
 					
 				//(otra forma de modificar horario)
 					//Horario hora=new Horario();
@@ -217,12 +215,12 @@ public class ABMCPlan extends HttpServlet {
 					if ( !(instructores==null) ) {
 						p.getInstructores().clear();
 						for (int i = 0; i < instructores.length; i++) {
-						Instructor inns= new Instructor();
-						inns.setDni(instructores[i]);
+							Instructor inns= new Instructor();
+							inns.setDni(instructores[i]);
 //						System.out.println(instructores[i]);
-						p.setInstructores(inns);
+							p.setInstructores(inns);
 						
-					}
+						}
 					}else {
 						p.getInstructores().clear();
 					}

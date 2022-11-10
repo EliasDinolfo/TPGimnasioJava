@@ -40,26 +40,23 @@ public class PlanesLogic {
 		
 		dataP.update(p);
 		
-//		if ((this.getCostoActualPlan(p)).getCosto() != 0) {
-//			dataC.addCosto(p);
-//		}
-		
-		
-//		System.out.println("\ninstructores elegidos\n");
-		
+		//COMIENZO COSTO
+		if (!(p.getCostos().isEmpty())) {
+			Costo costoAl = p.getCostos().getFirst();
+			
+			dataC.removecosto(p, this.getCostoActualPlan(p));
+			dataC.addCostoMod(p, costoAl);
+		}			
+		//FIN COSTO
+
+		//empieza instructores
 		if (!(p.getInstructores().isEmpty())) {
-			LinkedList<Instructor> instructoresElegidos = p.getInstructores();
-			
-			
-			LinkedList<Instructor> instructoresBD=new LinkedList<Instructor>();
-			LinkedList<Instructor> listaAlta=new LinkedList<Instructor>();
-//			System.out.println("ins elegidos ahora");
-//			System.out.println(instructoresElegidos);
-			
-			instructoresBD.addAll(datains.getInstructoresPlanes(p));
-//			System.out.println("\ninstructores que ya estaban en la bd\n");
-//			System.out.println(instructoresBD);
-//			
+				LinkedList<Instructor> instructoresElegidos = p.getInstructores();
+	
+				LinkedList<Instructor> instructoresBD=new LinkedList<Instructor>();
+				LinkedList<Instructor> listaAlta=new LinkedList<Instructor>();
+				instructoresBD.addAll(datains.getInstructoresPlanes(p));
+
 			if (!instructoresBD.isEmpty()) {
 				
 				
@@ -76,12 +73,9 @@ public class PlanesLogic {
 							//aca se tendria q dar de alta
 //							System.out.println("se debe de dar de alta a: " + inE.getDni());
 							listaAlta.add(inE);
-							
 						}
-						
 					}
 				}
-				
 				for(int i=0; i<listaAlta.size(); i++){
 			        for(int j=i+1; j<listaAlta.size(); j++){
 			            if(listaAlta.get(i).equals(listaAlta.get(j))){
@@ -89,24 +83,16 @@ public class PlanesLogic {
 			            }
 			        }
 			    }
-				
-				
-				
-				
 			}else {
 //				System.out.println("instructores de la bd esta vacio");
 				listaAlta.addAll(instructoresElegidos);
 			}
 			
-			
-//			System.out.println("lista de ins a dar de baja");
-//			System.out.println(instructoresBD);
-//			System.out.println("lista de ins a dar de alta");
-//			System.out.println(listaAlta);
-			
 			datains.removeRelacionesPlan(p , instructoresBD);
 			datains.addrelacionPlanInstructores(p, listaAlta);
 		}
+		
+		//aqui termina instructores
 		
 		
 	}
