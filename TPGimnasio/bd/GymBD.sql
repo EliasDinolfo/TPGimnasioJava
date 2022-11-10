@@ -51,6 +51,7 @@ DROP TABLE IF EXISTS `cuota`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cuota` (
+  `fecha_vencimiento` date NOT NULL,
   `fecha_pago` date NOT NULL,
   `monto` decimal(10,0) NOT NULL,
   `forma_pago` varchar(255) NOT NULL,
@@ -67,7 +68,7 @@ CREATE TABLE `cuota` (
 
 LOCK TABLES `cuota` WRITE;
 /*!40000 ALTER TABLE `cuota` DISABLE KEYS */;
-INSERT INTO `cuota` VALUES ('2022-06-01',3000,'Efectivo',4),('2022-06-01',3000,'Tarjeta Credito',5),('2022-06-01',3000,'Tarjeta Debito',6),('2022-07-02',3000,'Tarjeta Debito',6),('2022-07-05',3400,'Tarjeta Credito',5),('2022-07-06',3000,'Efectivo',4),('2022-08-01',3300,'Tarjeta Debito',7),('2022-08-02',6300,'Efectivo',4),('2022-08-03',3400,'Tarjeta Credito',5),('2022-08-03',3000,'Tarjeta Credito',6),('2022-09-01',6300,'Efectivo',4),('2022-09-01',3000,'Tarjeta Credito',6),('2022-09-01',3300,'Efectivo',8),('2022-09-03',3300,'Tarjeta Debito',7),('2022-09-06',3400,'Tarjeta Credito',5),('2022-10-01',7300,'Efectivo',4),('2022-10-01',3800,'Efectivo',8),('2022-10-02',3500,'Tarjeta Credito',6),('2022-10-03',7600,'Tarjeta Credito',5),('2022-10-05',4000,'Tarjeta Debito',7);
+INSERT INTO `cuota` VALUES ('2022-06-01','2022-03-01',3000,'Efectivo',4),('2022-07-01','2022-06-28',2500,'Tarjeta Credito',4),('2022-08-01','2022-07-25',3000,'Tarjeta Debito',4),('2022-09-01','2022-08-29',3000,'Tarjeta Debito',4),('2022-10-01','2022-09-21',3400,'Tarjeta Credito',4),('2022-11-01','2022-11-01',3000,'Efectivo',4),('2022-09-15','2022-09-15',3300,'Tarjeta Debito',5),('2022-10-15','2022-10-17',6300,'Efectivo',5),('2022-11-15','2022-11-13',3400,'Tarjeta Credito',5),('2022-10-23','2022-10-20',3000,'Tarjeta Credito',6),('2022-11-23','2022-11-19',6300,'Efectivo',6),('2022-09-08','2022-09-13',3000,'Tarjeta Credito',7),('2022-10-08','2022-10-08',3300,'Efectivo',7),('2022-11-08','2022-11-06',3300,'Tarjeta Debito',7),('2022-11-20',null,3400,'Tarjeta Credito',8),('2022-11-18',null,3400,'Tarjeta Credito',17);
 /*!40000 ALTER TABLE `cuota` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +149,7 @@ CREATE TABLE `grupo_musculo` (
 
 LOCK TABLES `grupo_musculo` WRITE;
 /*!40000 ALTER TABLE `grupo_musculo` DISABLE KEYS */;
-INSERT INTO `grupo_musculo` VALUES (1,'Pectoral','Musculo compuesto, conecta la parte delantera del pecho humano'),(2,'Dorsal','Musculo compuesto, localizado posterior al brazo'),(3,'Cuadriceps','Compuesto de cuatro cabezas musculares'),(4,'Biceps','Pertenece a la region anterior del brazo, formado por dos cabezas'),(5,'Triceps','Musculo situado en la región posterior del brazo'),(6,'Hombros',NULL),(7,'Isquios','Grupo de 3 musculos, extendido a lo largo de la parte posterior del muslo desde la cadera hasta la zona justo debajo de la rodilla'),(8,'Gluteos','Musculos situados detras de la pelvis'),(9,'Abdominales',NULL),(10,'Antebrazo',NULL),(11,'Cuello',NULL),(12,'Gemelos','Formado por 2 cabezas musculares, situado en la region posterior de la pierna');
+INSERT INTO `grupo_musculo` VALUES (1,'Pectoral','Musculo compuesto, conecta la parte delantera del pecho humano'),(2,'Dorsal','Musculo compuesto, localizado posterior al brazo'),(3,'Cuadriceps','Compuesto de cuatro cabezas musculares'),(4,'Biceps','Pertenece a la region anterior del brazo, formado por dos cabezas'),(5,'Triceps','Musculo situado en la regiÃ³n posterior del brazo'),(6,'Hombros',NULL),(7,'Isquios','Grupo de 3 musculos, extendido a lo largo de la parte posterior del muslo desde la cadera hasta la zona justo debajo de la rodilla'),(8,'Gluteos','Musculos situados detras de la pelvis'),(9,'Abdominales',NULL),(10,'Antebrazo',NULL),(11,'Cuello',NULL),(12,'Gemelos','Formado por 2 cabezas musculares, situado en la region posterior de la pierna');
 /*!40000 ALTER TABLE `grupo_musculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,7 +341,7 @@ CREATE TABLE `rutina` (
 
 LOCK TABLES `rutina` WRITE;
 /*!40000 ALTER TABLE `rutina` DISABLE KEYS */;
-INSERT INTO `rutina` VALUES (1,'Intensiva 1A','3','Dificil','Rutina compuesta por ejercicios avanzados para los mas experimentados'),(2,'Intensiva 1B','1','Dificil','Rutina con solo ejercicios compuestos'),(3,'Intensiva 2B','2','Dificil',NULL),(4,'Regular 1A','4','Facil','Rutina basica'),(5,'Regular 3B','3','Medio',NULL),(6,'Tecnica 1A','1','Medio','Rutina diseñada para practicar tecnica'),(7,'Cardiovascular','3','Medio','Rutina de cardio');
+INSERT INTO `rutina` VALUES (1,'Intensiva 1A','3','Dificil','Rutina compuesta por ejercicios avanzados para los mas experimentados'),(2,'Intensiva 1B','1','Dificil','Rutina con solo ejercicios compuestos'),(3,'Intensiva 2B','2','Dificil',NULL),(4,'Regular 1A','4','Facil','Rutina basica'),(5,'Regular 3B','3','Medio',NULL),(6,'Tecnica 1A','1','Medio','Rutina diseÃ±ada para practicar tecnica'),(7,'Cardiovascular','3','Medio','Rutina de cardio');
 /*!40000 ALTER TABLE `rutina` ENABLE KEYS */;
 UNLOCK TABLES;
 
