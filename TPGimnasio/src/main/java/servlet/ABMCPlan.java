@@ -187,14 +187,12 @@ public class ABMCPlan extends HttpServlet {
 					//inicio costo
 
 					if ( !(ctrlPlan.getCostoActualPlan(p).getCosto() == Double.parseDouble(costoPlan)) ) {
-						System.out.println("si cambio el costo");
 						Costo costo = new Costo();
 						costo.setCosto(Double.parseDouble(costoPlan));
 						costo.setFecha_vigencia(ctrlPlan.getCostoActualPlan(p).getFecha_vigencia());
 						p.getCostos().clear();
 						p.setCostos(costo);
 					}else {
-						System.out.println("no cambio el costo");
 						p.getCostos().clear();
 					}
 					
@@ -234,6 +232,19 @@ public class ABMCPlan extends HttpServlet {
 //						rutt.setId_rutina(Integer.parseInt(rutinas[i]));
 //						p.setRutinas(rutt);
 //					}
+					
+					if ( !(rutinas==null) ) {
+						p.getRutinas().clear();
+						for (int i = 0; i < rutinas.length; i++) {
+							Rutina ruut= new Rutina();
+							ruut.setId_rutina(Integer.parseInt(rutinas[i]));
+//						System.out.println(instructores[i]);
+							p.setRutinas(ruut);
+						
+						}
+					}else {
+						p.getRutinas().clear();
+					}
 				
 					
 			//una vez terminado descomentarlo
