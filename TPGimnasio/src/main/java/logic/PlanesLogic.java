@@ -134,6 +134,10 @@ public class PlanesLogic {
 		return dataP.getAll();
 	}
 	
+	public LinkedList<Plan> getPlanesActivos(){
+		return dataP.getPlanesActivos();
+	}
+	
 	public Plan getById(int id) {
 		return dataP.getById(id);
 	}
