@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="logic.PlanesLogic"%>    
+<%@page import="entities.Plan"%> 
+<%@page import="entities.Instructor"%> 
+<%@page import="java.util.LinkedList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +12,19 @@
 <title>Registro</title>
 <link rel="stylesheet" href="style/styles.css">
 <link href="style/bootstrap.css" rel="stylesheet">
+<%@page import="java.util.LinkedList"%>
+<%@page import="entities.Usuario"%>
+<style><%@include file="/WEB-INF/estilos/estilo.css"%></style>
 </head>
 <body>
 	
 	<!-- ID rol se asigna automaticamente el de usuario. nro ID es autoincremental -->
+	<%
+	Usuario userLogin=new Usuario();
+	if(session.getAttribute("usuarioLogin")!=null){
+	userLogin = (Usuario) session.getAttribute("usuarioLogin");
+	}
+	%>
 	
 	<div class="container  ">
 		<div <%= request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert alert-danger alert-dismissible">
@@ -24,7 +37,10 @@
    
    		 
 		<h1 class="text-center">Registro</h1>
-		<form action="registro" method="post" class="form-registro ">
+		<form action="registro" method="post" class="form-registro " id="formulario">
+		<% if(session.getAttribute("usuarioLogin")!=null){%>
+			<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+		<%} %>
 		
 			<div class="form-group row ">
 				<label for="inputNombre" class="col-2"> Nombre</label>
@@ -100,6 +116,56 @@
 				<input id="inputPasswordTwo" name="passwordTwo" class="form-control col-7"  type="password" required>
 			</div>
 			
+	<div class="cajon border mb-3">
+      <h2>Elija los planes a inscribir (por lo menos 1)</h2>
+      
+      <div class="table-responsive">
+        <table class="table table-light  table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+               <th>Descripción</th>
+               <th>Fecha Expiración</th>
+               <th>Instructor/es</th>
+               <th>Dias de Semana</th>
+               <th>Horario:</th>
+               <th>Costo</th>
+            </tr>
+
+        </thead>
+      <%
+      PlanesLogic pL=new PlanesLogic();
+      LinkedList<Plan> planes= pL.getAll();
+      for(Plan plan : planes){
+      %>
+      <tbody >
+        <tr>
+          <td>
+             <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="planes" value="<%=plan.getId_plan()%>" id="flexCheckDefault">
+            </div>
+          </td>
+          <td><%=plan.getNombre()%></td>
+          <td><%=plan.getDescripcion()%></td>
+          <td><%=plan.getFecha_expiracion()%></td>
+          <td><% for(Instructor ins : plan.getInstructores()){ %>
+          <%=ins.getNombre()+" "+ins.getApellido()+"<br>" %>
+          <%} %></td>
+          <td><%=plan.getHorarios().getFirst().getDias_semana()%></td>
+          <td><%=plan.getHorarios().getFirst().getHora_inicio()+" a "+plan.getHorarios().getFirst().getHora_fin()%></td>
+          <td>$<%=plan.getCostos().getLast().getCosto() %></td>
+         </tr>
+      <%} %>
+  
+  
+           </tbody>
+        </table>
+      </div>
+      <small hidden id="mensaje">Debe elegir por lo menos un plan.</small>
+      
+      </div>
+			
 			<div class="col-auto">
       			<button type="submit" class="btn btn-primary mb-2">Registrarme</button>
     		</div>
@@ -107,6 +173,29 @@
 		</form>
 		
 	</div>
-
+<script>
+	window.addEventListener('DOMContentLoaded', inicio, false);
+	function inicio() {
+  		document.getElementById("formulario").addEventListener('submit', validarPlan, false);
+	}
+	function validarPlan(evt){
+		let bandera=0;
+		let contador=0;
+		let elementos=document.getElementsByClassName('form-check-input');
+		for (let i = 0; i < elementos.length; i++) {
+			if(elementos[i].checked){
+				bandera=1;
+				break;
+			}
+		}
+		if(bandera==0){
+			evt.preventDefault();
+			document.getElementById("mensaje").hidden=false;
+		}
+		else{
+			document.getElementById("mensaje").hidden=true;
+		}
+	}
+</script>
 </body>
 </html>

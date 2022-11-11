@@ -17,7 +17,8 @@ public class DataCosto {
 		try {
 			stmt=dbConnector.getInstancia().getConn().prepareStatement("select *\r\n"
 					+ "from costo\r\n"
-					+ "where id_plan=?");
+					+ "where id_plan=?\r\n"
+					+ "order by fecha_vigencia");
 			stmt.setInt(1, plan.getId_plan());
 			rs= stmt.executeQuery();
 			if(rs!=null) {

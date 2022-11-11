@@ -13,8 +13,8 @@
 </head>
 <body>
 	<h1>Llegaste el jsp del registro</h1>
-	<h2>Hola <%=u.getNombre()%>
-		<%=u.getApellido()%></h2>
+	<h2>Hola <%=u.getNombre()%>		<%=u.getApellido()%>
+</h2>
 	
 	<h3>O mejor conocido por su nickname: <%=u.getUsername()%>
 	

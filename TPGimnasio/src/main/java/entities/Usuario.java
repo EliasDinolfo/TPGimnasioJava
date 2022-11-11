@@ -124,6 +124,9 @@ public class Usuario {
 	public void setPlanes(Plan plan) {
 		this.planes.add(plan);
 	}
+	public LinkedList<Plan> getPlanes() {
+		return planes;
+	}
 	
 	public void setCuotas(Cuota cuota) {
 		this.cuotas.add(cuota);
