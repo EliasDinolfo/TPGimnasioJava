@@ -101,7 +101,8 @@ public class Registro extends HttpServlet {
 					request.getRequestDispatcher("WEB-INF/UsersList.jsp").forward(request, response);
 				}
 				else {
-					request.getRequestDispatcher("index.html").forward(request, response);
+					//request.getRequestDispatcher("index.html").forward(request, response);
+					response.sendRedirect("index.html");
 				}
 				
 				
