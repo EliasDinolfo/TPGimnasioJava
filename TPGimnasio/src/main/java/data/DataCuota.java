@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 import entities.Cuota;
-
 import entities.Usuario;
 
 public class DataCuota {
@@ -42,6 +41,55 @@ public class DataCuota {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	public void add(Cuota c) {
+		PreparedStatement stmt= null;
+		ResultSet keyResultSet=null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"insert into cuota(fecha_vencimiento,fecha_pago,monto,forma_pago,id_usuario) "
+							+ "values(?,?,?,?,?)");
+			stmt.setObject(1, c.getFecha_vencimiento());
+			stmt.setObject(2, c.getFecha_pago());
+			stmt.setDouble(3, c.getMonto());
+			stmt.setString(4, c.getForma_pago());
+			stmt.setInt(5, c.getUsuario().getId_usuario());
+			stmt.executeUpdate();
+			
+		}  catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(keyResultSet!=null)keyResultSet.close();
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
+		}
+		
+    }
+	
+	public void remove(Usuario user) {
+		PreparedStatement stmt= null;
+		try {
+			stmt=dbConnector.getInstancia().getConn().
+					prepareStatement(
+							"delete from cuota where id_usuario=?");
+			stmt.setInt(1, user.getId_usuario());
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+            e.printStackTrace();
+		} finally {
+            try {
+                if(stmt!=null)stmt.close();
+                dbConnector.getInstancia().releaseConn();
+            } catch (SQLException e) {
+            	e.printStackTrace();
+            }
 		}
 	}
 }

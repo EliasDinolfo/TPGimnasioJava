@@ -54,7 +54,7 @@ CREATE TABLE `cuota` (
   `fecha_vencimiento` date NOT NULL,
   `fecha_pago` date NULL,
   `monto` decimal(10,0) NOT NULL,
-  `forma_pago` varchar(255) NOT NULL,
+  `forma_pago` varchar(255) NULL,
   `id_usuario` int NOT NULL,
   PRIMARY KEY (`fecha_vencimiento`,`id_usuario`),
   KEY `fk_cuota_usuario_idx` (`id_usuario`),
@@ -68,7 +68,7 @@ CREATE TABLE `cuota` (
 
 LOCK TABLES `cuota` WRITE;
 /*!40000 ALTER TABLE `cuota` DISABLE KEYS */;
-INSERT INTO `cuota` VALUES ('2022-06-01','2022-03-01',3000,'Efectivo',4),('2022-07-01','2022-06-28',2500,'Tarjeta Credito',4),('2022-08-01','2022-07-25',3000,'Tarjeta Debito',4),('2022-09-01','2022-08-29',3000,'Tarjeta Debito',4),('2022-10-01','2022-09-21',3400,'Tarjeta Credito',4),('2022-11-01','2022-11-01',3000,'Efectivo',4),('2022-09-15','2022-09-15',3300,'Tarjeta Debito',5),('2022-10-15','2022-10-17',6300,'Efectivo',5),('2022-11-15','2022-11-13',3400,'Tarjeta Credito',5),('2022-10-23','2022-10-20',3000,'Tarjeta Credito',6),('2022-11-23','2022-11-19',6300,'Efectivo',6),('2022-09-08','2022-09-13',3000,'Tarjeta Credito',7),('2022-10-08','2022-10-08',3300,'Efectivo',7),('2022-11-08','2022-11-06',3300,'Tarjeta Debito',7),('2022-11-20',null,3400,'Tarjeta Credito',8),('2022-11-18',null,3400,'Tarjeta Credito',17);
+INSERT INTO `cuota` VALUES ('2022-06-01','2022-03-01',3000,'Efectivo',4),('2022-07-01','2022-06-28',2500,'Tarjeta Credito',4),('2022-08-01','2022-07-25',3000,'Tarjeta Debito',4),('2022-09-01','2022-08-29',3000,'Tarjeta Debito',4),('2022-10-01','2022-09-21',3400,'Tarjeta Credito',4),('2022-11-01','2022-11-01',3000,'Efectivo',4),('2022-09-15','2022-09-15',3300,'Tarjeta Debito',5),('2022-10-15','2022-10-17',6300,'Efectivo',5),('2022-11-15','2022-11-13',3400,'Tarjeta Credito',5),('2022-10-23','2022-10-20',3000,'Tarjeta Credito',6),('2022-11-23','2022-11-19',6300,'Efectivo',6),('2022-09-08','2022-09-13',3000,'Tarjeta Credito',7),('2022-10-08','2022-10-08',3300,'Efectivo',7),('2022-11-08','2022-11-06',3300,'Tarjeta Debito',7),('2022-11-20',null,3400,null,8),('2022-11-18',null,3400,null,17);
 /*!40000 ALTER TABLE `cuota` ENABLE KEYS */;
 UNLOCK TABLES;
 

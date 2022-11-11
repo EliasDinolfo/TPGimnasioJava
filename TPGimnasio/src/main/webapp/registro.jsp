@@ -136,7 +136,7 @@
         </thead>
       <%
       PlanesLogic pL=new PlanesLogic();
-      LinkedList<Plan> planes= pL.getAll();
+      LinkedList<Plan> planes= pL.getPlanesActivos();
       for(Plan plan : planes){
       %>
       <tbody >
@@ -154,7 +154,7 @@
           <%} %></td>
           <td><%=plan.getHorarios().getFirst().getDias_semana()%></td>
           <td><%=plan.getHorarios().getFirst().getHora_inicio()+" a "+plan.getHorarios().getFirst().getHora_fin()%></td>
-          <td>$<%=plan.getCostos().getLast().getCosto() %></td>
+          <td>$<%=plan.getCostos().getFirst().getCosto() %></td>
          </tr>
       <%} %>
   

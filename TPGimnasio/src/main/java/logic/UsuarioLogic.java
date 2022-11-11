@@ -5,12 +5,14 @@ import entities.Usuario;
 
 import java.util.LinkedList;
 
+import data.DataCuota;
 import data.DataRol;
 import data.DataUsuario;
 
 public class UsuarioLogic {
 	
 	private DataUsuario dataUsu = new DataUsuario();
+	private DataCuota dataCuota = new DataCuota();
 	
 	public Rol setRol(int id) {
 		Rol rol =new Rol();
@@ -45,6 +47,7 @@ public class UsuarioLogic {
 	}
 	
 	public void bajaUser(Usuario u) {
+		dataCuota.remove(u);
 		dataUsu.remove(u);
 	}
 	

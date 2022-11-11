@@ -339,5 +339,50 @@ public class DataPlan {
 			}
 		}
 	}
+	// obtener los planes que aun le quedan por lo menos 30 dias hasta que expiren
+	public LinkedList<Plan> getPlanesActivos(){
+		Statement stmt=null;
+		ResultSet rs=null;
+		DataRutina dr= new DataRutina();
+		DataInstructor di= new DataInstructor();
+		DataUsuario du= new DataUsuario();
+		DataCosto dc = new DataCosto();
+		DataHorario dh=new DataHorario();
+		LinkedList<Plan> planes= new LinkedList<Plan>();
+		try {
+			stmt= dbConnector.getInstancia().getConn().createStatement();
+			rs= stmt.executeQuery("select * from plan where baja_logica is null and date_add(fecha_expiracion, interval -30 day)>=curdate();");
+			
+			if(rs!=null) {
+				while(rs.next()) {
+					Plan p=new Plan();
+					p.setId_plan(rs.getInt("id_plan"));
+					p.setNombre(rs.getString("nombre"));
+					p.setDescripcion(rs.getString("descripcion"));
+					p.setFecha_expiracion(rs.getObject("fecha_expiracion", LocalDate.class));
+					di.setInstructores(p);
+					dr.setRutinas(p);
+					du.setUsuarios(p);
+					dc.setCostos(p);
+					dh.setHorarios(p);
+					planes.add(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return planes;
+	}
+	
 }
 

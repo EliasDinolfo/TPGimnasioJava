@@ -6,6 +6,7 @@ public class Cuota {
 	private LocalDate fecha_pago;
 	private double monto;
 	private String forma_pago;
+	private LocalDate fecha_vencimiento;
 	private Usuario usuario;
 	
 	@Override
@@ -32,6 +33,14 @@ public class Cuota {
 		this.forma_pago = forma_pago;
 	}
 	
+	public LocalDate getFecha_vencimiento() {
+		return fecha_vencimiento;
+	}
+
+	public void setFecha_vencimiento(LocalDate fecha_vencimiento) {
+		this.fecha_vencimiento = fecha_vencimiento;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}

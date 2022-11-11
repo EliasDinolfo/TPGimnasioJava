@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import entities.Cuota;
 import entities.Plan;
 import entities.Rutina;
 import entities.Usuario;
+import logic.CuotaLogic;
 import logic.PlanesLogic;
 import logic.UsuarioLogic;
 
@@ -82,16 +84,27 @@ public class Registro extends HttpServlet {
 		    LocalDate fechaNac = LocalDate.parse(fechaNacString, dateFormat);
 			user.setFecha_nacimiento(fechaNac);
 			user.setRol(usuarioLogic.setRol(3));
+			Cuota cuota = new Cuota();
+			PlanesLogic pl = new PlanesLogic();
+			CuotaLogic cl = new CuotaLogic();
 			//Planes
+			double monto = 0;
 			for (int i = 0; i < planes.length; i++) {
 				Plan plan= new Plan();
 				plan.setId_plan(Integer.parseInt(planes[i]));
+				plan=pl.getById(plan.getId_plan());
 				user.setPlanes(plan);
+				monto+=plan.getCostos().getFirst().getCosto();	
 			}
 			
 			try {
 				usuarioLogic.altaUser(user);
-				PlanesLogic pl = new PlanesLogic();
+				cuota.setUsuario(user);
+				cuota.setMonto(monto);
+				// establecer fecha de vencimiento para 3 dias mas a partir de la fecha actual
+				cuota.setFecha_vencimiento(LocalDate.now().plusDays(5));
+				cl.altaCuota(cuota);
+				
 				for (Plan pla : user.getPlanes()) {
 					pl.addUsuarioPlan(user.getId_usuario(), pla.getId_plan());
 				}
