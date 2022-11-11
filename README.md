@@ -27,3 +27,7 @@
 |publicar el sitio|olbigatorio|obligatorio||
 
 (\*\*) sólo grupos de 3 y 4 integrantes
+
+(*) CU Notificar Disponibilidad: Cuando un Plan/Horario se encuentra con los cupos llenos, se le notifica al usuario de esto.
+
+(**) CU Notificar Vencimiento de Cuota: Cuando un Usuario desea inscribirse a un Plan/Horario, si posee la cuota vencida, se le notifica.
