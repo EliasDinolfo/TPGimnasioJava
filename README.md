@@ -1,12 +1,11 @@
 # TPGimnasio-JAVA
 
 ## Alcance
-Desarrollaremos un sistema/aplicación web cliente-servidor en Java sobre un gimnasio. En el mismo al momento que uno ingresa a la pagina principal el usuario podra ver las diferentes opciones/ofertas que ofrece. Los niveles de accesos son: Invitado, Usuario(cliente/alumno), Encargado, Administrador.
+Desarrollaremos un sistema/aplicación web cliente-servidor en Java sobre un gimnasio. En el mismo al momento que uno ingresa a la página principal el usuario podrá ver las diferentes opciones/ofertas que ofrece. Los niveles de accesos son: Invitado, Usuario(cliente/alumno), Encargado, Administrador.
 
-Un usuario si es la primera vez que ingresa al sistema será como invitado  que solo tiene acceso a la pagina principal y a aquellas que no requieran el login.En la pagina principal podrá visualizar las diferentes ofertas/instalaciones del gimnasio. Si el usuario ya es miembro del gimnasio podrá loguearse en el sistema y caso contrario registrarse en el mismo. Al registrarse deberá otorgar sus datos y seleccionar el plan de entrenamiento deseado. Una vez logeado tendra acceso al menu de usuarios en el cual puede inscribirse al plan que deseea, consultar cuotas y mas.
+Un usuario si es la primera vez que ingresa al sistema será como invitado que solo tiene acceso a la página principal y a aquellas que no requieran el login.En la página principal podrá visualizar las diferentes ofertas/instalaciones del gimnasio. Si el usuario ya es miembro del gimnasio podrá loguearse en el sistema y caso contrario registrarse en el mismo. Al registrarse deberá proporcionar sus datos y seleccionar el plan de entrenamiento deseado. Una vez logueado tendrá acceso al menú de usuarios en el cual puede inscribirse al plan que desea, consultar cuotas y más.
 
-El encargado tendra acceso al menu de encargados en el cual puede ver historial de cuotas, actualizar datos de instructores, planes y mas.
-El administrador acceso al menu de admins. En el mismo un admin podra Crear, Modificar, 
+El encargado tendrá acceso al menú de encargados en el cual puede ver historial de cuotas, actualizar datos de instructores, planes y más. El administrador tiene acceso al menú de admins. En el mismo un administrador podrá Crear, Modificar o Eliminar Usuarios, Planes, Rutinas, Ejercicios y mas. Podrá hacer consultas de cada entidad con sus respectivos listados. Puede realizar el listado de usuarios adheridos al gimnasio y a los diferentes planes, listado de los clientes que deban cuotas a pagar. Listados de los instructores, etc.
 
 
 
