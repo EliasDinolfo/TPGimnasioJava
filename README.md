@@ -1,5 +1,14 @@
 # TPGimnasio-JAVA
 
+## Alcance
+Desarrollaremos un sistema/aplicación web cliente-servidor en Java sobre un gimnasio. En el mismo al momento que uno ingresa a la pagina principal el usuario podra ver las diferentes opciones/ofertas que ofrece. Los niveles de accesos son: Invitado, Usuario(cliente/alumno), Encargado, Administrador.
+
+Un usuario si es la primera vez que ingresa al sistema será como invitado  que solo tiene acceso a la pagina principal y a aquellas que no requieran el login.En la pagina principal podrá visualizar las diferentes ofertas/instalaciones del gimnasio. Si el usuario ya es miembro del gimnasio podrá loguearse en el sistema y caso contrario registrarse en el mismo. Al registrarse deberá otorgar sus datos y seleccionar el plan de entrenamiento deseado. Una vez logeado tendra acceso al menu de usuarios en el cual puede inscribirse al plan que deseea, consultar cuotas y mas.
+
+El encargado tendra acceso al menu de encargados en el cual puede ver historial de cuotas, actualizar datos de instructores, planes y mas.
+El administrador acceso al menu de admins. En el mismo un admin podra Crear, Modificar, 
+
+
 
 ## Regularidad
 
@@ -20,7 +29,7 @@
 |:-|-:|:-|
 |ABMC|todos|todos
 |CU "Complejo"(nivel resumen)|2|Inscripción<br>Inscripción Plan<br>Dar de baja un plan<br>Notificar Disponibilidad(*)<br>Pagar Cuota<br>Notificar Vencimiento Cuota(**)<br>Crear/asignar Rutina
-|Listado complejo|2| Listado de todas las rutinas con sus repeticiones y ejercicios.<br>Listado del histórico de todas las cuotas pagadas y pendientes de un determinado usuario.
+|Listado complejo|2| Listado de todas las rutinas con sus ejercicios.<br>Listado del histórico de todas las cuotas pagadas y pendientes de un determinado usuario.
 |Nivel de acceso|2| Usuario<br>Encargado<br>Admin<br>Invitado
 |Manejo de errores|obligatorio|obligatorio||
 |requerimiento extra obligatorio (**)|0|Envío de emails|
