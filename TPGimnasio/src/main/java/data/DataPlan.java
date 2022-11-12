@@ -242,6 +242,7 @@ public class DataPlan {
 	public void setPlanes(Usuario usu) {
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
+		DataCosto dc = new DataCosto();
 		try {
 			stmt=dbConnector.getInstancia().getConn().prepareStatement("select pl.*\r\n"
 					+ "from plan pl\r\n"
@@ -257,6 +258,44 @@ public class DataPlan {
 					p.setNombre(rs.getString("nombre"));
 					p.setDescripcion(rs.getString("descripcion"));
 					p.setFecha_expiracion(rs.getObject("fecha_expiracion",LocalDate.class));
+					dc.setCostos(p);
+					usu.setPlanes(p);
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void setPlanesActivos(Usuario usu) {
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		DataCosto dc = new DataCosto();
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement("select pl.*\r\n"
+					+ "from plan pl\r\n"
+					+ "inner join usuario_plan up\r\n"
+					+ "	on pl.id_plan=up.id_plan\r\n"
+					+ "where up.id_usuario=? and fecha_expiracion>curdate()");
+			stmt.setInt(1, usu.getId_usuario());
+			rs= stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Plan p=new Plan();
+					p.setId_plan(rs.getInt("id_plan"));
+					p.setNombre(rs.getString("nombre"));
+					p.setDescripcion(rs.getString("descripcion"));
+					p.setFecha_expiracion(rs.getObject("fecha_expiracion",LocalDate.class));
+					dc.setCostos(p);
 					usu.setPlanes(p);
 				}
 			}

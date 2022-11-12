@@ -149,7 +149,7 @@ CREATE TABLE `grupo_musculo` (
 
 LOCK TABLES `grupo_musculo` WRITE;
 /*!40000 ALTER TABLE `grupo_musculo` DISABLE KEYS */;
-INSERT INTO `grupo_musculo` VALUES (1,'Pectoral','Musculo compuesto, conecta la parte delantera del pecho humano'),(2,'Dorsal','Musculo compuesto, localizado posterior al brazo'),(3,'Cuadriceps','Compuesto de cuatro cabezas musculares'),(4,'Biceps','Pertenece a la region anterior del brazo, formado por dos cabezas'),(5,'Triceps','Musculo situado en la regiÃƒÂ³n posterior del brazo'),(6,'Hombros',NULL),(7,'Isquios','Grupo de 3 musculos, extendido a lo largo de la parte posterior del muslo desde la cadera hasta la zona justo debajo de la rodilla'),(8,'Gluteos','Musculos situados detras de la pelvis'),(9,'Abdominales',NULL),(10,'Antebrazo',NULL),(11,'Cuello',NULL),(12,'Gemelos','Formado por 2 cabezas musculares, situado en la region posterior de la pierna');
+INSERT INTO `grupo_musculo` VALUES (1,'Pectoral','Musculo compuesto, conecta la parte delantera del pecho humano'),(2,'Dorsal','Musculo compuesto, localizado posterior al brazo'),(3,'Cuadriceps','Compuesto de cuatro cabezas musculares'),(4,'Biceps','Pertenece a la region anterior del brazo, formado por dos cabezas'),(5,'Triceps','Musculo situado en la regiÃƒÆ’Ã‚Â³n posterior del brazo'),(6,'Hombros',NULL),(7,'Isquios','Grupo de 3 musculos, extendido a lo largo de la parte posterior del muslo desde la cadera hasta la zona justo debajo de la rodilla'),(8,'Gluteos','Musculos situados detras de la pelvis'),(9,'Abdominales',NULL),(10,'Antebrazo',NULL),(11,'Cuello',NULL),(12,'Gemelos','Formado por 2 cabezas musculares, situado en la region posterior de la pierna');
 /*!40000 ALTER TABLE `grupo_musculo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -341,7 +341,7 @@ CREATE TABLE `rutina` (
 
 LOCK TABLES `rutina` WRITE;
 /*!40000 ALTER TABLE `rutina` DISABLE KEYS */;
-INSERT INTO `rutina` VALUES (1,'Intensiva 1A','3','Dificil','Rutina compuesta por ejercicios avanzados para los mas experimentados'),(2,'Intensiva 1B','1','Dificil','Rutina con solo ejercicios compuestos'),(3,'Intensiva 2B','2','Dificil',NULL),(4,'Regular 1A','4','Facil','Rutina basica'),(5,'Regular 3B','3','Medio',NULL),(6,'Tecnica 1A','1','Medio','Rutina diseÃƒÂ±ada para practicar tecnica'),(7,'Cardiovascular','3','Medio','Rutina de cardio');
+INSERT INTO `rutina` VALUES (1,'Intensiva 1A','3','Dificil','Rutina compuesta por ejercicios avanzados para los mas experimentados'),(2,'Intensiva 1B','1','Dificil','Rutina con solo ejercicios compuestos'),(3,'Intensiva 2B','2','Dificil',NULL),(4,'Regular 1A','4','Facil','Rutina basica'),(5,'Regular 3B','3','Medio',NULL),(6,'Tecnica 1A','1','Medio','Rutina diseÃƒÆ’Ã‚Â±ada para practicar tecnica'),(7,'Cardiovascular','3','Medio','Rutina de cardio');
 /*!40000 ALTER TABLE `rutina` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -433,7 +433,7 @@ CREATE TABLE `usuario_plan` (
 
 LOCK TABLES `usuario_plan` WRITE;
 /*!40000 ALTER TABLE `usuario_plan` DISABLE KEYS */;
-INSERT INTO `usuario_plan` VALUES (7,2),(5,3),(4,4),(6,4),(4,5),(8,5),(5,6);
+INSERT INTO `usuario_plan` VALUES (7,2),(5,3),(4,4),(6,4),(4,5),(8,5),(5,6),(17,4);
 /*!40000 ALTER TABLE `usuario_plan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

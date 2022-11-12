@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.Cuota;
 import entities.Ejercicio;
 import entities.Grupo_Musculo;
 import entities.Instructor;
 import entities.Plan;
 import entities.Rutina;
 import entities.Usuario;
+import logic.CuotaLogic;
 import logic.EjercicioLogic;
 import logic.Grupo_MusculoLogic;
 import logic.InstructorLogic;
@@ -107,6 +109,12 @@ public class Conexion extends HttpServlet {
 			LinkedList<Grupo_Musculo> grupos_musculares = ctrlGm.getAll();
 			request.setAttribute("listaGrupos_Musculos", grupos_musculares);
 			request.getRequestDispatcher("WEB-INF/Grupo_MusculoList.jsp").forward(request, response);
+			break;
+		case "cuotas":
+			CuotaLogic ctrlCuota = new CuotaLogic();
+			LinkedList<Cuota> cuotas = ctrlCuota.getAll();
+			request.setAttribute("listaCuotas", cuotas);
+			request.getRequestDispatcher("WEB-INF/CuotaList.jsp").forward(request, response);
 			break;
 			
 		default:
