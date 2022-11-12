@@ -46,5 +46,5 @@ El encargado tendrá acceso al menú de encargados en el cual puede ver historia
 
 (**) CU Notificar Vencimiento de Cuota: Cuando un Usuario desea inscribirse a un Plan/Horario, si posee la cuota vencida, se le notifica.
 
-## Modelo Dominio
+## DER
 ![image](https://user-images.githubusercontent.com/102418096/201489349-8766b233-f718-4a77-a7f3-928548f59ff4.png)
