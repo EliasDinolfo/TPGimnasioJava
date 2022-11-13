@@ -120,7 +120,7 @@ public class ABMCUsuario extends HttpServlet {
 				String tipoDoc = request.getParameter("selectTipoDoc");
 				String dni = request.getParameter("dni");
 				String sex = request.getParameter("selectGenero");
-				String email = request.getParameter("dni");
+				String email = request.getParameter("email");
 				String direccion = request.getParameter("direccion");
 				String fechaNacString = request.getParameter("fechaNacimiento");
 				String username = request.getParameter("username");
