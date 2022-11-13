@@ -1,5 +1,15 @@
 # TPGimnasio-JAVA
 
+## Integrantes
+
+|Alumno|Legajo
+|:-|-:|
+|Dinolfo Elias|45788|
+|Iturburu Ignacio|46100|
+|Jimenez Mauro|46828|
+
+
+
 ## Alcance
 Desarrollaremos un sistema/aplicación web cliente-servidor en Java sobre un gimnasio. En el mismo al momento que uno ingresa a la página principal el usuario podrá ver las diferentes opciones/ofertas que ofrece. Los niveles de accesos son: Invitado, Usuario, Encargado, Administrador.
 
@@ -48,5 +58,5 @@ El encargado tendrá acceso al menú de encargados en el cual puede ver historia
 
 ## DER y PASAJE A TABLAS
 ![Modelo Dominio Gimnasio-DER1](https://user-images.githubusercontent.com/65139347/201540744-be58d700-904e-4707-a4e9-f7a5b3c4dc45.png)
-![Pasaje a tablas DER](https://user-images.githubusercontent.com/65139347/201540737-0545fe3e-46ad-4f2c-a70c-bc935f274d43.png)
+
 
