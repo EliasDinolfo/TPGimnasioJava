@@ -9,9 +9,9 @@ Usuario (cliente adherido a un plan del gimnasio).<br>
 Encargado (un empleado del negocio, como recepcionista).<br>
 Administrador (alguien que tiene permisos completos en la aplicación).</b>_
 
-Un usuario si es la primera vez que ingresa al sistema será como invitado que solo tiene acceso a la página principal y a aquellas que no requieran el login.En la página principal podrá visualizar las diferentes ofertas/instalaciones del gimnasio. Si el usuario ya es miembro del gimnasio podrá loguearse en el sistema y caso contrario registrarse en el mismo. Al registrarse deberá proporcionar sus datos y seleccionar el plan de entrenamiento deseado. Una vez logueado tendrá acceso al menú de usuarios en el cual puede inscribirse al plan que desea, consultar cuotas y más.
+Un usuario si es la primera vez que ingresa al sistema será como invitado que solo tiene acceso a la página principal y a aquellas que no requieran el login.En la página principal podrá visualizar las diferentes ofertas/instalaciones del gimnasio. Si el usuario ya es miembro del gimnasio podrá loguearse en el sistema y caso contrario registrarse en el mismo. Al registrarse deberá proporcionar sus datos y seleccionar el/los plan/es de entrenamiento deseado/s. Una vez logueado tendrá acceso al menú de usuarios en el cual puede inscribirse al plan que desea, consultar cuotas y más.
 
-El encargado tendrá acceso al menú de encargados en el cual puede ver historial de cuotas, actualizar datos de instructores, planes y más. El administrador tiene acceso al menú de admins. En el mismo un administrador podrá Crear, Modificar o Eliminar Usuarios, Planes, Rutinas, Ejercicios y mas. Podrá hacer consultas de cada entidad con sus respectivos listados. Puede realizar el listado de usuarios adheridos al gimnasio y a los diferentes planes, listado de los clientes que deban cuotas a pagar. Listados de los instructores, etc.
+El encargado tendrá acceso al menú de encargados en el cual puede ver historial de cuotas, actualizar datos de instructores, planes y más. El administrador tiene acceso al menú de admins. En el mismo un administrador podrá Crear, Modificar o Eliminar Usuarios, Planes, Rutinas, Ejercicios y más. Podrá hacer consultas de cada entidad con sus respectivos listados. Puede realizar el listado de usuarios adheridos al gimnasio y a los diferentes planes, listado de los clientes que deban cuotas a pagar. Listados de los instructores, etc.
 
 
 
@@ -46,5 +46,7 @@ El encargado tendrá acceso al menú de encargados en el cual puede ver historia
 
 (**) CU Notificar Vencimiento de Cuota: Cuando un Usuario desea inscribirse a un Plan/Horario, si posee la cuota vencida, se le notifica.
 
-## DER
-![image](https://user-images.githubusercontent.com/102418096/201489349-8766b233-f718-4a77-a7f3-928548f59ff4.png)
+## DER y PASAJE A TABLAS
+![Modelo Dominio Gimnasio-DER1](https://user-images.githubusercontent.com/65139347/201540744-be58d700-904e-4707-a4e9-f7a5b3c4dc45.png)
+![Pasaje a tablas DER](https://user-images.githubusercontent.com/65139347/201540737-0545fe3e-46ad-4f2c-a70c-bc935f274d43.png)
+
