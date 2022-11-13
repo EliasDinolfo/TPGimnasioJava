@@ -9,24 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entities.Usuario;
-import entities.Cuota;
 import entities.Plan;
-import logic.UsuarioLogic;
-import logic.CuotaLogic;
+import entities.Usuario;
 import logic.PlanesLogic;
+import logic.UsuarioLogic;
 
 /**
- * Servlet implementation class ConexionUsuario
+ * Servlet implementation class ConexionEncargado
  */
-@WebServlet("/ConexionUsuario")
-public class ConexionUsuario extends HttpServlet {
+@WebServlet("/ConexionEncargado")
+public class ConexionEncargado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ConexionUsuario() {
+    public ConexionEncargado() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,7 +41,6 @@ public class ConexionUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		UsuarioLogic ctrlUsu= new UsuarioLogic();
 		String opcion = request.getParameter("optionBM");
 		String idUserLogin = request.getParameter("idUserLogin");
@@ -52,22 +49,18 @@ public class ConexionUsuario extends HttpServlet {
 		request.getSession().setAttribute("usuarioLogin", userLogin);
 		
 		switch(opcion){
-		case "inscripcionPlan":
+		/*case "inscripcionPlan":
 			PlanesLogic ctrlPl = new PlanesLogic();
 			LinkedList<Plan> planes = ctrlPl.getPlanesDisponibles(userLogin);
 			request.setAttribute("listaPlanes", planes);
 			request.getRequestDispatcher("WEB-INF/listaPlanesParaUsuario.jsp").forward(request, response);
-			break;
+			break;*/
 		case "cuota":
-			//CuotaLogic ctrlCuota = new CuotaLogic();
-			//LinkedList<Cuota> cuotas = ctrlCuota.getAllPorUsuario(userLogin);
-			//request.setAttribute("listaCuotas", cuotas);
-				request.getRequestDispatcher("WEB-INF/listaCuotasParaUsuario.jsp").forward(request, response);
+				request.getRequestDispatcher("WEB-INF/CuotaList.jsp").forward(request, response);
 			break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + opcion);
 		}
-		
 	}
+
 }
-	

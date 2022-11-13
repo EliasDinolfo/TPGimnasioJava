@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import data.DataCuota;
 import entities.Cuota;
+import entities.Usuario;
 
 public class CuotaLogic {
 	private DataCuota dataCuota = new DataCuota();
@@ -23,5 +24,9 @@ public class CuotaLogic {
 	
 	public void setPagoCuota(Cuota cuota) {
 		dataCuota.setPagoCuota(cuota);
+	}
+
+	public LinkedList<Cuota> getAllPorUsuario(Usuario user) {
+		return dataCuota.getAllPorUsuario(user);
 	}
 }

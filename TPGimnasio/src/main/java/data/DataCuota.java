@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.LinkedList;
 
 import entities.Cuota;
@@ -196,5 +195,41 @@ public class DataCuota {
             }
 		}
 		
+	}
+
+	public LinkedList<Cuota> getAllPorUsuario(Usuario user) {
+		PreparedStatement stmt=null;
+		ResultSet rs=null;
+		LinkedList<Cuota> cuotas= new LinkedList<Cuota>();
+		try {
+			stmt=dbConnector.getInstancia().getConn().prepareStatement(
+					"select * from cuota where id_usuario=? order by fecha_vencimiento desc"
+					);
+			stmt.setInt(1, user.getId_usuario());
+			rs=stmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					Cuota cuota=new Cuota();
+					cuota.setMonto(rs.getDouble("monto"));
+					cuota.setFecha_vencimiento(rs.getObject("fecha_vencimiento", LocalDate.class));
+					cuota.setFecha_pago(rs.getObject("fecha_pago", LocalDate.class));
+					cuota.setForma_pago(rs.getString("forma_pago"));
+					cuota.setUsuario(user);
+					cuotas.add(cuota);
+				}	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(stmt!=null) {stmt.close();}
+				dbConnector.getInstancia().releaseConn();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return cuotas;
 	}
 }

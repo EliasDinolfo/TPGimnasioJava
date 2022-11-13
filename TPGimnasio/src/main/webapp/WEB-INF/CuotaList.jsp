@@ -22,14 +22,18 @@ LinkedList<Cuota> cuotalist = cuotaLogic.getAll();
 <link href="style/styles.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
+	<% if(userLogin.getRol().getId_rol()==1){ %>
+		<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
+	<% }else{%>
+		<%@ include file="/WEB-INF/MenuContextualEncargado.jsp"%>
+	<%}%>
 	 <div <%=request.getAttribute("mensaje")==null ? "hidden": ""%> class="alert-dismissible <%=request.getAttribute("color")%>">
             <p><%= request.getAttribute("mensaje") %></p>
             <button type="button" class="close" data-dismiss="alert">
             <span>x</span>
             </button>
     </div>   
-	<h4>Usuario: <%=userLogin.getUsername()%></h4>
+	<h4><%=userLogin.getRol().getDescripcion().substring(0, 1).toUpperCase() + userLogin.getRol().getDescripcion().substring(1)%>: <%=userLogin.getUsername()%></h4>
 	<div class="container">
      	<div class="row">
 	 		<h4 class="mx-3 mb-3">Cuotas</h4>

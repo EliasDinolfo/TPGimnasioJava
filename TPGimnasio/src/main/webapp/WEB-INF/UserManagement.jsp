@@ -152,8 +152,23 @@
 
    </div>
    <% }else if(userLogin.getRol().getId_rol() == 2){ %>
-  		<h1>menu de encargado</h1>
+   		<%@ include file="/WEB-INF/MenuContextualEncargado.jsp"%>
+  		<h1 class="text-center">Encargado: <%=userLogin.getUsername() %></h1>
+  		<div class="grande container-fluid d-flex justify-content-center flex-wrap align-content-center">
+  				<form action="ConexionEncargado" method="post">
+				<div class="card box1 ">
+					<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+					<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="cuota">
+        			<img class="card-img-top border-0" src="https://es.calcuworld.com/wp-content/uploads/sites/2/2013/02/autonomos-cuota.png" alt="Imagen cuota">
+       				<div class="card-body">
+       					<h5>Cuota</h5>
+        			</div>	
+        			</button>	
+    			</div>	
+				</form> 
+  			</div>
   <%}else if(userLogin.getRol().getId_rol() == 3){ %>
+  		<%@ include file="/WEB-INF/MenuContextualUsuario.jsp"%>
   		<h1 class="text-center">Usuario: <%=userLogin.getUsername() %></h1>
   			<div class="grande container-fluid d-flex justify-content-center flex-wrap align-content-center">
   				<form action="ConexionUsuario" method="post">
@@ -167,7 +182,21 @@
         			</div>	
         			</button>	
     			</div>	
-	</form> 
+				</form> 
+  			</div>
+  			<div class="grande container-fluid d-flex justify-content-center flex-wrap align-content-center">
+  				<form action="ConexionUsuario" method="post">
+		
+				<div class="card box1 ">
+					<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+					<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="cuota">
+        			<img class="card-img-top border-0" src="https://es.calcuworld.com/wp-content/uploads/sites/2/2013/02/autonomos-cuota.png" alt="Imagen cuota">
+       				<div class="card-body">
+       					<h5>Cuota</h5>
+        			</div>	
+        			</button>	
+    			</div>	
+				</form> 
   			</div>
   <%} %>
   

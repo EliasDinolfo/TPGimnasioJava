@@ -84,8 +84,13 @@ public class ABMCCuota extends HttpServlet {
 				
 				request.setAttribute("mensaje", "Pago asignado a la cuota.");
 				request.setAttribute("color","alert alert-success");
-				request.setAttribute("idFila", cuota.getUsuario().getId_usuario()+String.valueOf(cuota.getFecha_vencimiento()));
-				request.getRequestDispatcher("WEB-INF/CuotaList.jsp").forward(request, response);
+				if(userLogin.getRol().getId_rol()==3) {
+					request.getRequestDispatcher("WEB-INF/listaCuotasParaUsuario.jsp").forward(request, response);
+				}else {
+					request.setAttribute("idFila", cuota.getUsuario().getId_usuario()+String.valueOf(cuota.getFecha_vencimiento()));
+					request.getRequestDispatcher("WEB-INF/CuotaList.jsp").forward(request, response);
+				}
+				
 			}
 		break;
 		

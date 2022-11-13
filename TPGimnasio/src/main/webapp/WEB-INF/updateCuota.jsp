@@ -15,7 +15,14 @@
  %>
 </head>
 <body>
-	<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
+	<% if(userLogin.getRol().getId_rol()==1){ %>
+		<%@ include file="/WEB-INF/MenuContextualAdmin.jsp"%>
+	<% }else if(userLogin.getRol().getId_rol()==2){%>
+		<%@ include file="/WEB-INF/MenuContextualEncargado.jsp"%>
+	<%}else{%>
+		<%@ include file="/WEB-INF/MenuContextualUsuario.jsp"%>
+	<%}%>
+	
 	<div class="container">
 	<h1>Pago de cuota</h1>
 	<form action="ABMCCuota" method="post">
