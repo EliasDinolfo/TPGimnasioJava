@@ -56,7 +56,7 @@ El encargado tendrá acceso al menú de encargados en el cual puede ver historia
 
 (**) CU Notificar Vencimiento de Cuota: Cuando un Usuario desea inscribirse a un Plan/Horario, si posee la cuota vencida, se le notifica.
 
-## DER y PASAJE A TABLAS
+## DER 
 ![Modelo Dominio Gimnasio-DER1](https://user-images.githubusercontent.com/65139347/201540744-be58d700-904e-4707-a4e9-f7a5b3c4dc45.png)
 
 
