@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Rutina</title>
 <%
 Usuario userLogin = (Usuario) session.getAttribute("usuarioLogin");
 RutinaLogic rutLogic = new RutinaLogic();

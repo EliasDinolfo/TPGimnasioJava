@@ -32,8 +32,8 @@ public class ABMCEjercicio extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		request.getRequestDispatcher("WEB-INF/listaEjercicio.jsp").forward(request, response);
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class ABMCEjercicio extends HttpServlet {
 		
 		case "alta":
 			bandera=request.getParameter("bandera");
-			if(bandera.equalsIgnoreCase("aAñadir")) {
+			if(bandera.equalsIgnoreCase("aAnadir")) {
 				request.getRequestDispatcher("WEB-INF/altaEjercicio.jsp").forward(request, response);
 			}
 			else {
@@ -85,7 +85,7 @@ public class ABMCEjercicio extends HttpServlet {
 				
 				try {
 					ctrlEj.altaEjercicio(eje);
-					request.setAttribute("mensaje", "Ejercicio añadido satisfactoriamente.");
+					request.setAttribute("mensaje", "Ejercicio aï¿½adido satisfactoriamente.");
 					request.getRequestDispatcher("WEB-INF/listaEjercicio.jsp").forward(request, response);
 						
 				} catch (Exception e) {
@@ -120,10 +120,14 @@ public class ABMCEjercicio extends HttpServlet {
 			}
 		break;
 		
+		case "consulta":	
+			request.getRequestDispatcher("WEB-INF/consultaEjercicio.jsp").forward(request, response);
+		break;
+		
 		case "baja":
 			int cant = ctrlEj.bajaEjercicio(ej);
 			if (cant > 0) {
-				request.setAttribute("mensaje", "No se puede eliminar el ejercicio, porque está incluido en "+cant+" grupo músculo y/o rutinas");
+				request.setAttribute("mensaje", "No se puede eliminar el ejercicio, porque estï¿½ incluido en "+cant+" grupo mï¿½sculo y/o rutinas");
 			}
 			else {
 				request.setAttribute("mensaje", "Ejercicio eliminado satisfactoriamente.");

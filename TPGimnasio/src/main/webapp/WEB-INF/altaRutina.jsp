@@ -62,6 +62,11 @@
       			<button type="submit" class="btn btn-primary mb-2">Agregar</button>
     		</div>		
 		</form>
+		<div class="botonn mb-3">
+				<form action="ABMCRutina" method="get">	
+      				<button type="submit" class="btn btn-secondary">Volver</button>
+      			</form>
+    		</div>
 		
 	</div>
 	  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

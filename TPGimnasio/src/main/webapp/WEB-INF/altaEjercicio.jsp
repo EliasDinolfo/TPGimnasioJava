@@ -56,6 +56,11 @@
       			<button type="submit" class="btn btn-primary mb-2">Agregar</button>
     		</div>		
 		</form>
+		<div class="botonn mb-3">
+			<form action="ABMCEjercicio" method="get">	
+      		<button type="submit" class="btn btn-secondary">Volver</button>
+      		</form>
+    	</div>
 		
 	</div>
 	

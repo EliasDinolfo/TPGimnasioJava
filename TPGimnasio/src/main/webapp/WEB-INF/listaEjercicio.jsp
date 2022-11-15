@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ejercicio</title>
 <%
 Usuario userLogin = (Usuario) session.getAttribute("usuarioLogin");
 // LinkedList<Ejercicio> ejerciciolist = (LinkedList<Ejercicio>) request.getAttribute("listaEjercicios");
@@ -38,7 +38,7 @@ LinkedList<Ejercicio> ejerciciolist = ejLogic.getAll();
 				  <form action="ABMCEjercicio" method="post">
 				   <input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 					<!-- 	<input type="hidden" class="custom-control-input" name="idUser" value=""> -->
-						<input type="hidden" class="custom-control-input" name="bandera" value="aAñadir">
+						<input type="hidden" class="custom-control-input" name="bandera" value="aAnadir">
 						<button type="submit" class="btn btn-success" name="optionBM" value="alta">Agregar</button>
 					 </form>
 				 </div>
@@ -47,11 +47,12 @@ LinkedList<Ejercicio> ejerciciolist = ejLogic.getAll();
 	 					<table class="table">
 	 						<thead>
 	 							<tr>
+	 								<th></th>
 	 								<th>ID</th>
 	 								<th>Nombre</th>
 	 								<th>Comentario</th>
 	 								<th>Imagen</th>
-	 								<th>Video</th>
+	 								<!--<th>Video</th>-->
 	 								<th></th>
 	 								<th></th>
 	 							</tr>
@@ -62,6 +63,16 @@ LinkedList<Ejercicio> ejerciciolist = ejLogic.getAll();
 									for (Ejercicio ej : ejerciciolist) {
 									%>
 									<tr>
+										<td>
+											<!-- consulta -->
+											<div>
+												<form action="ABMCEjercicio" method="post">
+													<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+													<input type="hidden" class="custom-control-input" name="idEjercicio" value="<%=ej.getId_ejercicio()%>">
+													<button type="submit" class="btn btn-consulta btn-primary text-center" name="optionBM" value="consulta">!</button>
+												</form>
+											</div>
+										</td>
 										<td><%=ej.getId_ejercicio()%></td>
 										<td><%=ej.getNombre()%></td>
 										<td><%=ej.getComentario()%></td>
@@ -69,7 +80,7 @@ LinkedList<Ejercicio> ejerciciolist = ejLogic.getAll();
 										
 											<img class="card-img-top border-0" src="<%=ej.getImagen()%>" alt="imagen" alt=" image cap">
 										</td>
-										<td><%=ej.getVideo()%></td>
+										<!-- <td><%=ej.getVideo()%></td> -->
 
 										<td>
 											<!-- editar -->
