@@ -32,8 +32,8 @@ public class ABMCRutina extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.getRequestDispatcher("WEB-INF/listaRutina.jsp").forward(request, response);
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class ABMCRutina extends HttpServlet {
 		
 		case "alta":
 			bandera=request.getParameter("bandera");
-			if(bandera.equalsIgnoreCase("aAÒadir")) {
+			if(bandera.equalsIgnoreCase("aAnadir")) {
 				request.getRequestDispatcher("WEB-INF/altaRutina.jsp").forward(request, response);
 			}
 			else {
@@ -85,7 +85,7 @@ public class ABMCRutina extends HttpServlet {
 				
 				try {
 					ctrlRut.altaRutina(rut);
-					request.setAttribute("mensaje", "Rutina aÒadido satisfactoriamente.");
+					request.setAttribute("mensaje", "Rutina a√±adido satisfactoriamente.");
 					request.getRequestDispatcher("WEB-INF/listaRutina.jsp").forward(request, response);
 						
 				} catch (Exception e) {
@@ -96,7 +96,6 @@ public class ABMCRutina extends HttpServlet {
 		break;
 			
 		case "modificacion":
-			// se debe devolver una bandera? Eso no lo entend√≠ bien
 			bandera=request.getParameter("bandera");
 			if (bandera.equalsIgnoreCase("aModificar")) {
 				request.getRequestDispatcher("WEB-INF/updateRutina.jsp").forward(request, response);
@@ -119,6 +118,10 @@ public class ABMCRutina extends HttpServlet {
 				request.setAttribute("mensaje", "Rutina modificada satisfactoriamente.");
 				request.getRequestDispatcher("WEB-INF/listaRutina.jsp").forward(request, response);
 			}
+		break;
+		
+		case "consulta":	
+			request.getRequestDispatcher("WEB-INF/consultaRutina.jsp").forward(request, response);
 		break;
 		
 		case "baja":

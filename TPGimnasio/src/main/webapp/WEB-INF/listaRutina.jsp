@@ -37,7 +37,7 @@ LinkedList<Rutina> rutinalist = rutLogic.getAll();
 				  <form action="ABMCRutina" method="post">
 				   <input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 					<!-- 	<input type="hidden" class="custom-control-input" name="idUser" value=""> -->
-						<input type="hidden" class="custom-control-input" name="bandera" value="aAñadir">
+						<input type="hidden" class="custom-control-input" name="bandera" value="aAnadir">
 						<button type="submit" class="btn btn-success" name="optionBM" value="alta">Agregar</button>
 					 </form>
 				 </div>
@@ -46,6 +46,7 @@ LinkedList<Rutina> rutinalist = rutLogic.getAll();
 	 					<table class="table">
 	 						<thead>
 	 							<tr>
+	 								<th></th>
 	 								<th>ID</th>
 	 								<th>Nombre</th>
 	 								<th>Semanas</th>
@@ -61,11 +62,21 @@ LinkedList<Rutina> rutinalist = rutLogic.getAll();
 									for (Rutina rut : rutinalist) {
 									%>
 									<tr>
+										<td>
+											<!-- consulta -->
+											<div>
+												<form action="ABMCRutina" method="post">
+													<input type="hidden" class="custom-control-input" name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
+													<input type="hidden" class="custom-control-input" name="idRutina" value="<%=rut.getId_rutina()%>">
+													<button type="submit" class="btn btn-consulta btn-primary text-center" name="optionBM" value="consulta">!</button>
+												</form>
+											</div>
+										</td>
 										<td><%=rut.getId_rutina()%></td>
 										<td><%=rut.getNombre()%></td>
 										<td><%=rut.getSemanas()%></td>
 										<td><%=rut.getNivel()%></td>
-										<td><%=rut.getComentario()%></td>
+										<td><%=rut.getComentario()!=null?rut.getComentario():""%></td>
 
 										<td>
 											<!-- editar -->
