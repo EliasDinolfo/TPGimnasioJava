@@ -166,7 +166,7 @@
         			</button>	
     			</div>	
 				</form> 
-  			</div>
+  		</div>
   <%}else if(userLogin.getRol().getId_rol() == 3){ %>
   		<%@ include file="/WEB-INF/MenuContextualUsuario.jsp"%>
   		<h1 class="text-center">Usuario: <%=userLogin.getUsername() %></h1>
