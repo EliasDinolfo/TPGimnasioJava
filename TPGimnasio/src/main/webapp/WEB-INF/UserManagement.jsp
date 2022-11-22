@@ -38,7 +38,7 @@
 			<div class="card box1 ">
 			<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 			<button class="cuadros btn  text-center p-0" type="submit" name="optionBM" value="firstlog">
-        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/11/22/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="imagen-card-usuarios" alt="Card image cap">
        			<div class="card-body">
        				
        				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
@@ -57,7 +57,7 @@
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 				<button class="btn cuadros text-center p-0" type="submit" name="optionBM" value="planes"> 
 			
-        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/11/22/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="imagen-card-planes">
        			<div class="card-body">
        				
        				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
@@ -73,7 +73,7 @@
 			<div class="card box1 ">
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="instructores">
-        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/11/22/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="imagen-card-Instructores">
        			<div class="card-body">
        				
        				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
@@ -89,7 +89,7 @@
 			<div class="card box1 ">
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 				<button class="btn cuadros text-center p-0" type="submit" name="optionBM" value="rutinas">
-        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/11/22/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="imagen-card-Rutinas">
        			<div class="card-body">
        				
        				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
@@ -105,7 +105,7 @@
 			<div class="card box1 ">
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="grupo_musculo">
-        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/11/22/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="imagen-card-grupomusculo">
        			<div class="card-body">
        				
        				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
@@ -121,7 +121,7 @@
 			<div class="card box1 ">
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="ejercicios">
-        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/11/22/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="imagen-card-ejercicios">
        			<div class="card-body">
        				
        				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->
@@ -137,7 +137,7 @@
 			<div class="card box1 ">
 				<input type="hidden" class="custom-control-input"  name="idUserLogin" value="<%=userLogin.getId_usuario()%>">
 				<button class="btn cuadros  text-center p-0" type="submit" name="optionBM" value="cuotas">
-        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/10/29/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="Card image cap">
+        		<img class="card-img-top border-0" src="https://tinypic.host/images/2022/11/22/Opera-Captura-de-pantalla_2022-10-28_223011_getbootstrap.com.png" alt="imagen-card-cuotas">
        			<div class="card-body">
        				
        				<!-- <input type="hidden" class="custom-control-input"  name="listaUsuarios" value=""> -->

@@ -28,9 +28,9 @@ LinkedList<Plan> planlist = (LinkedList<Plan>) request.getAttribute("listaPlanes
               <span>x</span>
             </button>
     </div> 
-	<h2>Lista de planes user:   <%=userLogin.getUsername() %></h2>
-	
+	<h2>Planes</h2>
 	<div class="container">
+	
 	 		<div class="">
 	 			<form action="ABMCPlan" method="post" >		
 	 				<input type="hidden" class="custom-control-input" name="bandera" value="aModificar">									
